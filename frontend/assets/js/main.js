@@ -77,3 +77,51 @@ window.onresize = function(event) {
     setItemWidth();
     reloadSlider();
 };
+
+const carousel_items = [
+    { 
+        title: "Smart and Precision Agriculture Technologies",
+        icon: "cpu"
+    },
+    { 
+        title: "Organic Microbiome and Soil Health Solutions",
+        icon: "plant"
+    },
+    { 
+        title: "Resilient Agroecosystems for Food Security",
+        icon: "shield-check"
+    },
+    { 
+        title: "Agro-innovation for Functional Foods",
+        icon: "lightbulb"
+    },
+    { 
+        title: "Circular Agri-waste for Functional Biomaterials",
+        icon: "recycle"
+    },
+    { 
+        title: "Agrifood Policy and Life Cycle Analytics",
+        icon: "bar-chart-2"
+    }
+];
+
+const carousel = document.getElementById('carousel');
+    carousel_items.forEach((item, index) => {
+        const carouselItem = document.createElement('div');
+        carouselItem.classList.add('carousel-item');
+        carouselItem.style.setProperty('--index', index + 1);
+        carouselItem.innerHTML = `
+        <div class="carousel-item-body">
+            <p class="carousel-title">${item.title}</p>
+            <i class="ri-${item.icon}-line carousel-icon"></i>
+        </div>`;
+        carousel.appendChild(carouselItem);
+});
+
+
+
+
+
+
+
+
