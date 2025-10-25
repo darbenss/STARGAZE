@@ -23,6 +23,19 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   
+    // About section
+    function setupAboutAnimations() {
+      const titleHeader = document.querySelector('.about-section h1');
+      const highlightHeader = document.querySelector('.about-section h2');
+      const aboutDescription = document.querySelector('.about-section p');
+  
+      observeElements([
+        titleHeader,
+        highlightHeader,
+        aboutDescription
+      ]);
+    }
+
     // Grants & Projects section
     function setupGrantsAnimations() {
       const titleHeader = document.querySelector('.grants-projects .title_header');
@@ -57,8 +70,9 @@ document.addEventListener('DOMContentLoaded', function() {
         rightArrow
       ]);
   
+      const container = document.querySelector('.publications_card');
       if (cardContainer && leftArrow && rightArrow) {
-        const scrollAmount = 250;
+        const scrollAmount = Math.round(container.clientWidth * 1.1 + 7);
         leftArrow.addEventListener('click', () => {
           cardContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
@@ -128,6 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   
     // Initialize animations for all sections
+    setupAboutAnimations();
     setupGrantsAnimations();
     setupPublicationsAnimations();
     setupNewsAnimations();
