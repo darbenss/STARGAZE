@@ -78,6 +78,7 @@ window.onresize = function(event) {
     reloadSlider();
 };
 
+/*========== ABOUT SECTION CAROUSEL ===========*/
 const carousel_items = [
     { 
         title: "Smart and Precision Agriculture Technologies",
