@@ -9,391 +9,351 @@
       <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
 
       <!--=============== CSS ===============-->
+
+      <link rel="stylesheet" href="assets/global_assets/variables.css"> <!-- global variables + fonts -->
+      <link rel="stylesheet" href="assets/global_assets/navbar.css">    <!-- navbar styles -->
+
       <link rel="stylesheet" href="assets/css/index.css">
 
       <title>STARGAZE</title>
    </head>
 
    <body>
-      <!--=============== HEADER ===============-->
-    <header class="header">
-        <nav class="nav container">
-            <div class="nav__data">
-               <a href="#" class="nav__logo">
-                  <i class="ri-planet-line"></i> STARGAZE
-               </a>
-               
-               <div class="nav__toggle" id="nav-toggle">
-                  <i class="ri-menu-line nav__burger"></i>
-                  <i class="ri-close-line nav__close"></i>
-               </div>
-            </div>
+      <!-- ============ NAVBAR ============= -->
+      <div id="site-navbar-placeholder"></div>
+      <script src="assets/global_assets/load-navbar.js"></script>
 
-            <!--=============== NAV MENU ===============-->
-            <div class="nav__menu" id="nav-menu">
-               <ul class="nav__list">
-                  <li><a href="#home" class="nav__link">Home</a></li>
-
-                  <!--=============== DROPDOWN 1 ===============-->
-                  <li class="dropdown__item">
-                     <div class="nav__link">
-                        About <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                     </div>
-
-                     <ul class="dropdown__menu">
-                        <li>
-                           <a href="#n" class="dropdown__link">
-                              <i class="ri-group-line"></i> About Us
-                           </a>                          
-                        </li>
-
-                        <li>
-                           <a href="orgchart.html" class="dropdown__link">
-                              <i class="ri-organization-chart"></i> Organization Chart
-                           </a>
-                        </li>
-                     </ul>
-                  </li>
-                  
-                  <!--=============== DROPDOWN 2 ===============-->
-                  <li class="dropdown__item">
-                     <div class="nav__link">
-                        Researchs & Grants<i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                     </div>
-
-                     <ul class="dropdown__menu">
-                        <li>
-                           <a href="#" class="dropdown__link">
-                              <i class="ri-flask-line"></i> Research & Project
-                           </a>                          
-                        </li>
-
-                        <li>
-                           <a href="grants_and_projects.html" class="dropdown__link">
-                              <i class="ri-funds-line"></i> Grants & Project
-                           </a>
-                        </li>
-                     </ul>
-                  </li>
-
-                  <!--=============== DROPDOWN 3 ===============-->
-                  <li class="dropdown__item">
-                    <div class="nav__link">
-                       Publications<i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                    </div>
-
-                    <ul class="dropdown__menu">
-                       <li>
-                          <a href="publications.html" class="dropdown__link">
-                             <i class="ri-book-open-line"></i> Journal Publications
-                          </a>                          
-                       </li>
-
-                       <li>
-                          <a href="#" class="dropdown__link">
-                             <i class="ri-newspaper-line"></i> News
-                          </a>
-                       </li>
-                    </ul>
-                 </li>
-
-                  <li><a href="#" class="nav__link">Partners</a></li>
-
-                  <li><a href="#" class="nav__link">Contact Us</a></li>
-               </ul>
-            </div>
-        </nav>
-    </header>
-
-    <!-- ============ HERO SECTION ============= -->
-    <div class = "green-slider">
-        <div class="slider">
+      <!-- ============ HERO SECTION ============= -->
+      <div class = "green-slider">
+         <div class="slider">
             <div class="list">
-                <div class="item">
-                    <img src="assets/image/img1.jpeg" alt="">
-                </div>
-                <div class="item">
-                    <img src="assets/image/img2.webp" alt="">
-                </div>
-                <div class="item">
-                    <img src="assets/image/img3.webp" alt="">
-                </div>
-                <div class="item">
-                    <img src="assets/image/img4.png" alt="">
-                </div>
-                <div class="item">
-                    <img src="assets/image/img5.jpg" alt="">
-                </div>
+                  <div class="item">
+                     <img src="assets/image/img1.jpeg" alt="">
+                  </div>
+                  <div class="item">
+                     <img src="assets/image/img2.webp" alt="">
+                  </div>
+                  <div class="item">
+                     <img src="assets/image/img3.webp" alt="">
+                  </div>
+                  <div class="item">
+                     <img src="assets/image/img4.png" alt="">
+                  </div>
+                  <div class="item">
+                     <img src="assets/image/img5.jpg" alt="">
+                  </div>
             </div>
 
             <div class="slider-content">
-                <h1>Pioneering a <span class="highlight">Sustainable</span> Future</h1>
-                <p>Sustainable Technologies for Agricultural Advancement and a Zero-Waste Economy.</p>
-                <button>Explore Our Mission</button>
+                  <h1>Pioneering a <span class="highlight">Sustainable</span> Future</h1>
+                  <p>Sustainable Technologies for Agricultural Advancement and a Zero-Waste Economy.</p>
+                  <button>Explore Our Mission</button>
             </div>
 
             <div class="buttons">
-                <button id="prev"><</button>
-                <button id="next">></button>
+                  <button id="prev"><</button>
+                  <button id="next">></button>
             </div>
             <ul class="dots">
-                <li class="active"></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                  <li class="active"></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
             </ul>
-        </div>
-    </div>    
-
-   <!-- ============ ABOUT US ============= -->
-   <div class="about-section">
-      <div class="about-content">
-         <h1>About STARGAZE</h1>
-         <h2>Committed to Innovation and Sustainability</h2>
-         <p>At <span>STARGAZE</span>, we are dedicated to developing and implementing cutting-edge solutions for the most pressing challenges in modern agriculture.</p>
-      </div>
-      <div class="about-carousel">
-         <div class="carousel" id="carousel"></div>
-      </div>
-      <div class="bg-elipse"></div>  
-   </div>
-
-    <!-- ============ GRANTS & PROJECTS ============= -->
-    <div class = "grants-projects">
-      <div class = "title_header">
-         <h1>Grants & Projects</h1>
-      </div>
-
-      <div class = "highlight-header"></div>
-      
-      <div class = "grants-bg-elipse-left"></div>
-      <div class = "grants-bg-elipse-right"></div>
-
-      <div class = "content_grantsprojects">
-         <div class = "grants_card_container">
-            <div class = "grants_card_light">
-               <h2>Project Title</h2>
-
-               <h3>Scheme</h3>
-               <p>National Research Grant</p>
-
-               <h3>Funder(s)</h3>
-               <p>Ministry of Agriculture & Industry</p>
-
-               <h3>Year</h3>
-               <p>2024</p>
-
-               <button>RM 850.000</button>
-            </div>
-
-            <div class = "grants_card_dark">
-               <h2>Project Title</h2>
-
-               <h3>Scheme</h3>
-               <p>National Research Grant</p>
-
-               <h3>Funder(s)</h3>
-               <p>Ministry of Agriculture & Industry</p>
-
-               <h3>Year</h3>
-               <p>2024</p>
-
-               <button>RM 1.200.000</button>
-            </div>
-
-            <div class = "grants_card_light">
-               <h2>Project Title</h2>
-
-               <h3>Scheme</h3>
-               <p>National Research Grant</p>
-
-               <h3>Funder(s)</h3>
-               <p>Ministry of Agriculture & Industry</p>
-
-               <h3>Year</h3>
-               <p>2024</p>
-
-               <button>RM 450.000</button>
-            </div>
          </div>
-      </div>
+      </div>    
 
-      <div class ="button_see_all_container">
-         <div class = "button_see_all">
-            SEE ALL<i class="ri-arrow-right-line"></i>
+      <!-- ============ ABOUT US ============= -->
+      <div class="about-section">
+         <div class="about-content">
+            <h1>About STARGAZE</h1>
+            <h2>Committed to Innovation and Sustainability</h2>
+            <p>At <span>STARGAZE</span>, we are dedicated to developing and implementing cutting-edge solutions for the most pressing challenges in modern agriculture.</p>
          </div>
-      </div>
-    </div>
-
-   <!-- ============ PUBLICATIONS ============= -->
-   <div class = "publications">
-      <div class = "title_header">
-         <h1>Publications</h1>
-      </div>
-
-      <div class = "highlight-header"></div>
-
-      <div class = "content_publications">
-         <div class = "publications_wrapper">
-            <i class="ri-arrow-left-s-line"></i>
-            <div class = "publications_card_container">
-               <div class = "publications_card">
-                  <img src="https://placehold.co/210x297" alt="Publication_1" class="publication_photo">
-                  <h2>Plant Biotechnology and Chemical Engineering Journal</h2>
-                  <h3>Advancements in IoT-based Soil Monitoring Systems for Urban Farms Has Started to Benefit the Local People
-                  </h3>
-                  <div class = "publications_metrics">
-                     <i class="ri-arrow-right-line"></i>WWoS Q1, 8.7
+         <div class="about-carousel">
+            <div class="carousel" id="carousel">
+               <div class="carousel-item" style="--index: 1;">
+                  <div class="carousel-item-body">
+                     <p class="carousel-title">Smart and Precision Agriculture Technologies</p>
+                     <i class="ri-cpu-line carousel-icon"></i>
                   </div>
                </div>
 
-               <div class = "publications_card">
+               <div class="carousel-item" style="--index: 2;">
+                  <div class="carousel-item-body">
+                     <p class="carousel-title">Organic Microbiome and Soil Health Solutions</p>
+                     <i class="ri-plant-line carousel-icon"></i>
+                  </div>
+               </div>
+
+               <div class="carousel-item" style="--index: 3;">
+                  <div class="carousel-item-body">
+                     <p class="carousel-title">Resilient Agroecosystems for Food Security</p>
+                     <i class="ri-shield-check-line carousel-icon"></i>
+                  </div>
+               </div>
+
+               <div class="carousel-item" style="--index: 4;">
+                  <div class="carousel-item-body">
+                     <p class="carousel-title">Agro-innovation for Functional Foods</p>
+                     <i class="ri-lightbulb-line carousel-icon"></i>
+                  </div>
+               </div>
+
+               <div class="carousel-item" style="--index: 5;">
+                  <div class="carousel-item-body">
+                     <p class="carousel-title">Circular Agri-waste for Functional Biomaterials</p>
+                     <i class="ri-recycle-line carousel-icon"></i>
+                  </div>
+               </div>
+
+               <div class="carousel-item" style="--index: 6;">
+                  <div class="carousel-item-body">
+                     <p class="carousel-title">Agrifood Policy and Life Cycle Analytics</p>
+                     <i class="ri-bar-chart-2-line carousel-icon"></i>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="bg-elipse"></div>  
+      </div>
+
+      <!-- ============ GRANTS & PROJECTS ============= -->
+      <div class = "grants-projects">
+         <div class = "title_header">
+            <h1>Grants & Projects</h1>
+         </div>
+
+         <div class = "highlight-header"></div>
+         
+         <div class = "grants-bg-elipse-left"></div>
+         <div class = "grants-bg-elipse-right"></div>
+
+         <div class = "content_grantsprojects">
+            <div class = "grants_card_container">
+               <div class = "grants_card_light">
+                  <h2>Project Title</h2>
+
+                  <h3>Scheme</h3>
+                  <p>National Research Grant</p>
+
+                  <h3>Funder(s)</h3>
+                  <p>Ministry of Agriculture & Industry</p>
+
+                  <h3>Year</h3>
+                  <p>2024</p>
+
+                  <button>RM 850.000</button>
+               </div>
+
+               <div class = "grants_card_dark">
+                  <h2>Project Title</h2>
+
+                  <h3>Scheme</h3>
+                  <p>National Research Grant</p>
+
+                  <h3>Funder(s)</h3>
+                  <p>Ministry of Agriculture & Industry</p>
+
+                  <h3>Year</h3>
+                  <p>2024</p>
+
+                  <button>RM 1.200.000</button>
+               </div>
+
+               <div class = "grants_card_light">
+                  <h2>Project Title</h2>
+
+                  <h3>Scheme</h3>
+                  <p>National Research Grant</p>
+
+                  <h3>Funder(s)</h3>
+                  <p>Ministry of Agriculture & Industry</p>
+
+                  <h3>Year</h3>
+                  <p>2024</p>
+
+                  <button>RM 450.000</button>
+               </div>
+            </div>
+         </div>
+
+         <div class ="button_see_all_container">
+            <div class = "button_see_all">
+               SEE ALL<i class="ri-arrow-right-line"></i>
+            </div>
+         </div>
+      </div>
+
+      <!-- ============ PUBLICATIONS ============= -->
+      <div class = "publications">
+         <div class = "title_header">
+            <h1>Publications</h1>
+         </div>
+
+         <div class = "highlight-header"></div>
+
+         <div class = "content_publications">
+            <div class = "publications_wrapper">
+               <i class="ri-arrow-left-s-line"></i>
+               <div class = "publications_card_container">
+                  <div class = "publications_card">
+                     <img src="https://placehold.co/210x297" alt="Publication_1" class="publication_photo">
+                     <h2>Plant Biotechnology and Chemical Engineering Journal</h2>
+                     <h3>Advancements in IoT-based Soil Monitoring Systems for Urban Farms Has Started to Benefit the Local People
+                     </h3>
+                     <div class = "publications_metrics">
+                        <i class="ri-arrow-right-line"></i>WWoS Q1, 8.7
+                     </div>
+                  </div>
+
+                  <div class = "publications_card">
+                     <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1" class="publication_photo">
+                     <h2>Plant Biotechnology Journal</h2>
+                     <h3>Advancements in IoT-based Soil Monitoring Systems for Urban Farms Has</h3>
+                     <div class = "publications_metrics">
+                        <i class="ri-arrow-right-line"></i>WWoS Q1, 8.7
+                     </div>
+                  </div>
+
+                  <div class = "publications_card">
+                     <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1" class="publication_photo">
+                     <h2>Plant Biotechnology Journal</h2>
+                     <h3>Advancements in IoT-based Soil Monitoring Systems for Urban Farms</h3>
+                     <div class = "publications_metrics">
+                        <i class="ri-arrow-right-line"></i>WWoS Q1, 8.7
+                     </div>
+                  </div>
+
+                  <div class = "publications_card">
+                     <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1" class="publication_photo">
+                     <h2>Plant Biotechnology Journal</h2>
+                     <h3>Advancements in IoT-based Soil Monitoring Systems for Urban Farms</h3>
+                     <div class = "publications_metrics">
+                        <i class="ri-arrow-right-line"></i>WWoS Q1, 8.7
+                     </div>
+                  </div>
+
+                  <div class = "publications_card">
+                     <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1" class="publication_photo">
+                     <h2>Plant Biotechnology Journal</h2>
+                     <h3>Advancements in IoT-based Soil Monitoring Systems for Urban Farms</h3>
+                     <div class = "publications_metrics">
+                        <i class="ri-arrow-right-line"></i>WWoS Q1, 8.7
+                     </div>
+                  </div>
+
+                  <div class = "publications_card">
+                     <img src="https://placehold.co/210x297" alt="Publication_1" class="publication_photo">
+                     <h2>Plant Biotechnology Journal</h2>
+                     <h3>Advancements in IoT-based Soil Monitoring Systems for Urban Farms</h3>
+                     <div class = "publications_metrics">
+                        <i class="ri-arrow-right-line"></i>WWoS Q1, 8.7
+                     </div>
+                  </div>
+               </div>
+               <i class="ri-arrow-right-s-line"></i>
+            </div>
+         </div>
+
+         <div class ="button_see_all_container">
+            <div class = "button_see_all"> 
+               SEE ALL<i class="ri-arrow-right-line"></i>
+            </div>
+         </div>
+
+      </div>
+
+      <!-- ============ NEWS ============= -->
+      <div class = "news">
+         <div class = "title_header">
+            <h1>News</h1>
+         </div>
+
+         <div class = "highlight-header"></div>
+
+         <div class = "see_all">
+            SEE ALL<i class="ri-arrow-right-s-line"></i>
+         </div>
+
+         <div class = "content_news">
+            <div class = "news_card_container">
+               <div class = "news_card">
                   <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1" class="publication_photo">
-                  <h2>Plant Biotechnology Journal</h2>
-                  <h3>Advancements in IoT-based Soil Monitoring Systems for Urban Farms Has</h3>
-                  <div class = "publications_metrics">
-                     <i class="ri-arrow-right-line"></i>WWoS Q1, 8.7
-                  </div>
+                  <h2>Breakthrough in Precision Farming Technology and More Text to Fill The Space</h2>
+                  <p>Our team has developed a new AI-driven system that increases crop yields by 30% And More Text to Further Fill More Space</p>
+                  <span>25-10-2025</span>
                </div>
 
-               <div class = "publications_card">
+               <div class = "news_card">
                   <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1" class="publication_photo">
-                  <h2>Plant Biotechnology Journal</h2>
-                  <h3>Advancements in IoT-based Soil Monitoring Systems for Urban Farms</h3>
-                  <div class = "publications_metrics">
-                     <i class="ri-arrow-right-line"></i>WWoS Q1, 8.7
-                  </div>
+                  <h2>Breakthrough in Precision Farming Technology</h2>
+                  <p>Our team has developed a new AI-driven system that increases crop yields by 30%</p>
+                  <span>25-10-2025</span>
                </div>
 
-               <div class = "publications_card">
+               <div class = "news_card">
                   <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1" class="publication_photo">
-                  <h2>Plant Biotechnology Journal</h2>
-                  <h3>Advancements in IoT-based Soil Monitoring Systems for Urban Farms</h3>
-                  <div class = "publications_metrics">
-                     <i class="ri-arrow-right-line"></i>WWoS Q1, 8.7
-                  </div>
-               </div>
-
-               <div class = "publications_card">
-                  <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1" class="publication_photo">
-                  <h2>Plant Biotechnology Journal</h2>
-                  <h3>Advancements in IoT-based Soil Monitoring Systems for Urban Farms</h3>
-                  <div class = "publications_metrics">
-                     <i class="ri-arrow-right-line"></i>WWoS Q1, 8.7
-                  </div>
-               </div>
-
-               <div class = "publications_card">
-                  <img src="https://placehold.co/210x297" alt="Publication_1" class="publication_photo">
-                  <h2>Plant Biotechnology Journal</h2>
-                  <h3>Advancements in IoT-based Soil Monitoring Systems for Urban Farms</h3>
-                  <div class = "publications_metrics">
-                     <i class="ri-arrow-right-line"></i>WWoS Q1, 8.7
-                  </div>
+                  <h2>Breakthrough in Precision Farming Technology</h2>
+                  <p>Our team has developed a new AI-driven system that increases crop yields by 30%</p>
+                  <span>25-10-2025</span>
                </div>
             </div>
-            <i class="ri-arrow-right-s-line"></i>
          </div>
       </div>
 
-      <div class ="button_see_all_container">
-         <div class = "button_see_all"> 
-            SEE ALL<i class="ri-arrow-right-line"></i>
+      <!-- ============ PARTNERS & COLLABORATORS ============= -->
+      <div class = "partners_and_collaborators">
+         <div class = "title_header">
+            <h1>Partners & Collaborators</h1>
          </div>
-      </div>
 
-   </div>
+         <div class = "highlight-header"></div>
 
-   <!-- ============ NEWS ============= -->
-   <div class = "news">
-      <div class = "title_header">
-         <h1>News</h1>
-      </div>
-
-      <div class = "highlight-header"></div>
-
-      <div class = "see_all">
-         SEE ALL<i class="ri-arrow-right-s-line"></i>
-      </div>
-
-      <div class = "content_news">
-         <div class = "news_card_container">
-            <div class = "news_card">
-               <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1" class="publication_photo">
-               <h2>Breakthrough in Precision Farming Technology and More Text to Fill The Space</h2>
-               <p>Our team has developed a new AI-driven system that increases crop yields by 30% And More Text to Further Fill More Space</p>
-               <span>25-10-2025</span>
-            </div>
-
-            <div class = "news_card">
-               <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1" class="publication_photo">
-               <h2>Breakthrough in Precision Farming Technology</h2>
-               <p>Our team has developed a new AI-driven system that increases crop yields by 30%</p>
-               <span>25-10-2025</span>
-            </div>
-
-            <div class = "news_card">
-               <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1" class="publication_photo">
-               <h2>Breakthrough in Precision Farming Technology</h2>
-               <p>Our team has developed a new AI-driven system that increases crop yields by 30%</p>
-               <span>25-10-2025</span>
+         <div class="logo-slider">
+            <div class="logo-track">
+            <!-- First set of logos -->
+            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo1" alt="Partner Logo 1">
+            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo2" alt="Partner Logo 2">
+            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo3" alt="Partner Logo 3">
+            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo4" alt="Partner Logo 4">
+            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo5" alt="Partner Logo 5">
+            <!-- Duplicate set for infinite loop -->
+            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo1" alt="Partner Logo 1">
+            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo2" alt="Partner Logo 2">
+            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo3" alt="Partner Logo 3">
+            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo4" alt="Partner Logo 4">
+            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo5" alt="Partner Logo 5">
             </div>
          </div>
-      </div>
-   </div>
 
-   <!-- ============ PARTNERS & COLLABORATORS ============= -->
-   <div class = "partners_and_collaborators">
-      <div class = "title_header">
-         <h1>Partners & Collaborators</h1>
       </div>
 
-      <div class = "highlight-header"></div>
-
-      <div class="logo-slider">
-         <div class="logo-track">
-           <!-- First set of logos -->
-           <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo1" alt="Partner Logo 1">
-           <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo2" alt="Partner Logo 2">
-           <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo3" alt="Partner Logo 3">
-           <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo4" alt="Partner Logo 4">
-           <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo5" alt="Partner Logo 5">
-           <!-- Duplicate set for infinite loop -->
-           <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo1" alt="Partner Logo 1">
-           <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo2" alt="Partner Logo 2">
-           <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo3" alt="Partner Logo 3">
-           <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo4" alt="Partner Logo 4">
-           <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo5" alt="Partner Logo 5">
+      <!-- ============ CONTACT US ============= -->
+      <div class="contact_us">
+         <div class="contact_content">
+            <h1>Connect With Us</h1>
+            <h2>We welcome collaborations and inquiries from partners and researchers.</h2>
+            <h3><strong>Address:</strong> Jalan Sunsuria, Bandar Sunsuria, 43900 Sepang, Selangor, Malaysia</h3>
+            <h3><strong>Email:</strong> stargaze@xmu.edu.my</h3>
+            <h3><strong>Phone:</strong> +60 18-223 1139 (Assoc. Prof. Dr. Tan Jian Ping)</h3>
+            <hr class="divider">
+            <div class="social_icons">
+               <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+               <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+               <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+            </div>
+            <p class="footer_nav">
+               <a href="#">About Us</a> |
+               <a href="#">Contact Us</a> | 
+               <a href="#">Research & Projects</a> | 
+               <a href="#">Publications</a> | 
+               <a href="#">Partners</a>
+            </p>
+            <p class="copyright">© 2025 Stargaze. All rights reserved.</p>
          </div>
       </div>
-
-   </div>
-
-   <!-- ============ CONTACT US ============= -->
-   <div class="contact_us">
-      <div class="contact_content">
-         <h1>Connect With Us</h1>
-         <h2>We welcome collaborations and inquiries from partners and researchers.</h2>
-         <h3><strong>Address:</strong> Jalan Sunsuria, Bandar Sunsuria, 43900 Sepang, Selangor, Malaysia</h3>
-         <h3><strong>Email:</strong> stargaze@xmu.edu.my</h3>
-         <h3><strong>Phone:</strong> +60 18-223 1139 (Assoc. Prof. Dr. Tan Jian Ping)</h3>
-         <hr class="divider">
-         <div class="social_icons">
-            <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
-            <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-         </div>
-         <p class="footer_nav">
-            <a href="#">About Us</a> |
-            <a href="#">Contact Us</a> | 
-            <a href="#">Research & Projects</a> | 
-            <a href="#">Publications</a> | 
-            <a href="#">Partners</a>
-         </p>
-         <p class="copyright">© 2025 Stargaze. All rights reserved.</p>
-      </div>
-   </div>
 
       <!--=============== MAIN JS ===============-->
       <script src="assets/js/index.js"></script>

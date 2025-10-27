@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/global_assets/variables.css"> <!-- global variables + fonts -->
+    <link rel="stylesheet" href="assets/global_assets/navbar.css">    <!-- navbar styles -->
+
+    <link rel="stylesheet" href="assets/css/news.css">
+
+    <title>STARGAZE</title>
+</head>
+
+<body>
+    <!--=============== HEADER ===============-->
+    <div id="site-navbar-placeholder"></div>
+    <script src="assets/global_assets/load-navbar.js"></script>
+
+    <section class="section news-page">
+        <div class="container">
+            <!-- ============ SEARCH BAR AND FILTER SECTION ============= -->
+            <div class="filters">
+                <div class="filter-content">
+                <div class="filter-item">
+                    <label for="journal-search" class="filter-label">Journal</label>
+                    <input type="text" id="journal-search" class="filter-input" placeholder="Type journal name...">
+                </div>
+                <div class="filter-item">
+                    <label for="classification" class="filter-label">Classification</label>
+                    <select id="classification" class="filter-input">
+                    <option value="">Select Classification</option>
+                    <option value="q1">WoS Q1</option>
+                    <option value="q2">WoS Q2</option>
+                    <option value="q3">WoS Q3</option>
+                    <option value="q4">WoS Q4</option>
+                    <option value="scopus">Scopus-Indexed</option>
+                    <option value="non-indexed">Non-Indexed</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="paper-type" class="filter-label">Paper Type</label>
+                    <select id="paper-type" class="filter-input">
+                    <option value="">Select Type</option>
+                    <option value="technical">Technical</option>
+                    <option value="experimental">Experimental</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="year" class="filter-label">Year</label>
+                    <input type="number" id="year" class="filter-input" placeholder="Enter year...">
+                </div>
+                </div>
+            </div>
+        
+            <!-- ============ PUBLICATIONS SECTION ============= -->
+            <div class="content_publications">
+                <div class="publications_card_container">
+                    <div class="publications_card">
+                        <a href="publication_fullpage.html">
+                            <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication 1" class="publication_photo">
+                            <h2>Plant Biotechnology Journal</h2>
+                            <h3>Advancements in IoT-based Soil Monitoring Systems for Urban Farms</h3>
+                            <div class="publications_metrics">
+                                <i class="ri-arrow-right-line"></i> WoS Q1, 8.7
+                            </div>
+                        </a>
+                    </div>
+            
+                    <div class="publications_card">
+                        <a href="https://example.com/publication2">
+                            <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication 2" class="publication_photo">
+                            <h2>Journal Agricultural Science</h2>
+                            <h3>Sustainable Crop Yield Optimization Techniques</h3>
+                            <div class="publications_metrics">
+                                <i class="ri-arrow-right-line"></i> WoS Q2, 6.5
+                            </div>
+                        </a>
+                    </div>
+            
+                    <div class="publications_card">
+                        <a href="https://example.com/publication3">
+                            <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication 3" class="publication_photo">
+                            <h2>Environmental Technology</h2>
+                            <h3>Green Tech Innovations in Water Conservation</h3>
+                            <div class="publications_metrics">
+                                <i class="ri-arrow-right-line"></i> Scopus-Indexed, 4.2
+                            </div>
+                        </a>
+                    </div>
+            
+                    <div class="publications_card">
+                        <a href="https://example.com/publication4">
+                            <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication 4" class="publication_photo">
+                            <h2>Precision Agriculture</h2>
+                            <h3>AI-Driven Pest Control Solutions</h3>
+                            <div class="publications_metrics">
+                                <i class="ri-arrow-right-line"></i> WoS Q3, 5.1
+                            </div>
+                        </a>
+                    </div>
+            
+                    <div class="publications_card">
+                        <a href="https://example.com/publication5">
+                            <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication 5" class="publication_photo">
+                            <h2>Bioinformatics Journal</h2>
+                            <h3>Genomic Analysis for Crop Resilience</h3>
+                            <div class="publications_metrics">
+                                <i class="ri-arrow-right-line"></i> WoS Q1, 7.9
+                            </div>
+                        </a>
+                    </div>
+            
+                    <div class="publications_card">
+                        <a href="https://example.com/publication6">
+                            <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication 6" class="publication_photo">
+                            <h2>Sustainable Energy Reviews</h2>
+                            <h3>Solar-Powered Farming Systems</h3>
+                            <div class="publications_metrics">
+                                <i class="ri-arrow-right-line"></i> WoS Q2, 6.0
+                            </div>
+                        </a>
+                    </div>
+            
+                    <div class="publications_card">
+                        <a href="https://example.com/publication7">
+                            <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication 7" class="publication_photo">
+                            <h2>AgriTech Innovations</h2>
+                            <h3>Drone Technology in Precision Farming</h3>
+                            <div class="publications_metrics">
+                                <i class="ri-arrow-right-line"></i> Non-Indexed, 3.5
+                            </div>
+                        </a>
+                    </div>
+            
+                    <div class="publications_card">
+                        <a href="https://example.com/publication9">
+                            <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication 9" class="publication_photo">
+                            <h2>Climate Change Journal</h2>
+                            <h3>Adaptation Strategies for Drought Resistance</h3>
+                            <div class="publications_metrics">
+                                <i class="ri-arrow-right-line"></i> WoS Q4, 4.0
+                            </div>
+                        </a>
+                    </div>
+            
+                    <div class="publications_card">
+                        <a href="https://example.com/publication9">
+                            <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication 9" class="publication_photo">
+                            <h2>Climate Change Journal</h2>
+                            <h3>Adaptation Strategies for Drought Resistance</h3>
+                            <div class="publications_metrics">
+                                <i class="ri-arrow-right-line"></i> WoS Q4, 4.0
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT US ============= -->
+        <div class="contact_us">
+            <div class="contact_content">
+            <h1>Connect With Us</h1>
+            <h2>We welcome collaborations and inquiries from partners and researchers.</h2>
+            <h3><strong>Address:</strong> Jalan Sunsuria, Bandar Sunsuria, 43900 Sepang, Selangor, Malaysia</h3>
+            <h3><strong>Email:</strong> stargaze@xmu.edu.my</h3>
+            <h3><strong>Phone:</strong> +60 18-223 1139 (Assoc. Prof. Dr. Tan Jian Ping)</h3>
+            <hr class="divider">
+            <div class="social_icons">
+                <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+            </div>
+            <p class="footer_nav">
+                <a href="#">About Us</a> |
+                <a href="#">Contact Us</a> | 
+                <a href="#">Research & Projects</a> | 
+                <a href="#">Publications</a> | 
+                <a href="#">Partners</a>
+            </p>
+            <p class="copyright">© 2025 Stargaze. All rights reserved.</p>
+            </div>
+        </div>
+    
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/scroll-animations.js"></script>
+    </body>
+</html>
