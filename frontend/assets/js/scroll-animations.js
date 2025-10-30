@@ -151,9 +151,13 @@
   }
 
   function setupNewsPageAnimations() {
-    if (!document.querySelector('.news-page')) return;
+    if (!document.querySelector('.news-page') && !document.querySelector('.news-content')) return;
     observeSelectors([
-      '.title_header'
+      '.title_header',
+      '.highlight-header',
+      '.search-bar',
+      '.search-icon',
+      '.news-card'
     ]);
   }
 
