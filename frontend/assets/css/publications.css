@@ -619,9 +619,10 @@ a {
   .pagination {
     display: flex;
     justify-content: center;
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
+    padding-top: 4rem;
   }
-
+  
   .pagination a {
     color: #004d40;
     padding: 8px 16px;
@@ -631,17 +632,17 @@ a {
     cursor: pointer;
     transition: background-color 0.3s;
   }
-
+  
   .pagination a.active {
     background-color: #004d40;
     color: white;
     border: 1px solid #004d40;
   }
-
+  
   .pagination a:hover:not(.active) {
     background-color: #ddd;
   }
-
+  
   .pagination a.disabled {
     color: #ccc;
     cursor: not-allowed;

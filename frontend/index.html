@@ -9,10 +9,8 @@
       <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
 
       <!--=============== CSS ===============-->
-
       <link rel="stylesheet" href="assets/global_assets/variables.css"> <!-- global variables + fonts -->
       <link rel="stylesheet" href="assets/global_assets/navbar.css">    <!-- navbar styles -->
-
       <link rel="stylesheet" href="assets/css/index.css">
 
       <title>STARGAZE</title>
@@ -47,7 +45,7 @@
             <div class="slider-content">
                   <h1>Pioneering a <span class="highlight">Sustainable</span> Future</h1>
                   <p>Sustainable Technologies for Agricultural Advancement and a Zero-Waste Economy.</p>
-                  <button>Explore Our Mission</button>
+                  <a href="index.html#about" class="button-style">Explore Our Mission</a>
             </div>
 
             <div class="buttons">
@@ -65,7 +63,7 @@
       </div>    
 
       <!-- ============ ABOUT US ============= -->
-      <div class="about-section">
+      <div id="about" class="about-section">
          <div class="about-content">
             <h1>About STARGAZE</h1>
             <h2>Committed to Innovation and Sustainability</h2>
@@ -179,11 +177,11 @@
             </div>
          </div>
 
-         <div class ="button_see_all_container">
+         <a href = "grants_and_projects.html" class ="button_see_all_container">
             <div class = "button_see_all">
                SEE ALL<i class="ri-arrow-right-line"></i>
             </div>
-         </div>
+         </a>
       </div>
 
       <!-- ============ PUBLICATIONS ============= -->
@@ -257,11 +255,11 @@
             </div>
          </div>
 
-         <div class ="button_see_all_container">
-            <div class = "button_see_all"> 
+         <a href="publications.html" class="button_see_all_container">
+            <div class="button_see_all animate"> 
                SEE ALL<i class="ri-arrow-right-line"></i>
             </div>
-         </div>
+         </a>  
 
       </div>
 
@@ -273,9 +271,9 @@
 
          <div class = "highlight-header"></div>
 
-         <div class = "see_all">
+         <a href ="news.html" class = "see_all">
             SEE ALL<i class="ri-arrow-right-s-line"></i>
-         </div>
+         </a>
 
          <div class = "content_news">
             <div class = "news_card_container">
@@ -304,7 +302,7 @@
       </div>
 
       <!-- ============ PARTNERS & COLLABORATORS ============= -->
-      <div class = "partners_and_collaborators">
+      <div id = "partners" class = "partners_and_collaborators">
          <div class = "title_header">
             <h1>Partners & Collaborators</h1>
          </div>
@@ -331,7 +329,7 @@
       </div>
 
       <!-- ============ CONTACT US ============= -->
-      <div class="contact_us">
+      <div id = "contact_us"class="contact_us">
          <div class="contact_content">
             <h1>Connect With Us</h1>
             <h2>We welcome collaborations and inquiries from partners and researchers.</h2>
@@ -357,6 +355,7 @@
 
       <!--=============== MAIN JS ===============-->
       <script src="assets/js/index.js"></script>
+      <script src="global_assets/navbar.js"></script>
       <script src="assets/js/scroll-animations.js"></script>
    </body>
 </html>

@@ -1,5 +1,3 @@
-
-
 /*========== HERO SECTION SLIDER ===========*/
 let container = document.querySelector(".slider");
 let slider = document.querySelector(".slider .list");
