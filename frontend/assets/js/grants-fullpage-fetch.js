@@ -64,6 +64,7 @@
       return payload[0]; 
     }
     // Add fallback for other possible Strapi structures
+    if (payload) return payload;
     if (payload.data) {
       if (Array.isArray(payload.data) && payload.data.length > 0) {
         return payload.data[0].attributes ? { id: payload.data[0].id, ...payload.data[0].attributes } : payload.data[0];
@@ -241,10 +242,13 @@
         return;
       }
       const item = await fetchById(id);
+      console.log('Populating with item:', item);
       if (!item) {
         setStatus('Grant not found', true);
         return;
       }
+      
+      document.querySelectorAll('.stat-value[data-component="grant-full"]').forEach(n => console.log(n.getAttribute('data-field'), n.tagName));
       populateFullPage(item);
       // Also update the browser tab title
       document.title = item.project_title || document.title;
