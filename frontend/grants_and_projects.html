@@ -26,7 +26,7 @@
             <div class="stats-row">
                 <div class="stat">
                     <div class="label">total funding</div>
-                    <div class="number">RM 5.2M</div>
+                    <div class="number stat-value" data-component="statistics" data-mode="grants" data-field="totalFunding"></div>
                 </div>
             </div>
             <div class="stats-row pie-chart-container">
@@ -40,30 +40,30 @@
             <div class="stats-row">
                 <div class="stat">
                     <div class="overline">&macr;</div>
-                    <div class="number">92%</div>
-                    <div class="label">delivery rate</div>
+                    <div class="number stat-value" data-component="statistics" data-mode="grants" data-field="deliveryRate"></div>
+                    <div class="label">Delivery Rate</div>
                 </div>
                 <div class="stat">
                     <div class="overline">&macr;</div>
-                    <div class="number">150</div>
-                    <div class="label">number of papers</div>
+                    <div class="number stat-value" data-component="statistics" data-mode="grants" data-field="totalPaper"></div>
+                    <div class="label">Total Paper</div>
                 </div>
                 <div class="stat">
                     <div class="overline">&macr;</div>
-                    <div class="number">8</div>
-                    <div class="label">patents</div>
+                    <div class="number stat-value" data-component="statistics" data-mode="grants" data-field="totalPatent"></div>
+                    <div class="label">Total Patent</div>
                 </div>
             </div>
             <div class="stats-row">
                 <div class="stat">
                     <i class="ri-book-open-line"></i>
-                    <div class="number">25</div>
-                    <div class="label">masters students</div>
+                    <div class="number stat-value" data-component="statistics" data-mode="grants" data-field="totalMaster"></div>
+                    <div class="label">Total Master</div>
                 </div>
                 <div class="stat">
                     <i class="ri-book-open-line"></i>
-                    <div class="number">40</div>
-                    <div class="label">phd students</div>
+                    <div class="number stat-value" data-component="statistics" data-mode="grants" data-field="totalPhd"></div>
+                    <div class="label">Total PhD</div>
                 </div>
             </div>
         </div>
@@ -91,92 +91,35 @@
 
         <!-- ============ GRANTS SECTION ============= -->
         <div class="content_grants">
-            <div class="grants_card_container">
+                <!-- ============ CARD TEMPLATE ============= -->
+            <template id="grant-card-template" class = "grants_card_container">
                 <div class="grants_card">
                     <a href="grants_fullpage.html">
-                        <h2>Innovative Bioconversion of Sugarcane Bagasse into Bioethanol for a Zero–Waste Economy</h2>
-                        <div class="dept">Department of Energy Research Grant (DOE–RG–67890)</div>
-                        <div class="info-row">
-                            <i class="ri-arrow-right-line"></i> <strong>PI:</strong> Dr. Ahmad bin Zulkifli
-                        </div>
-                        <div class="info-row">
-                            <i class="ri-arrow-right-line"></i> <strong>Start date:</strong> January 1, 2023
-                        </div>
-                        <div class="info-row">
-                            <i class="ri-arrow-right-line"></i> <strong>End date:</strong> December 31, 2025
-                        </div>
-                        <div class="funding-pill">RM 1,500,000</div>
+                    <h2 class="stat-value" data-component="grants" data-field="project_title"></h2>
+                    <div class="dept">
+                        <span class="stat-value" data-component="grants" data-field="scheme"></span>
+                    </div>
+                    <div class="info-row">
+                        <i class="ri-arrow-right-line"></i> <strong>PI:</strong> 
+                        <span class="stat-value" data-component="grants" data-field="pi_name"></span>
+                    </div>
+                    <div class="info-row">
+                        <i class="ri-arrow-right-line"></i> <strong>Start date:</strong> 
+                        <span class="stat-value" data-component="grants" data-field="start_date"></span>
+                    </div>
+                    <div class="info-row">
+                        <i class="ri-arrow-right-line"></i> <strong>End date:</strong> 
+                        <span class="stat-value" data-component="grants" data-field="end_date"></span>
+                    </div>
+                    <div class="funding-pill">
+                        <span class="stat-value" data-component="grants" data-field="total_funding"></span>
+                    </div>
                     </a>
                 </div>
+                </template>
 
-                <div class="grants_card">
-                    <a href="#">
-                        <h2>Innovative Bioconversion of Sugarcane Bagasse into Bioethanol for a Zero–Waste Economy</h2>
-                        <div class="dept">Department of Energy Research Grant (DOE–RG–67890)</div>
-                        <div class="info-row">
-                            <i class="ri-arrow-right-line"></i> <strong>PI:</strong> Dr. Ahmad bin Zulkifli
-                        </div>
-                        <div class="info-row">
-                            <i class="ri-arrow-right-line"></i> <strong>Start date:</strong> January 1, 2023
-                        </div>
-                        <div class="info-row">
-                            <i class="ri-arrow-right-line"></i> <strong>End date:</strong> December 31, 2025
-                        </div>
-                        <div class="funding-pill">RM 1,500,000</div>
-                    </a>
-                </div>
-
-                <div class="grants_card">
-                    <a href="#">
-                        <h2>Innovative Bioconversion of Sugarcane Bagasse into Bioethanol for a Zero–Waste Economy</h2>
-                        <div class="dept">Department of Energy Research Grant (DOE–RG–67890)</div>
-                        <div class="info-row">
-                            <i class="ri-arrow-right-line"></i> <strong>PI:</strong> Dr. Ahmad bin Zulkifli
-                        </div>
-                        <div class="info-row">
-                            <i class="ri-arrow-right-line"></i> <strong>Start date:</strong> January 1, 2023
-                        </div>
-                        <div class="info-row">
-                            <i class="ri-arrow-right-line"></i> <strong>End date:</strong> December 31, 2025
-                        </div>
-                        <div class="funding-pill">RM 1,500,000</div>
-                    </a>
-                </div>
-
-                <div class="grants_card">
-                    <a href="#">
-                        <h2>Innovative Bioconversion of Sugarcane Bagasse into Bioethanol for a Zero–Waste Economy</h2>
-                        <div class="dept">Department of Energy Research Grant (DOE–RG–67890)</div>
-                        <div class="info-row">
-                            <i class="ri-arrow-right-line"></i> <strong>PI:</strong> Dr. Ahmad bin Zulkifli
-                        </div>
-                        <div class="info-row">
-                            <i class="ri-arrow-right-line"></i> <strong>Start date:</strong> January 1, 2023
-                        </div>
-                        <div class="info-row">
-                            <i class="ri-arrow-right-line"></i> <strong>End date:</strong> December 31, 2025
-                        </div>
-                        <div class="funding-pill">RM 1,500,000</div>
-                    </a>
-                </div>
-
-                <div class="grants_card">
-                    <a href="#">
-                        <h2>Innovative Bioconversion of Sugarcane Bagasse into Bioethanol for a Zero–Waste Economy</h2>
-                        <div class="dept">Department of Energy Research Grant (DOE–RG–67890)</div>
-                        <div class="info-row">
-                            <i class="ri-arrow-right-line"></i> <strong>PI:</strong> Dr. Ahmad bin Zulkifli
-                        </div>
-                        <div class="info-row">
-                            <i class="ri-arrow-right-line"></i> <strong>Start date:</strong> January 1, 2023
-                        </div>
-                        <div class="info-row">
-                            <i class="ri-arrow-right-line"></i> <strong>End date:</strong> December 31, 2025
-                        </div>
-                        <div class="funding-pill">RM 1,500,000</div>
-                    </a>
-                </div>
-            </div>
+            <!-- ============ CARD LOOPING ============= -->
+            <div class="grants_card_container" id="grants-container"></div>
             
         <!-- Pagination controls -->
         <div class="pagination"></div>
@@ -209,6 +152,9 @@
     </div>
     
     <!--=============== MAIN JS ===============-->
-    <script src="assets/js/grantsandprojects.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/env.js"></script>
+    <script src="assets/js/grants-fetch.js"></script>
+    <script src="assets/js/statistic-fetch.js"></script>
     </body>
 </html>

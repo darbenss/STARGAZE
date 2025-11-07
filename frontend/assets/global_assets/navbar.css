@@ -1,4 +1,7 @@
-
+/* SET UP FOR SMOOTH SCROLLING */
+html {
+  scroll-behavior: smooth;
+}
 
 /*=============== HEADER ===============*/
 .header {
@@ -9,6 +12,12 @@
   background-color: var(--white-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: var(--z-fixed);
+}
+
+.header--hidden {
+  transform: translateY(calc(-2 * var(--header-height)));
+  box-shadow: none;
+  transition: transform 0.3s ease;
 }
 
 /*=============== NAV ===============*/

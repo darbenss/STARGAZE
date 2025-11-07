@@ -14,6 +14,7 @@
       <link rel="stylesheet" href="assets/global_assets/navbar.css">    <!-- navbar styles -->
       
       <title>STARGAZE</title>
+      <link rel="icon" type="image/png" size="32x32" href="publication1.png">
    </head>
 
    <body>
@@ -21,32 +22,32 @@
     <div id="site-navbar-placeholder"></div>
     <script src="assets/global_assets/load-navbar.js"></script>
 
+    <div id="grant-full"></div>
+
     <!-- ============ HERO SECTION ============= -->
     <section class="hero-section">
         <div class="hero-content">
             <div class="grants-info">
-                <h1>Innovative Bioconversion of Sugarcane Bagasse into Bioethanol for a Zero-Waste Economy</h1>
+                <h1 class="stat-value" data-component="grant-full" data-field="project_title"></h1>
                 <div class="grants-details">
                     <div class="details-text">
-                        <h2>Department of Energy Research Grant (DOE-RG-67890)</h2>
-                        <p><b>Principal Investigator (PI) :</b> Dr. Ahmad bin Zulkifli</p>
+                        <h2 class="stat-value" data-component="grant-full" data-field="scheme"></h2>
+                        <p><b>Principal Investigator (PI) :</b> <span class="stat-value" data-component="grant-full" data-field="pi_name"></span></p>
                         <div class = "grants-startdate">
-                            <i class="ri-book-open-line"></i>  <strong>Start date :</strong> January 1, 2023 
+                            <i class="ri-book-open-line"></i><strong>Start date :</strong> <span class="stat-value" data-component="grant-full" data-field="start_date"></span> 
                         </div>
                         <div class = "grants-enddate">
-                            <i class="ri-book-open-line"></i>  <strong>End date :</strong> December 31, 2025 
+                            <i class="ri-book-open-line"></i>  <strong>End date :</strong> <span class="stat-value" data-component="grant-full" data-field="end_date"></span> 
                         </div>
                     </div>
                     <div class="grants-funding">
                         <h1>TOTAL FUNDING</h1>
-                        <p>RM 1.500.000</p>
+                        <p class="stat-value" data-component="grant-full" data-field="total_funding"></p>
                     </div>
                 </div>
 
-                <div class="grants-img-attached">
-                    <div class="grants-img">
-                        <img src="https://placehold.co/1200x500/e0f2f1/004d40?text=Ms" alt="Grants_1" class="grants_photo">
-                    </div>
+                <div class="grants-img-attached stat">
+                    <img class="grants-img stat-value grants_photo" data-component="grant-full" data-field="graphical_abstract" src="https://placehold.co/1200x500/e0f2f1/004d40?text=Ms">
                 </div>
 
                 <div class="grants-img-desc">
@@ -61,27 +62,7 @@
                 </div>
 
                 <div class="grants-members">
-                    <div class = "member-card-container">
-                        <div class="member-card">
-                            <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Dr" alt="Dr. Ooi Phaik Ee" class="member-photo">
-                            <h3 class="member-name">Dr. Ooi Phaik Ee</h3>
-                            <p class="member-title">Director</p>
-                        </div>
-                        <div class="member-card">
-                            <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Dr" alt="Dr. Teoh Peng Kooi" class="member-photo">
-                            <h3 class="member-name">Dr. Teoh Peng Kooi</h3>
-                            <p class="member-title">General Manager</p>
-                        </div>
-                        <div class="member-card">
-                            <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Dr" alt="Dr. Seetha Jaganathan King" class="member-photo">
-                            <h3 class="member-name">Dr. Seetha Jaganathan King</h3>
-                            <p class="member-title">General Manager</p>
-                        </div>
-                        <div class="member-card">
-                            <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Prof" alt="Prof Dr. Chong Khim Phin" class="member-photo">
-                            <h3 class="member-name">Prof Dr. Chong Khim Phin</h3>
-                            <p class="member-title">Professor</p>
-                        </div>
+                    <div class = "member-card-container stat-value" data-component="grant-full" data-field="team_members_cards">
                     </div>
                 </div>
 
@@ -91,16 +72,10 @@
                 </div>
 
                 <div class="grants-collaborators">
-                    <ul>
-                        <li>University of Malaya </li>
-                        <li>Malaysian Agricultural Research and Development Institute (MARDI)</li>
-                        <li>BioEthanol Solutions Sdn Bhd</li>
-                    </ul>
-                    <div class="grants-collaborators-img">
-                        <img src="https://placehold.co/800x150/e0f2f1/004d40?text=Ms" alt="Collaborators_1" class="grants_collaborators_photo">
-                        <img src="https://placehold.co/800x150/e0f2f1/004d40?text=Ms" alt="Collaborators_2" class="grants_collaborators_photo">
-                        <img src="https://placehold.co/800x150/e0f2f1/004d40?text=Ms" alt="Collaborators_3" class="grants_collaborators_photo">
-                    </div>
+                    <div class="stat-value" data-component="grant-full" data-field="collaborators_list"></div>
+                    
+                    <div class="grants-collaborators-img stat-value" data-component="grant-full" data-field="collaborators_images"></div>
+                    
                 </div>
 
                 <!-- PAPERS PUBLISHED -->
@@ -109,10 +84,8 @@
                 </div>
 
                 <div class="papers-published">
-                    <ul>
-                        <li>Zulkifli, A., Tan, S. Y., & Kumar, R. (2024). Optimizing pretreatment techniques for sugarcane bagasse bioconversion. Renewable Energy Journal, 19(2), 123-135. https://doi.org/10.1000/rej.2024.78901</li>
-                        <li>Aminah, S., & Zulkifli, A. (2025). Microbial fermentation efficiency in bioethanol production from lignocellulosic waste. Biotechnology Advances, 22(4), 89-102. https://doi.org/10.1000/ba.2025.90123</li>
-                    </ul>
+                    <div class="papers-published stat-value" data-component="grant-full" data-field="papers_list"></div>
+                    
                 </div>
 
                 <!-- PATENTS PUBLISHED -->
@@ -121,10 +94,8 @@
                 </div>
 
                 <div class="patents-published">
-                    <ul>
-                        <li>Zulkifli, A., & Tan, S. Y. (2024). Method for enhanced bioethanol production from sugarcane bagasse (Patent No. MY-2024-045678). Malaysian Intellectual Property Office. https://patents.my/2024/045678</li>
-                        <li>Kumar, R., & Zulkifli, A. (2025). Enzymatic hydrolysis system for lignocellulosic biomass (Patent No. MY-2025-056789). Malaysian Intellectual Property Office. https://patents.my/2025/056789</li>
-                    </ul>
+                    <div class="patents-published stat-value" data-component="grant-full" data-field="patents_list"></div>
+                   
                 </div>
 
                 <!-- MASTER & PHD STUDENTS -->
@@ -136,12 +107,12 @@
                     <div class="stats-row">
                         <div class="stat">
                             <i class="ri-book-open-line"></i>
-                            <div class="number">25</div>
+                            <div class="number stat-value" data-component="grant-full" data-field="project_output.master"></div>
                             <div class="label">masters students</div>
                         </div>
                         <div class="stat">
                             <i class="ri-book-open-line"></i>
-                            <div class="number">40</div>
+                            <div class="number stat-value" data-component="grant-full" data-field="project_output.phd"></div>
                             <div class="label">phd students</div>
                         </div>
                     </div>
@@ -178,6 +149,10 @@
     </div>
 
     <!--=============== MAIN JS ===============-->
-    <script src="assets/js/grants_fullpage.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/env.js"></script>
+    <!-- <script src="assets/js/grants_fullpage.js"></script> -->
+    <script src="assets/js/grants-fullpage-fetch.js"></script>
+
     </body>
 </html>

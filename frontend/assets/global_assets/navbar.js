@@ -57,3 +57,16 @@
   // Expose initNavbar for manual init after injection
   window.initNavbar = initNavbar;
 })();
+
+// To hide the navbar after scrolling
+const header = document.querySelector(".header");
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+  if (lastScrollY < window.scrollY) {
+    header.classList.add("header--hidden");
+  }else {
+      header.classList.remove("header--hidden");
+    }
+  lastScrollY = window.scrollY;
+});

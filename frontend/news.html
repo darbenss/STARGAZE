@@ -39,52 +39,29 @@
             <div class="search-bar-container">
                 <div class="search-bar-wrapper">
                     <i class="ri-search-line search-icon"></i>
-                    <input type="text" id="journal-search" class="search-bar" placeholder="Search">
+                    <input type="text" id="news-search" class="search-bar" placeholder="Search">
                 </div>
             </div>
         
             <!-- ============ NEWS SECTION ============= -->
-            <div class="news-content">
-                <div class="news-card-container">
-                    <a href ="news_fullpage.html"class = "news-card">
-                        <div class="news-card-img-container">
-                            <img src="https://placehold.co/600x400" alt="Publication_1" class="publication_photo">
-                        </div>
-                        <h2>Breakthrough in Precision Farming Technology and More Text to Fill The Space</h2>
-                        <p>Our team has developed a new AI-driven system that increases crop yields by 30% And More Text to Further Fill More Space</p>
-                        <span>25-10-2025</span>
-                    </a>
-
-                    <div class = "news-card">
-                        <div class="news-card-img-container">
-                            <img src="https://placehold.co/600x400" alt="Publication_1" class="publication_photo">
-                        </div>
-                        <h2>Breakthrough in Precision Farming Technology and More Text to Fill The Space</h2>
-                        <p>Our team has developed a new AI-driven system that increases crop yields by 30% And More Text to Further Fill More Space</p>
-                        <span>25-10-2025</span>
+            <!-- template -->
+            <template id="news-card-template">
+                <div class="news-card">
+                <a href="#" class="news-card-link">
+                    <div class="news-card-img-container">
+                    <img src="https://placehold.co/600x400" alt="publication" class="publication_photo">
                     </div>
-
-                    <div class = "news-card">
-                        <div class="news-card-img-container">
-                            <img src="https://placehold.co/600x400" alt="Publication_1" class="publication_photo">
-                        </div>
-                        <h2>Breakthrough in Precision Farming Technology and More Text to Fill The Space</h2>
-                        <p>Our team has developed a new AI-driven system that increases crop yields by 30% And More Text to Further Fill More Space</p>
-                        <span>25-10-2025</span>
-                    </div>
-
-                    <div class = "news-card">
-                        <div class="news-card-img-container">
-                            <img src="https://placehold.co/600x400" alt="Publication_1" class="publication_photo">
-                        </div>
-                        <h2>Breakthrough in Precision Farming Technology and More Text to Fill The Space</h2>
-                        <p>Our team has developed a new AI-driven system that increases crop yields by 30% And More Text to Further Fill More Space</p>
-                        <span>25-10-2025</span>
-                    </div>
+                    <h2 class="stat-value" data-component="news" data-field="title"></h2>
+                    <p class="excerpt stat-value" data-component="news" data-field="excerpt"></p>
+                    <span class="date stat-value" data-component="news" data-field="date"></span>
+                </a>
                 </div>
+            </template>
 
-                <div class="pagination"></div>
-                <script src="assets/js/scroll-animations.js"></script>
+            <!-- injected cards go here -->
+            <div class="news-card-container" id="news-cards-container"></div>
+
+            <div class="pagination"></div>
             </div>
         </section>
 
@@ -114,6 +91,9 @@
         </div>
     
     <!--=============== MAIN JS ===============-->
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/env.js"></script>
     <script src="assets/js/scroll-animations.js"></script>
+    <script src="assets/js/news-fetch.js"></script>
     </body>
 </html>
