@@ -86,20 +86,6 @@
       return;
     }
 
-    // news date
-    if (field === "date") { 
-      const dateStr = resolve(item, field);
-      const date = new Date(dateStr); 
-      if (!dateStr || isNaN(date.getTime())) { 
-        node.textContent = '—';
-        return;
-      }
-      const day = date.getDate();
-      const month = date.toLocaleString('en-US', { month: 'long' }); 
-      const year = date.getFullYear();
-      node.textContent = `${day} ${month}, ${year}`; 
-      return;
-    }
 
     // handle cover images
     if (field === 'cover_picture' || field === 'cover_picture.url') {
