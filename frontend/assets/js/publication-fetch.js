@@ -236,7 +236,7 @@
     // --- NEW: render using template if present (keeps populateNode logic) ---
     function renderPublications(items) {
       // ... (This function is unchanged) ...
-      const container = document.getElementById('publications-cards'); // your container
+      const container = document.getElementById('publications-container'); // your container
       const template = document.getElementById('publication-card-template');
       if (!container || !template) return false; // signal not handled
 

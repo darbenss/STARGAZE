@@ -532,7 +532,7 @@ a {
   flex-direction: row; /* Align details-text and grants-funding side by side */
   justify-content: flex-start; /* Horizontal alignment */
   align-items: center;
-  gap: clamp(1rem, 2vw, 2rem);
+  gap: clamp(50rem, 2vw, 55rem);
 }
 
 .grants-collaborators ul {
@@ -547,6 +547,7 @@ a {
   width: clamp(100px, 15vw, 800px);
   height: clamp(100px, 15vw, 150px);
   overflow: hidden;
+  padding: 250px;
 }
 
 .grants_collaborators_photo {
