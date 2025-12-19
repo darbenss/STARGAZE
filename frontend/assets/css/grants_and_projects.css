@@ -45,6 +45,7 @@
   margin: 0;
 }
 
+
 body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
@@ -471,21 +472,25 @@ a {
 
 @media screen and (max-width: 480px) {
     .our-impact h2 {
-        font-size: clamp(1.25rem, 4vw, 2rem);
+        font-size: clamp(1.25rem, 6vw, 2rem);
         margin-bottom: clamp(0.75rem, 2vw, 1.5rem);
+    }
+    .stat {
+      height: 50vh;
     }
     .stat .overline {
         font-size: clamp(1.5rem, 8vw, 4rem);
+        margin-bottom: 0.2rem;
     }
     .stat .number {
-        font-size: clamp(1.25rem, 5vw, 3rem);
+        font-size: clamp(1.25rem, 6vw, 3rem);
     }
     .stat .label {
-        font-size: clamp(0.75rem, 2vw, 1rem);
+        font-size: clamp(0.75rem, 3.5vw, 1rem);
     }
     .pie-chart {
-        width: 150px;
-        height: 150px;
+        width: 300px;
+        height: 300px;
     }
     .pie-slice::after {
         font-size: clamp(0.65rem, 1.8vw, 0.9rem);
@@ -710,20 +715,45 @@ a {
 }
 
 @media (max-width: 479px) {
+  .our_impact_section {
+    margin-top: calc(var(--header-height) + 1rem);
+  }
+  .stats-row {
+    margin-bottom: 0;
+  }
+  .stats-row.pie-chart-container {
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+  }
+    section.section {
+      width: 100%;
+      padding: 30px 0 40px;
+    }
+    section.section .container {
+      width: 80vw;
+      justify-self: center;
+      margin: 0;
+    }
+    .filter-content {
+      grid-template-columns: repeat(1, 1.5fr);
+    }
     .grants_card_container {
         grid-template-columns: 1fr; /* Single column */
     }
+    .grants_card a {
+      padding: 1.5rem;
+    }
 
     .grants_card h2 {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 
     .dept {
-        font-size: 0.6rem;
+        font-size: 0.75rem;
     }
 
     .info-row {
-        font-size: 0.5rem;
+        font-size: 0.65rem;
     }
 
     .funding-pill {
@@ -876,7 +906,8 @@ a {
   }
 
   .contact_us {
-    padding: 20px 0;
+    padding: 40px 0;
+    height: 90vh;
   }
 
   .contact_content h1 {

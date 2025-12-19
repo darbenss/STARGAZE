@@ -117,6 +117,7 @@
 
 @media screen and (max-width: 480px) {
   .hero-section {
+    margin-top: var(--header-height);
     padding: clamp(1rem, 3vw, 2rem);
   }
   .hero-content {
@@ -124,6 +125,13 @@
   }
   .news-title {
     padding: clamp(1rem, 2vw, 1.5rem);
+  }
+  .news-title h1 {
+    width: 100%;
+    font-size: 1.6rem;
+  }
+  .news-img-container, .news-article-section {
+    padding-inline: 1rem;
   }
   .journal-img {
     padding: 0;
@@ -246,7 +254,8 @@
   }
 
   .contact_us {
-    padding: 20px 0;
+    padding: 40px 0;
+    height: 90vh;
   }
 
   .contact_content h1 {

@@ -250,7 +250,7 @@ a {
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 340px) {   
   .container {
     margin-inline: 1rem;
   }
@@ -358,10 +358,12 @@ a {
 }
   
 .grants-info {
+  padding: 0;
   flex: 2;
   background: var(--white-color);
   padding: clamp(4rem, 1vw, 1rem);
   display: flex;
+  width: 100vw;
   flex-direction: column; /* Ensure grants-details and grants-funding stack inside grants-info */
 }
 
@@ -439,6 +441,47 @@ a {
     font-weight: 600;
     text-align: center;
     margin: 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+  .hero-section {
+    padding: clamp(2rem, 5vw, 3rem);
+    margin-top: var(--header-height);
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .grants-info {
+      padding: 0;
+      width: 100%;
+  }
+  
+  .grants-info h1 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .grants-details {
+    flex-direction: column;
+  }
+  .details-text {
+    text-align: center;
+  }
+  .details-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .grants-funding {
+    margin: 0;
+  } 
+  .grants-funding h1 {
+    font-size: 1.4rem;
+  }
+  .grants-funding p {
+    font-size: 1.6rem;
+  }
 }
 
 /*IMAGE SECTION*/
@@ -575,6 +618,23 @@ a {
   animation-delay: 4s;
 }
 
+@media screen and (max-width: 600px) {
+  .grants-collaborators {
+    flex-direction: column;
+    gap: clamp(2rem, 30vh, 3rem);
+  }
+  
+  .grants-collaborators ul {
+    text-align: justify;
+  }
+
+  .grants-collaborators-img {
+    width: clamp(240px, 40vw, 400px);
+    height: clamp(150px, 40vw, 300px);
+    padding: 5vw;
+  }
+}
+
 /* Slide Left Animation */
 @keyframes slideLeft {
   0% { transform: translateX(100%); } /* Start off-screen to the right */
@@ -639,6 +699,13 @@ a {
 
 .stat i{
   font-size:clamp(1.5rem, 6vw, 4rem) ;
+}
+@media screen and (max-width: 600px) {
+  .stats-row {
+    flex-direction: row;
+    padding: 1rem 0 2rem;
+    margin-bottom: 1rem;
+  }
 }
 
 /*=============== CONTACT US ===============*/
@@ -752,7 +819,8 @@ a {
   }
 
   .contact_us {
-    padding: 20px 0;
+    padding: 40px 0;
+    height: 90vh;
   }
 
   .contact_content h1 {

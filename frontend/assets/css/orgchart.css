@@ -55,14 +55,14 @@
   margin-top: 25%;
   max-width: 1250px;
   margin: 0 auto;
-  padding-top: 250px;
+  padding-top: 200px;
   padding-bottom: 100px;
 }
 
 .content_orgchart h2 {
     margin-bottom: 2rem;
     text-align: center;
-    margin-top : 80px;
+    margin-top : 2rem;
     color: var(--primary-green)
 }
 
@@ -256,6 +256,38 @@
 
 /* Responsive Adjustments */
 @media (max-width: 600px) {
+  .title_orgchart h1{
+    font-size: 32px;
+    margin: 0;
+  }
+.content_orgchart {
+  padding-top: 180px;
+}
+
+  .organization-card-container {
+    place-items: center;
+    gap: 1.5rem;
+  }
+
+  .organization-card {
+    width: 80%;
+  }
+
+  .member-organization-card-container {
+    margin: 0 20px;
+    place-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+  }
+
+  .member-organization-card-last {
+    justify-self: center;
+  }
+
+  .member-organization-card {
+    height: 100%;
+  }
+
   .partners_and_collaborators {
     padding: 20px 0;
     margin-bottom: 80px;
@@ -277,7 +309,8 @@
   }
 
   .contact_us {
-    padding: 20px 0;
+    padding: 40px 0;
+    height: 90vh;
   }
 
   .contact_content h1 {

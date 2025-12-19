@@ -462,13 +462,22 @@ a {
 
 @media screen and (max-width: 480px) {
   .hero-section {
+    margin-top: var(--header-height);
     padding: clamp(1rem, 3vw, 2rem);
   }
   .hero-content {
     gap: clamp(1rem, 3vw, 2rem);
   }
   .journal-info {
-    padding: clamp(1rem, 2vw, 1.5rem);
+    padding: clamp(0.8rem, 2vw, 1.5rem);
+  }
+  
+  .journal-info h1 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  .journal-info h2 {
+    font-size: 1.3rem;
   }
   .journal-img {
     padding: 0;
@@ -477,6 +486,10 @@ a {
   }
   .details-section {
     padding: clamp(1rem, 2vw, 1.5rem);
+  }
+  .details-section h2 {
+    text-align: center;
+    font-size: 1.5rem;
   }
 }
 
@@ -591,7 +604,8 @@ a {
   }
 
   .contact_us {
-    padding: 20px 0;
+    padding: 40px 0;
+    height: 90vh;
   }
 
   .contact_content h1 {
