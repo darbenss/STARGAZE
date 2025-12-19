@@ -1,372 +1,728 @@
 <!DOCTYPE html>
-   <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <!--=============== REMIXICONS ===============-->
-      <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <!--=============== REMIXICONS ===============-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
 
-      <!--=============== CSS ===============-->
-      <link rel="stylesheet" href="assets/global_assets/variables.css"> <!-- global variables + fonts -->
-      <link rel="stylesheet" href="assets/global_assets/navbar.css">    <!-- navbar styles -->
-      <link rel="stylesheet" href="assets/css/index.css">
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/global_assets/variables.css" />
+    <!-- global variables + fonts -->
+    <link rel="stylesheet" href="assets/global_assets/navbar.css" />
+    <!-- navbar styles -->
+    <link rel="stylesheet" href="assets/css/index.css" />
 
-      <title>STARGAZE</title>
-   </head>
+    <title>STARGAZE</title>
+  </head>
 
-   <body>
-      <!-- ============ NAVBAR ============= -->
-      <div id="site-navbar-placeholder"></div>
-      <script src="assets/global_assets/load-navbar.js"></script>
+  <body>
+    <!-- ============ NAVBAR ============= -->
+    <div id="site-navbar-placeholder"></div>
+    <script src="assets/global_assets/load-navbar.js"></script>
 
-      <!-- ============ HERO SECTION ============= -->
-      <div class = "green-slider">
-         <div class="slider">
-            <div class="list">
-                  <div class="item">
-                     <img src="assets/image/img1.jpeg" alt="">
-                  </div>
-                  <div class="item">
-                     <img src="assets/image/img2.webp" alt="">
-                  </div>
-                  <div class="item">
-                     <img src="assets/image/img3.webp" alt="">
-                  </div>
-                  <div class="item">
-                     <img src="assets/image/img4.png" alt="">
-                  </div>
-                  <div class="item">
-                     <img src="assets/image/img5.jpg" alt="">
-                  </div>
+    <!-- ============ HERO SECTION ============= -->
+    <div class="green-slider">
+      <div class="slider">
+        <div class="list">
+          <div class="item">
+            <img src="assets/image/img1.jpeg" alt="" />
+          </div>
+          <div class="item">
+            <img src="assets/image/img2.webp" alt="" />
+          </div>
+          <div class="item">
+            <img src="assets/image/img3.webp" alt="" />
+          </div>
+          <div class="item">
+            <img src="assets/image/img4.png" alt="" />
+          </div>
+          <div class="item">
+            <img src="assets/image/img5.jpg" alt="" />
+          </div>
+        </div>
+
+        <div class="slider-content">
+          <h1>
+            Pioneering a <span class="highlight">Sustainable</span> Future
+          </h1>
+          <p>
+            Sustainable Technologies for Agricultural Advancement and a
+            Zero-Waste Economy.
+          </p>
+          <a href="index.html#about" class="button-style"
+            >Explore Our Mission</a
+          >
+        </div>
+
+        <div class="buttons">
+          <button id="prev"><</button>
+          <button id="next">></button>
+        </div>
+        <ul class="dots">
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT US ============= -->
+    <div id="about" class="about-section">
+      <div class="about-content">
+        <h1>About STARGAZE</h1>
+        <h2>Committed to Innovation and Sustainability</h2>
+        <p>
+          At <span>STARGAZE</span>, we are dedicated to developing and
+          implementing cutting-edge solutions for the most pressing challenges
+          in modern agriculture.
+        </p>
+      </div>
+      <div class="about-carousel">
+        <div class="carousel" id="carousel">
+          <div class="carousel-item" style="--index: 1">
+            <div class="carousel-item-body">
+              <p class="carousel-title">
+                Smart and Precision Agriculture Technologies
+              </p>
+              <i class="ri-cpu-line carousel-icon"></i>
             </div>
+          </div>
 
-            <div class="slider-content">
-                  <h1>Pioneering a <span class="highlight">Sustainable</span> Future</h1>
-                  <p>Sustainable Technologies for Agricultural Advancement and a Zero-Waste Economy.</p>
-                  <a href="index.html#about" class="button-style">Explore Our Mission</a>
+          <div class="carousel-item" style="--index: 2">
+            <div class="carousel-item-body">
+              <p class="carousel-title">
+                Organic Microbiome and Soil Health Solutions
+              </p>
+              <i class="ri-plant-line carousel-icon"></i>
             </div>
+          </div>
 
-            <div class="buttons">
-                  <button id="prev"><</button>
-                  <button id="next">></button>
+          <div class="carousel-item" style="--index: 3">
+            <div class="carousel-item-body">
+              <p class="carousel-title">
+                Resilient Agroecosystems for Food Security
+              </p>
+              <i class="ri-shield-check-line carousel-icon"></i>
             </div>
-            <ul class="dots">
-                  <li class="active"></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-            </ul>
-         </div>
-      </div>    
+          </div>
 
-      <!-- ============ ABOUT US ============= -->
-      <div id="about" class="about-section">
-         <div class="about-content">
-            <h1>About STARGAZE</h1>
-            <h2>Committed to Innovation and Sustainability</h2>
-            <p>At <span>STARGAZE</span>, we are dedicated to developing and implementing cutting-edge solutions for the most pressing challenges in modern agriculture.</p>
-         </div>
-         <div class="about-carousel">
-            <div class="carousel" id="carousel">
-               <div class="carousel-item" style="--index: 1;">
-                  <div class="carousel-item-body">
-                     <p class="carousel-title">Smart and Precision Agriculture Technologies</p>
-                     <i class="ri-cpu-line carousel-icon"></i>
-                  </div>
-               </div>
-
-               <div class="carousel-item" style="--index: 2;">
-                  <div class="carousel-item-body">
-                     <p class="carousel-title">Organic Microbiome and Soil Health Solutions</p>
-                     <i class="ri-plant-line carousel-icon"></i>
-                  </div>
-               </div>
-
-               <div class="carousel-item" style="--index: 3;">
-                  <div class="carousel-item-body">
-                     <p class="carousel-title">Resilient Agroecosystems for Food Security</p>
-                     <i class="ri-shield-check-line carousel-icon"></i>
-                  </div>
-               </div>
-
-               <div class="carousel-item" style="--index: 4;">
-                  <div class="carousel-item-body">
-                     <p class="carousel-title">Agro-innovation for Functional Foods</p>
-                     <i class="ri-lightbulb-line carousel-icon"></i>
-                  </div>
-               </div>
-
-               <div class="carousel-item" style="--index: 5;">
-                  <div class="carousel-item-body">
-                     <p class="carousel-title">Circular Agri-waste for Functional Biomaterials</p>
-                     <i class="ri-recycle-line carousel-icon"></i>
-                  </div>
-               </div>
-
-               <div class="carousel-item" style="--index: 6;">
-                  <div class="carousel-item-body">
-                     <p class="carousel-title">Agrifood Policy and Life Cycle Analytics</p>
-                     <i class="ri-bar-chart-2-line carousel-icon"></i>
-                  </div>
-               </div>
+          <div class="carousel-item" style="--index: 4">
+            <div class="carousel-item-body">
+              <p class="carousel-title">Agro-innovation for Functional Foods</p>
+              <i class="ri-lightbulb-line carousel-icon"></i>
             </div>
-         </div>
-         <div class="bg-elipse"></div>  
+          </div>
+
+          <div class="carousel-item" style="--index: 5">
+            <div class="carousel-item-body">
+              <p class="carousel-title">
+                Circular Agri-waste for Functional Biomaterials
+              </p>
+              <i class="ri-recycle-line carousel-icon"></i>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="--index: 6">
+            <div class="carousel-item-body">
+              <p class="carousel-title">
+                Agrifood Policy and Life Cycle Analytics
+              </p>
+              <i class="ri-bar-chart-2-line carousel-icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-elipse"></div>
+    </div>
+
+    <!-- ============ GRANTS & PROJECTS ============= -->
+    <div class="grants-projects">
+      <div class="title_header">
+        <h1>Grants & Projects</h1>
       </div>
 
-      <!-- ============ GRANTS & PROJECTS ============= -->
-      <div class = "grants-projects">
-         <div class = "title_header">
-            <h1>Grants & Projects</h1>
-         </div>
+      <div class="highlight-header"></div>
 
-         <div class = "highlight-header"></div>
-         
-         <div class = "grants-bg-elipse-left"></div>
-         <div class = "grants-bg-elipse-right"></div>
+      <div class="grants-bg-elipse-left"></div>
+      <div class="grants-bg-elipse-right"></div>
 
-         <div class = "content_grantsprojects">
-            <div class = "grants_card_container">
-               <div class = "grants_card_light">
-                  <h2>Project Title</h2>
+      <div class="content_grantsprojects">
+        <div class="grants_card_container">
+          <div class="grants_card_light">
+            <h2>Project Title</h2>
 
-                  <h3>Scheme</h3>
-                  <p class="stat-value" data-component="homepage" data-source="grants" data-index="1" data-field="grant_scheme_name"></p>
+            <h3>Scheme</h3>
+            <p
+              class="stat-value"
+              data-component="homepage"
+              data-source="grants"
+              data-index="1"
+              data-field="grant_scheme_name"
+            ></p>
 
-                  <h3>Funder(s)</h3>
-                  <p class="stat-value" data-component="homepage" data-source="grants" data-index="1" data-field="pi_name"></p>
+            <h3>Funder(s)</h3>
+            <p
+              class="stat-value"
+              data-component="homepage"
+              data-source="grants"
+              data-index="1"
+              data-field="pi_name"
+            ></p>
 
-                  <h3>Year</h3>
-                  <p class="stat-value" data-component="homepage" data-source="grants" data-index="1" data-field="start_date"></p>
+            <h3>Year</h3>
+            <p
+              class="stat-value"
+              data-component="homepage"
+              data-source="grants"
+              data-index="1"
+              data-field="start_date"
+            ></p>
 
-                  <button><span class="value">
-                     <span class="stat-value" data-component="homepage" data-source="grants" data-index="1" data-field="total_funding"></span>
-                  </span></button>
-               </div>
+            <button>
+              <span class="value">
+                <span
+                  class="stat-value"
+                  data-component="homepage"
+                  data-source="grants"
+                  data-index="1"
+                  data-field="total_funding"
+                ></span>
+              </span>
+            </button>
+          </div>
 
-               <div class = "grants_card_dark">
-                  <h2>Project Title</h2>
+          <div class="grants_card_dark">
+            <h2>Project Title</h2>
 
-                  <h3>Scheme</h3>
-                  <p class="stat-value" data-component="homepage" data-source="grants" data-index="0" data-field="grant_scheme_name"></p>
+            <h3>Scheme</h3>
+            <p
+              class="stat-value"
+              data-component="homepage"
+              data-source="grants"
+              data-index="0"
+              data-field="grant_scheme_name"
+            ></p>
 
-                  <h3>Funder(s)</h3>
-                  <p class="stat-value" data-component="homepage" data-source="grants" data-index="0" data-field="pi_name"></p>
+            <h3>Funder(s)</h3>
+            <p
+              class="stat-value"
+              data-component="homepage"
+              data-source="grants"
+              data-index="0"
+              data-field="pi_name"
+            ></p>
 
-                  <h3>Year</h3>
-                  <p class="stat-value" data-component="homepage" data-source="grants" data-index="0" data-field="start_date"></p>
+            <h3>Year</h3>
+            <p
+              class="stat-value"
+              data-component="homepage"
+              data-source="grants"
+              data-index="0"
+              data-field="start_date"
+            ></p>
 
-                  <button><span class="value">
-                     <span class="stat-value" data-component="homepage" data-source="grants" data-index="0" data-field="total_funding"></span>
-                  </span></button>
-               </div>
+            <button>
+              <span class="value">
+                <span
+                  class="stat-value"
+                  data-component="homepage"
+                  data-source="grants"
+                  data-index="0"
+                  data-field="total_funding"
+                ></span>
+              </span>
+            </button>
+          </div>
 
-               <div class = "grants_card_light">
-                  <h2>Project Title</h2>
+          <div class="grants_card_light">
+            <h2>Project Title</h2>
 
-                  <h3>Scheme</h3>
-                  <p class="stat-value" data-component="homepage" data-source="grants" data-index="2" data-field="grant_scheme_name"></p>
+            <h3>Scheme</h3>
+            <p
+              class="stat-value"
+              data-component="homepage"
+              data-source="grants"
+              data-index="2"
+              data-field="grant_scheme_name"
+            ></p>
 
-                  <h3>Funder(s)</h3>
-                  <p class="stat-value" data-component="homepage" data-source="grants" data-index="2" data-field="pi_name"></p>
+            <h3>Funder(s)</h3>
+            <p
+              class="stat-value"
+              data-component="homepage"
+              data-source="grants"
+              data-index="2"
+              data-field="pi_name"
+            ></p>
 
-                  <h3>Year</h3>
-                  <p class="stat-value" data-component="homepage" data-source="grants" data-index="2" data-field="start_date"></p>
+            <h3>Year</h3>
+            <p
+              class="stat-value"
+              data-component="homepage"
+              data-source="grants"
+              data-index="2"
+              data-field="start_date"
+            ></p>
 
-                  <button><span class="value">
-                     <span class="stat-value" data-component="homepage" data-source="grants" data-index="2" data-field="total_funding"></span>
-                  </span></button>
-               </div>
-            </div>
-         </div>
-
-         <a href = "grants_and_projects.html" class ="button_see_all_container">
-            <div class = "button_see_all">
-               SEE ALL<i class="ri-arrow-right-line"></i>
-            </div>
-         </a>
+            <button>
+              <span class="value">
+                <span
+                  class="stat-value"
+                  data-component="homepage"
+                  data-source="grants"
+                  data-index="2"
+                  data-field="total_funding"
+                ></span>
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
 
-      <!-- ============ PUBLICATIONS ============= -->
-      <div class = "publications">
-         <div class = "title_header">
-            <h1>Publications</h1>
-         </div>
+      <a href="grants_and_projects.html" class="button_see_all_container">
+        <div class="button_see_all">
+          SEE ALL<i class="ri-arrow-right-line"></i>
+        </div>
+      </a>
+    </div>
 
-         <div class = "highlight-header"></div>
-
-         <div class = "content_publications">
-            <div class = "publications_wrapper">
-               <i class="ri-arrow-left-s-line"></i>
-               <div class = "publications_card_container">
-                  <div class = "publications_card">
-                     <img class="publication_photo stat-value" data-component="homepage" data-source="publics" data-index="0" data-field="cover_picture" src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_0"/>
-                     <h2 class="stat-value" data-component="homepage" data-source="publics" data-index="0" data-field="journal_name"></h2>
-                     <h3 class="stat-value" data-component="homepage" data-source="publics" data-index="0" data-field="title"></h3>
-                     <div class = "publications_metrics">
-                        <i class="ri-arrow-right-line"></i>
-                        <span class="stat-value" data-component="homepage" data-source="publics" data-index="0" data-field="classification_impact"></span>
-                     </div>
-                  </div>
-
-                  <div class = "publications_card">
-                     <img class="publication_photo stat-value" data-component="homepage" data-source="publics" data-index="1" data-field="cover_picture" src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1"/>
-                     <h2 class="stat-value" data-component="homepage" data-source="publics" data-index="1" data-field="journal_name"></h2>
-                     <h3 class="stat-value" data-component="homepage" data-source="publics" data-index="1" data-field="title"></h3>
-                     <div class = "publications_metrics">
-                        <i class="ri-arrow-right-line"></i>
-                        <span class="stat-value" data-component="homepage" data-source="publics" data-index="1" data-field="classification_impact"></span>
-                     </div>
-                  </div>
-
-                  <div class = "publications_card">
-                     <img class="publication_photo stat-value" data-component="homepage" data-source="publics" data-index="2" data-field="cover_picture" src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1"/>
-                     <h2 class="stat-value" data-component="homepage" data-source="publics" data-index="2" data-field="journal_name"></h2>
-                     <h3 class="stat-value" data-component="homepage" data-source="publics" data-index="2" data-field="title"></h3>
-                     <div class = "publications_metrics">
-                        <i class="ri-arrow-right-line"></i>
-                        <span class="stat-value" data-component="homepage" data-source="publics" data-index="2" data-field="classification_impact"></span>
-                     </div>
-                  </div>
-
-                  <div class = "publications_card">
-                     <img class="publication_photo stat-value" data-component="homepage" data-source="publics" data-index="3" data-field="cover_picture" src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1"/>
-                     <h2 class="stat-value" data-component="homepage" data-source="publics" data-index="3" data-field="journal_name"></h2>
-                     <h3 class="stat-value" data-component="homepage" data-source="publics" data-index="3" data-field="title"></h3>
-                     <div class = "publications_metrics">
-                        <i class="ri-arrow-right-line"></i>
-                        <span class="stat-value" data-component="homepage" data-source="publics" data-index="3" data-field="classification_impact"></span>
-                     </div>
-                  </div>
-
-                  <div class = "publications_card">
-                     <img class="publication_photo stat-value" data-component="homepage" data-source="publics" data-index="4" data-field="cover_picture" src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1"/>
-                     <h2 class="stat-value" data-component="homepage" data-source="publics" data-index="4" data-field="journal_name"></h2>
-                     <h3 class="stat-value" data-component="homepage" data-source="publics" data-index="4" data-field="title"></h3>
-                     <div class = "publications_metrics">
-                        <i class="ri-arrow-right-line"></i>
-                        <span class="stat-value" data-component="homepage" data-source="publics" data-index="4" data-field="classification_impact"></span>
-                     </div>
-                  </div>
-
-                  <div class = "publications_card">
-                     <img class="publication_photo stat-value" data-component="homepage" data-source="publics" data-index="5" data-field="cover_picture" src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1"/>
-                     <h2 class="stat-value" data-component="homepage" data-source="publics" data-index="5" data-field="journal_name"></h2>
-                     <h3 class="stat-value" data-component="homepage" data-source="publics" data-index="5" data-field="title"></h3>
-                     <div class = "publications_metrics">
-                        <i class="ri-arrow-right-line"></i>
-                        <span class="stat-value" data-component="homepage" data-source="publics" data-index="5" data-field="classification_impact"></span>
-                     </div>
-                  </div>
-               </div>
-               <i class="ri-arrow-right-s-line"></i>
-            </div>
-         </div>
-
-         <a href="publications.html" class="button_see_all_container">
-            <div class="button_see_all animate"> 
-               SEE ALL<i class="ri-arrow-right-line"></i>
-            </div>
-         </a>  
-
+    <!-- ============ PUBLICATIONS ============= -->
+    <div class="publications">
+      <div class="title_header">
+        <h1>Publications</h1>
       </div>
 
-      <!-- ============ NEWS ============= -->
-      <div class = "news">
-         <div class = "title_header">
-            <h1>News</h1>
-         </div>
+      <div class="highlight-header"></div>
 
-         <div class = "highlight-header"></div>
-
-         <a href ="news.html" class = "see_all">
-            SEE ALL<i class="ri-arrow-right-s-line"></i>
-         </a>
-
-         <div class = "content_news">
-            <div class = "news_card_container">
-               <div class = "news_card">
-                  <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1" class="publication_photo stat-value" data-component="homepage" data-source="news" data-index="0" data-field="cover_picture">
-                  <h2 class="stat-value" data-component="homepage" data-source="news" data-index="0" data-field="title"></h2> 
-                  <p class="stat-value" data-component="homepage" data-source="news" data-index="0" data-field="date"></p>
-               </div>
-
-               <div class = "news_card">
-                  <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1" class="publication_photo stat-value" data-component="homepage" data-source="news" data-index="1" data-field="cover_picture">
-                  <h2 class="stat-value" data-component="homepage" data-source="news" data-index="1" data-field="title"></h2>
-                  <p class="stat-value" data-component="homepage" data-source="news" data-index="1" data-field="date"></p>
-               </div>
-
-               <div class = "news_card">
-                  <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="Publication_1" class="publication_photo stat-value" data-component="homepage" data-source="news" data-index="2" data-field="cover_picture">
-                  <h2 class="stat-value" data-component="homepage" data-source="news" data-index="2" data-field="title"></h2>
-                  <p class="stat-value" data-component="homepage" data-source="news" data-index="2" data-field="date"></p>
-               </div>
+      <div class="content_publications">
+        <div class="publications_wrapper">
+          <i class="ri-arrow-left-s-line"></i>
+          <div class="publications_card_container">
+            <div class="publications_card">
+              <img
+                class="publication_photo stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="0"
+                data-field="cover_picture"
+                src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms"
+                alt="Publication_0"
+              />
+              <h2
+                class="stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="0"
+                data-field="journal_name"
+              ></h2>
+              <h3
+                class="stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="0"
+                data-field="title"
+              ></h3>
+              <div class="publications_metrics">
+                <i class="ri-arrow-right-line"></i>
+                <span
+                  class="stat-value"
+                  data-component="homepage"
+                  data-source="publics"
+                  data-index="0"
+                  data-field="classification_impact"
+                ></span>
+              </div>
             </div>
-         </div>
+
+            <div class="publications_card">
+              <img
+                class="publication_photo stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="1"
+                data-field="cover_picture"
+                src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms"
+                alt="Publication_1"
+              />
+              <h2
+                class="stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="1"
+                data-field="journal_name"
+              ></h2>
+              <h3
+                class="stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="1"
+                data-field="title"
+              ></h3>
+              <div class="publications_metrics">
+                <i class="ri-arrow-right-line"></i>
+                <span
+                  class="stat-value"
+                  data-component="homepage"
+                  data-source="publics"
+                  data-index="1"
+                  data-field="classification_impact"
+                ></span>
+              </div>
+            </div>
+
+            <div class="publications_card">
+              <img
+                class="publication_photo stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="2"
+                data-field="cover_picture"
+                src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms"
+                alt="Publication_1"
+              />
+              <h2
+                class="stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="2"
+                data-field="journal_name"
+              ></h2>
+              <h3
+                class="stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="2"
+                data-field="title"
+              ></h3>
+              <div class="publications_metrics">
+                <i class="ri-arrow-right-line"></i>
+                <span
+                  class="stat-value"
+                  data-component="homepage"
+                  data-source="publics"
+                  data-index="2"
+                  data-field="classification_impact"
+                ></span>
+              </div>
+            </div>
+
+            <div class="publications_card">
+              <img
+                class="publication_photo stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="3"
+                data-field="cover_picture"
+                src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms"
+                alt="Publication_1"
+              />
+              <h2
+                class="stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="3"
+                data-field="journal_name"
+              ></h2>
+              <h3
+                class="stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="3"
+                data-field="title"
+              ></h3>
+              <div class="publications_metrics">
+                <i class="ri-arrow-right-line"></i>
+                <span
+                  class="stat-value"
+                  data-component="homepage"
+                  data-source="publics"
+                  data-index="3"
+                  data-field="classification_impact"
+                ></span>
+              </div>
+            </div>
+
+            <div class="publications_card">
+              <img
+                class="publication_photo stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="4"
+                data-field="cover_picture"
+                src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms"
+                alt="Publication_1"
+              />
+              <h2
+                class="stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="4"
+                data-field="journal_name"
+              ></h2>
+              <h3
+                class="stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="4"
+                data-field="title"
+              ></h3>
+              <div class="publications_metrics">
+                <i class="ri-arrow-right-line"></i>
+                <span
+                  class="stat-value"
+                  data-component="homepage"
+                  data-source="publics"
+                  data-index="4"
+                  data-field="classification_impact"
+                ></span>
+              </div>
+            </div>
+
+            <div class="publications_card">
+              <img
+                class="publication_photo stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="5"
+                data-field="cover_picture"
+                src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms"
+                alt="Publication_1"
+              />
+              <h2
+                class="stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="5"
+                data-field="journal_name"
+              ></h2>
+              <h3
+                class="stat-value"
+                data-component="homepage"
+                data-source="publics"
+                data-index="5"
+                data-field="title"
+              ></h3>
+              <div class="publications_metrics">
+                <i class="ri-arrow-right-line"></i>
+                <span
+                  class="stat-value"
+                  data-component="homepage"
+                  data-source="publics"
+                  data-index="5"
+                  data-field="classification_impact"
+                ></span>
+              </div>
+            </div>
+          </div>
+          <i class="ri-arrow-right-s-line"></i>
+        </div>
       </div>
 
-      <!-- ============ PARTNERS & COLLABORATORS ============= -->
-      <div id = "partners" class = "partners_and_collaborators">
-         <div class = "title_header">
-            <h1>Partners & Collaborators</h1>
-         </div>
+      <a href="publications.html" class="button_see_all_container">
+        <div class="button_see_all animate">
+          SEE ALL<i class="ri-arrow-right-line"></i>
+        </div>
+      </a>
+    </div>
 
-         <div class = "highlight-header"></div>
-
-         <div class="logo-slider">
-            <div class="logo-track">
-            <!-- First set of logos -->
-            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo1" alt="Partner Logo 1">
-            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo2" alt="Partner Logo 2">
-            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo3" alt="Partner Logo 3">
-            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo4" alt="Partner Logo 4">
-            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo5" alt="Partner Logo 5">
-            <!-- Duplicate set for infinite loop -->
-            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo1" alt="Partner Logo 1">
-            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo2" alt="Partner Logo 2">
-            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo3" alt="Partner Logo 3">
-            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo4" alt="Partner Logo 4">
-            <img src="https://placehold.co/150x150/eeeeee/333333?text=Logo5" alt="Partner Logo 5">
-            </div>
-         </div>
-
+    <!-- ============ NEWS ============= -->
+    <div class="news">
+      <div class="title_header">
+        <h1>News</h1>
       </div>
 
-      <!-- ============ CONTACT US ============= -->
-      <div id = "contact_us"class="contact_us">
-         <div class="contact_content">
-            <h1>Connect With Us</h1>
-            <h2>We welcome collaborations and inquiries from partners and researchers.</h2>
-            <h3><strong>Address:</strong> Jalan Sunsuria, Bandar Sunsuria, 43900 Sepang, Selangor, Malaysia</h3>
-            <h3><strong>Email:</strong> stargaze@xmu.edu.my</h3>
-            <h3><strong>Phone:</strong> +60 18-223 1139 (Assoc. Prof. Dr. Tan Jian Ping)</h3>
-            <hr class="divider">
-            <div class="social_icons">
-               <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
-               <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-               <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-            </div>
-            <p class="footer_nav">
-               <a href="#">About Us</a> |
-               <a href="#">Contact Us</a> | 
-               <a href="#">Research & Projects</a> | 
-               <a href="#">Publications</a> | 
-               <a href="#">Partners</a>
-            </p>
-            <p class="copyright">© 2025 Stargaze. All rights reserved.</p>
-         </div>
+      <div class="highlight-header"></div>
+
+      <a href="news.html" class="see_all">
+        SEE ALL<i class="ri-arrow-right-s-line"></i>
+      </a>
+
+      <div class="content_news">
+        <div class="news_card_container">
+          <div class="news_card">
+            <img
+              src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms"
+              alt="Publication_1"
+              class="publication_photo stat-value"
+              data-component="homepage"
+              data-source="news"
+              data-index="0"
+              data-field="cover_picture"
+            />
+            <h2
+              class="stat-value"
+              data-component="homepage"
+              data-source="news"
+              data-index="0"
+              data-field="title"
+            ></h2>
+            <p
+              class="stat-value"
+              data-component="homepage"
+              data-source="news"
+              data-index="0"
+              data-field="date"
+            ></p>
+          </div>
+
+          <div class="news_card">
+            <img
+              src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms"
+              alt="Publication_1"
+              class="publication_photo stat-value"
+              data-component="homepage"
+              data-source="news"
+              data-index="1"
+              data-field="cover_picture"
+            />
+            <h2
+              class="stat-value"
+              data-component="homepage"
+              data-source="news"
+              data-index="1"
+              data-field="title"
+            ></h2>
+            <p
+              class="stat-value"
+              data-component="homepage"
+              data-source="news"
+              data-index="1"
+              data-field="date"
+            ></p>
+          </div>
+
+          <div class="news_card">
+            <img
+              src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms"
+              alt="Publication_1"
+              class="publication_photo stat-value"
+              data-component="homepage"
+              data-source="news"
+              data-index="2"
+              data-field="cover_picture"
+            />
+            <h2
+              class="stat-value"
+              data-component="homepage"
+              data-source="news"
+              data-index="2"
+              data-field="title"
+            ></h2>
+            <p
+              class="stat-value"
+              data-component="homepage"
+              data-source="news"
+              data-index="2"
+              data-field="date"
+            ></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ PARTNERS & COLLABORATORS ============= -->
+    <div id="partners" class="partners_and_collaborators">
+      <div class="title_header">
+        <h1>Partners & Collaborators</h1>
       </div>
 
-      <!--=============== MAIN JS ===============-->
-      <script src="assets/js/config.js"></script>
-      <script src="assets/js/env.js"></script>
-      <script src="assets/js/index.js"></script>
-      <script src="assets/global_assets/navbar.js"></script>
-      <script src="assets/js/scroll-animations.js"></script>
-      <script src="assets/js/homepage-fetch.js"></script>
-   </body>
+      <div class="highlight-header"></div>
+
+      <div class="logo-slider">
+        <div class="logo-track">
+          <!-- First set of logos -->
+          <img
+            src="https://placehold.co/150x150/eeeeee/333333?text=Logo1"
+            alt="Partner Logo 1"
+          />
+          <img
+            src="https://placehold.co/150x150/eeeeee/333333?text=Logo2"
+            alt="Partner Logo 2"
+          />
+          <img
+            src="https://placehold.co/150x150/eeeeee/333333?text=Logo3"
+            alt="Partner Logo 3"
+          />
+          <img
+            src="https://placehold.co/150x150/eeeeee/333333?text=Logo4"
+            alt="Partner Logo 4"
+          />
+          <img
+            src="https://placehold.co/150x150/eeeeee/333333?text=Logo5"
+            alt="Partner Logo 5"
+          />
+          <!-- Duplicate set for infinite loop -->
+          <img
+            src="https://placehold.co/150x150/eeeeee/333333?text=Logo1"
+            alt="Partner Logo 1"
+          />
+          <img
+            src="https://placehold.co/150x150/eeeeee/333333?text=Logo2"
+            alt="Partner Logo 2"
+          />
+          <img
+            src="https://placehold.co/150x150/eeeeee/333333?text=Logo3"
+            alt="Partner Logo 3"
+          />
+          <img
+            src="https://placehold.co/150x150/eeeeee/333333?text=Logo4"
+            alt="Partner Logo 4"
+          />
+          <img
+            src="https://placehold.co/150x150/eeeeee/333333?text=Logo5"
+            alt="Partner Logo 5"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ CONTACT US ============= -->
+    <div id="contact_us" class="contact_us">
+      <div class="contact_content">
+        <h1>Connect With Us</h1>
+        <h2>
+          We welcome collaborations and inquiries from partners and researchers.
+        </h2>
+        <h3>
+          <strong>Address:</strong> Jalan Sunsuria, Bandar Sunsuria, 43900
+          Sepang, Selangor, Malaysia
+        </h3>
+        <h3><strong>Email:</strong> stargaze@xmu.edu.my</h3>
+        <h3>
+          <strong>Phone:</strong> +60 18-223 1139 (Assoc. Prof. Dr. Tan Jian
+          Ping)
+        </h3>
+        <hr class="divider" />
+        <div class="social_icons">
+          <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+          <a href="#" aria-label="Instagram"
+            ><i class="ri-instagram-line"></i
+          ></a>
+          <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+        </div>
+        <p class="footer_nav">
+          <a href="#">About Us</a> | <a href="#">Contact Us</a> |
+          <a href="#">Research & Projects</a> | <a href="#">Publications</a> |
+          <a href="#">Partners</a>
+        </p>
+        <p class="copyright">© 2025 Stargaze. All rights reserved.</p>
+      </div>
+    </div>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/env.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/scroll-animations.js"></script>
+    <script src="assets/js/homepage-fetch.js"></script>
+    <script src="assets/global_assets/navbar.js"></script>
+  </body>
 </html>
