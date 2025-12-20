@@ -1,9 +1,12 @@
 (async function () {
 try {
+    const container = document.getElementById('site-navbar-placeholder');
+    if (!container) throw new Error('Target container "site-navbar-placeholder" not found.');
+
     const resp = await fetch('assets/global_assets/navbar.html');
     if (!resp.ok) throw new Error('Navbar not found');
     const html = await resp.text();
-    const container = document.getElementById('site-navbar-placeholder');
+    
     container.innerHTML = html;
 
     // load navbar script file

@@ -184,11 +184,14 @@
       if (field === 'cover_picture' || field === 'cover_picture.url') {
         const pic = item.cover_picture ?? item.cover_image ?? null;
         let url = null;
+        let captionText = null;
+        let fileName = null;
+
         if (pic) {
-          // Handles nested Strapi v4/v3 image formats
-          if (pic?.data?.attributes) url = pic.data.attributes.url;
-          else if (pic?.attributes) url = pic.attributes.url;
-          else if (pic?.url) url = pic.url;
+          const attrs = pic.data?.attributes || pic.attributes || pic;
+          url = attrs.url;
+          captionText = attrs.caption; // The specific field you asked for
+          fileName = attrs.name;       // The original filename (e.g., "Event.jpg")
         }
         if (!url && typeof item.cover_picture === 'string') url = item.cover_picture;
         
@@ -210,6 +213,23 @@
           img.src = finalUrl || 'https://placehold.co/600x400/e0f2f1/004d40?text=News'; // Placeholder
           img.alt = item.title ?? 'cover image';
         }
+
+        // Update Caption 
+        const captionEl = document.querySelector('.news-photo-caption');
+        if (captionEl) {
+          if (captionText) {
+            // Priority 1: Use the caption field from CMS
+            captionEl.textContent = captionText;
+          } else if (fileName) {
+            // Priority 2: Use filename, but remove the extension
+            // Regex replaces the last dot and everything after it with empty string
+            captionEl.textContent = fileName.replace(/\.[^/.]+$/, "");
+          } else {
+            // Priority 3: Empty
+            captionEl.textContent = '';
+          }
+        }
+
         return;
       }
 
