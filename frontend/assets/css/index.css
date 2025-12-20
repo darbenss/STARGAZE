@@ -454,18 +454,6 @@
   animation-delay: calc(-3s * var(--index));
 }
 
-#carousel {
-  cursor: grab;
-}
-#carousel:active {
-  cursor: grabbing;
-}
-
-/* Pause everything when the user hovers the carousel container */
-#carousel:hover .carousel-item {
-  animation-play-state: paused;
-}
-
 /* Good defaults for smoothness and performance */
 .carousel-item {
   will-change: transform, opacity;
@@ -2948,5 +2936,3 @@ grants_card_light p,
     font-size: 0.7rem;
   }
 }
-
-

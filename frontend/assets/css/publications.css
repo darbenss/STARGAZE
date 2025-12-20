@@ -855,3 +855,18 @@ a {
     font-size: 0.7rem;
   }
 }
+
+@media screen and (min-width: 1251px) {
+    
+  /* 1. Push the 3rd column (Conference & Patents) to the Right */
+  .stats-row .stat:last-child {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  /* 2. (Optional) Center the middle column so it doesn't touch the left side either */
+  .stats-row .stat:nth-child(2) {
+    align-items: center;
+    text-align: center;
+  }
+}
