@@ -265,18 +265,22 @@
 }
 
   .organization-card-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     place-items: center;
     gap: 1.5rem;
+    padding-inline: 5vw;
   }
 
   .organization-card {
-    width: 80%;
+    width: 100%;
+    height: 100%;
   }
 
   .member-organization-card-container {
     margin: 0 20px;
     place-items: center;
     justify-items: center;
+    gap: 1.5rem;
     grid-template-columns: repeat(2, minmax(100px, 1fr));
   }
 
@@ -304,13 +308,13 @@
   }
 
   .logo-track img {
-    height: 40px;
+    height: 40px;xaasdsadsadasdsad
     margin: 0 10px;
   }
 
   .contact_us {
     padding: 40px 0;
-    height: 90vh;
+    height: clamp(550px, 90vh, 600px);
   }
 
   .contact_content h1 {

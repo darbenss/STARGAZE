@@ -565,11 +565,11 @@ a {
 
 /*COLLABORATORS SECTION*/
 .grants-collaborators{
+  width: 100%;
   display: flex;
   flex-direction: row; /* Align details-text and grants-funding side by side */
-  justify-content: flex-start; /* Horizontal alignment */
+  justify-content: space-between;
   align-items: center;
-  gap: clamp(50rem, 2vw, 55rem);
 }
 
 .grants-collaborators ul {
@@ -584,7 +584,7 @@ a {
   width: clamp(100px, 15vw, 800px);
   height: clamp(100px, 15vw, 150px);
   overflow: hidden;
-  padding: 250px;
+  padding: 200px;
 }
 
 .grants_collaborators_photo {
@@ -814,7 +814,7 @@ a {
 
   .contact_us {
     padding: 40px 0;
-    height: 90vh;
+    height: clamp(550px, 90vh, 600px);
   }
 
   .contact_content h1 {

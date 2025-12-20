@@ -119,6 +119,7 @@
   .hero-section {
     margin-top: var(--header-height);
     padding: clamp(1rem, 3vw, 2rem);
+    margin-bottom: var(--header-height);
   }
   .hero-content {
     gap: clamp(1rem, 3vw, 2rem);
@@ -255,7 +256,7 @@
 
   .contact_us {
     padding: 40px 0;
-    height: 90vh;
+    height: clamp(550px, 90vh, 600px);
   }
 
   .contact_content h1 {

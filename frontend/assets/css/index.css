@@ -1887,7 +1887,7 @@ display: none;
   }
   .contact_us {
     padding: 40px 0;
-    height: 90vh;
+    height: clamp(550px, 90vh, 600px);
   }
 
   .contact_content h1 {
@@ -2902,7 +2902,7 @@ grants_card_light p,
   }
 
   .logo-track img {
-    height: 40px;
+    height: 180px;
     margin: 0 10px;
   }
 
@@ -2912,7 +2912,7 @@ grants_card_light p,
 
   .contact_us {
     padding: 40px 0;
-    height: 90vh;
+    height: clamp(550px, 90vh, 600px);
   }
 
   .contact_content h1 {

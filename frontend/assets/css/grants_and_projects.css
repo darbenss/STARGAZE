@@ -907,7 +907,7 @@ a {
 
   .contact_us {
     padding: 40px 0;
-    height: 90vh;
+    height: clamp(550px, 90vh, 600px);
   }
 
   .contact_content h1 {

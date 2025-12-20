@@ -129,40 +129,6 @@ html {
   animation: fadeIn 0.8s ease forwards 0.2s;
 }
 
-/*=============== MEDIA QUERIES ===============*/
-@media screen and (max-width: 1000px) {
-  
-}
-
-@media screen and (max-width: 1250px) {
-  
-}
-
-@media screen and (max-width: 1024px) {
-  
-}
-
-@media (max-width: 767px) {  /* Changed from min-width: 768px to max-width: 767px */
-  
-}
-
-@media screen and (max-width: 480px) {
-  .search-bar-container {
-    width: 160%;
-    justify-self: center;
-  }
-  .search-bar-wrapper {
-    width: 100%;
-  }
-  .news-card-container {
-    justify-content: center;
-  }
-  .bg-elipse {
-    width: 100vw;
-  }
-}
-
-
 /*=============== NEWS CARDS SECTION ===============*/
 .news-content {
   margin-top: 100px;
@@ -174,12 +140,8 @@ html {
 .news-card-container {
   place-items: center;
   display: grid;
-<<<<<<< HEAD
-  grid-template-columns: repeat(auto-fit, minmax(324px, 1fr)); 
-=======
   grid-template-columns: repeat(4, 1fr); 
-  padding-top: 150px;
->>>>>>> 413e7210400ad22d9b4b95b8eb5173af111e8d0b
+  padding-top: 60px;
   gap: 32px; /* Space between cards */
   width: 100%; /* Ensure it uses full available width */
 }
@@ -416,7 +378,7 @@ html {
 
   .contact_us {
     padding: 40px 0;
-    height: 90vh;
+    height: clamp(550px, 90vh, 600px);
   }
 
   .contact_content h1 {
@@ -450,5 +412,45 @@ html {
 
   .copyright {
     font-size: 0.7rem;
+  }
+}
+
+/*=============== MEDIA QUERIES ===============*/
+@media screen and (max-width: 1000px) {
+  
+}
+
+@media screen and (max-width: 1250px) {
+  
+}
+
+@media screen and (max-width: 1024px) {
+  
+}
+
+@media (max-width: 767px) {  /* Changed from min-width: 768px to max-width: 767px */
+  
+}
+
+@media screen and (max-width: 480px) {
+  .search-bar-container {
+    width: 160%;
+    justify-self: center;
+  }
+  .search-bar-wrapper {
+    width: 100%;
+  }
+  .news-card-container {
+    justify-content: center;
+  }
+  .bg-elipse {
+    width: 100vw;
+  }
+  
+  .news-card-container {
+    justify-self: center;
+    width: 180%;
+    padding-top: 40px;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
