@@ -513,12 +513,6 @@ a {
     display: block; /* Removes any inline spacing issues */
 }
 
-.grants-img-desc p{
-  font-size: 1rem;
-  color: var(--black-color);
-  text-align: justify;
-}
-
 /*MEMBERS SECTION*/
 .grants-subtitle h1{
   font-size: 2rem;
