@@ -3,10 +3,11 @@
   const API_BASE = BASE_URL + '/api/statistics';
   const statusEl = document.getElementById('statistic-status');
 
-  let grantsChartInstance = null; // <-- To store and destroy the chart on refresh
+  let grantsChartInstance = null;
 
+  // --- FORMATTERS ---
   const formatNum = n => (typeof n === 'number' ? n.toLocaleString() : (n ?? '—'));
-  const formatMoney = n => (typeof n === 'number' ? 'RM ' + n.toLocaleString() : (n ?? '—'));
+  const formatMoney = n => (typeof n === 'number' ? 'RM ' + n.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0}) : (n ?? '—'));
   const formatPct = n => (typeof n === 'number' ? (n * 100).toFixed(1) + '%' : (n ?? '—'));
   const formatNumber = n => (typeof n === 'number' ? (Number.isInteger(n) ? n.toString() : String(n)) : (n ?? '—'));
 
@@ -60,135 +61,199 @@
       throw new Error(`HTTP ${res.status}${txt ? ' — ' + txt : ''}`);
     }
     const payload = await res.json();
-    // payload may be { data: { ... } } or { data: ... } or the object itself
     return payload?.data ?? payload;
   }
 
-  // Helper to safely read nested fields (supports dot-notation)
   function getNested(obj, path) {
     if (!obj) return undefined;
     return path.split('.').reduce((acc, k) => acc?.[k], obj);
   }
 
-  // --- NEW FUNCTION TO CREATE THE PIE CHART ---
-  function createGrantsChart(data) {
-    const ctx = document.getElementById('myChart');
-    if (!ctx) {
-      // Don't log an error, maybe the chart isn't on every page
-      console.warn('Chart canvas with id "myChart" not found.');
+  // --- ANIMATION 1: Single Value ---
+  function animateValue(node, targetValue, formatter, duration = 1000, delay = 0) {
+    // If null, undefined, or ZERO, just show it immediately (No Animation)
+    if (targetValue === null || targetValue === undefined || targetValue === 0) {
+      node.textContent = formatter(targetValue);
       return;
     }
 
-    // If a chart already exists on this canvas, destroy it
+    // Start with a random number strictly below the target
+    node.textContent = formatter(Math.floor(Math.random() * targetValue));
+
+    setTimeout(() => {
+        const startTime = performance.now();
+        let lastUpdate = 0;
+        const interval = 50; 
+        const isInt = Number.isInteger(targetValue);
+
+        function update(currentTime) {
+          const elapsed = currentTime - startTime;
+
+          if (elapsed < duration) {
+            if (currentTime - lastUpdate > interval) {
+                // Generate random value strictly BELOW the target value
+                let randomVal = Math.random() * targetValue;
+                
+                if (isInt) randomVal = Math.floor(randomVal);
+
+                node.textContent = formatter(randomVal);
+                lastUpdate = currentTime;
+            }
+            requestAnimationFrame(update);
+          } else {
+            // Done: Snap to exact value
+            node.textContent = formatter(targetValue);
+          }
+        }
+        requestAnimationFrame(update);
+    }, delay);
+  }
+
+  // --- ANIMATION 2: Complex String (e.g., "31 | 46 | 71") ---
+  function animateComplexString(node, finalParts, duration = 1000, delay = 0) {
+    
+    // Check if there is anything to animate (if all are 0 or null, skip animation)
+    const hasNonZero = finalParts.some(p => typeof p === 'number' && p > 0);
+    
+    // Helper to generate string layout
+    const renderStatic = () => {
+        const validParts = finalParts.map(v => v !== null ? formatNumber(v) : '—');
+        return validParts.filter(v => v !== '—').length > 0 ? validParts.join(' | ') : '—';
+    };
+
+    if (!hasNonZero) {
+        node.textContent = renderStatic();
+        return;
+    }
+
+    // Helper to generate random string where each part is < its target
+    const generateRandomString = () => {
+        return finalParts.map(part => {
+             if (part === null || part === undefined) return '—';
+             if (part === 0) return formatNumber(0); // If part is 0, show 0, don't randomize
+             
+             // Random integer strictly below the part value
+             const rnd = Math.floor(Math.random() * part); 
+             return formatNumber(rnd);
+        }).filter(v => v !== '—').join(' | ');
+    };
+
+    node.textContent = generateRandomString();
+
+    setTimeout(() => {
+        const startTime = performance.now();
+        let lastUpdate = 0;
+        const interval = 50;
+
+        function update(currentTime) {
+            const elapsed = currentTime - startTime;
+            if (elapsed < duration) {
+                if (currentTime - lastUpdate > interval) {
+                    node.textContent = generateRandomString();
+                    lastUpdate = currentTime;
+                }
+                requestAnimationFrame(update);
+            } else {
+                node.textContent = renderStatic();
+            }
+        }
+        requestAnimationFrame(update);
+    }, delay);
+  }
+
+  // --- CHART FUNCTION ---
+  function createGrantsChart(data) {
+    const ctx = document.getElementById('myChart');
+    if (!ctx) {
+      console.warn('Chart canvas with id "myChart" not found.');
+      return;
+    }
     if (grantsChartInstance) {
       grantsChartInstance.destroy();
     }
-
-    // Get dynamic data from the API response
-    // ** We match the xValues to the corresponding data fields **
     const xValues = ["National Grants", "Industry Grants", "Internal Grants"];
     const yValues = [
       safeNum(getNested(data, 'totalNationalGrants')),
       safeNum(getNested(data, 'totalIndustryGrants')),
       safeNum(getNested(data, 'totalInternalGrants'))
     ];
-    const barColors = [
-      "#00534a",
-      "#00796B",
-      "#00a592",
-    ];
+    const barColors = ["#00534a", "#00796B", "#00a592"];
 
-    // Create the new chart and store the instance
     grantsChartInstance = new Chart(ctx, {
       type: "pie",
       data: {
         labels: xValues,
-        datasets: [{
-          backgroundColor: barColors,
-          data: yValues
-        }]
+        datasets: [{ backgroundColor: barColors, data: yValues }]
       },
       options: {
         plugins: {
           legend: {
-            display: true,          // show legend
-            position: 'right',      // 'top', 'bottom', 'left', or 'right'
-            labels: {
-              color: '#222',       // text color
-              font: {
-                size: 14,         // font size
-                family: 'Poppins, sans-serif',
-                weight: 'normal',   // font weight
-              },
-              boxWidth: 20,         // size of color box
-              boxHeight: 20,        // height of color box
-              padding: 15,          // space between legend items
-              usePointStyle: true,  // use circle instead of box
-            }
+            display: true, position: 'right',
+            labels: { color: '#222', font: { size: 14, family: 'Poppins, sans-serif' }, boxWidth: 20, usePointStyle: true }
           }
         }
       },
     });
   }
-  // --- END OF NEW FUNCTION ---
 
   function populateMode(mode, data) {
     const fieldFormatters = formattersMap[mode] || {};
     const nodes = document.querySelectorAll(`.stat-value[data-component="statistics"][data-mode="${mode}"]`);
+    
     nodes.forEach(node => {
       const field = node.getAttribute('data-field');
-
-      // Special combined fields handled here
-      if (field === 'wwos_summary') {
-        const q1Raw = getNested(data, 'classificationCounts.WWoS Q1');
-        const q2Raw = getNested(data, 'classificationCounts.WWoS Q2');
-        const q3Raw = getNested(data, 'classificationCounts.WWoS Q3');
-        const q4Raw = getNested(data, 'classificationCounts.WWoS Q4');
-        const q1 = safeNum(q1Raw);
-        const q2 = safeNum(q2Raw);
-        const q3 = safeNum(q3Raw);
-        const q4 = safeNum(q4Raw);
-        const f1 = q1 !== null ? formatNumber(q1) : (q1Raw ?? '—');
-        const f2 = q2 !== null ? formatNumber(q2) : (q2Raw ?? '—');
-        const f3 = q3 !== null ? formatNumber(q3) : (q3Raw ?? '—');
-        const f4 = q4 !== null ? formatNumber(q4) : (q4Raw ?? '—');
-        const combo = [f1, f2, f3, f4].filter(v => v && v !== '—').join(' | ');
-        node.textContent = combo || '—';
+      
+      // --- DETERMINE DELAY (Waterfall effect for Grants only) ---
+      let delay = 0;
+      if (mode === 'grants') {
+          // Top Level: Total Funding (0ms)
+          if (field === 'totalFunding') delay = 0;
+          // Middle Level: Rates, Papers, Patents (200ms)
+          else if (['deliveryRate', 'totalPaper', 'totalPatent'].includes(field)) delay = 200;
+          // Bottom Level: Students (400ms)
+          else if (['totalMaster', 'totalPhd'].includes(field)) delay = 400;
+      }
+      
+      // 1. Handle Complex Summaries (Q1-Q4, Patents)
+      if (field === 'wwos_summary' || field === 'patent_summary') {
+        let parts = [];
+        if (field === 'wwos_summary') {
+             parts = [
+                safeNum(getNested(data, 'classificationCounts.WWoS Q1')),
+                safeNum(getNested(data, 'classificationCounts.WWoS Q2')),
+                safeNum(getNested(data, 'classificationCounts.WWoS Q3')),
+                safeNum(getNested(data, 'classificationCounts.WWoS Q4'))
+             ];
+        } else {
+             parts = [
+                safeNum(getNested(data, 'classificationCounts.Patent Granted')),
+                safeNum(getNested(data, 'classificationCounts.Patent Filed'))
+             ];
+        }
+        // Animate for 1000ms
+        animateComplexString(node, parts, 1000, delay);
         return;
       }
 
-      if (field === 'patent_summary') {
-        const grantedRaw = getNested(data, 'classificationCounts.Patent Granted');
-        const filedRaw = getNested(data, 'classificationCounts.Patent Filed');
-        const granted = safeNum(grantedRaw);
-        const filed = safeNum(filedRaw);
-        const fg = granted !== null ? formatNumber(granted) : (grantedRaw ?? '—');
-        const ff = filed !== null ? formatNumber(filed) : (filedRaw ?? '—');
-        const combo = [fg, ff].filter(v => v && v !== '—').join(' | ');
-        node.textContent = combo || '—';
-        return;
-      }
-
+      // 2. Handle Total Funding
       if (field === 'totalFunding') {
-        const totalFundingRaw = getNested(data, 'totalFunding');
-        const totalFunding = safeNum(totalFundingRaw);
-        const formatted = totalFunding !== null ? formatMoney(totalFunding) : (totalFundingRaw ?? '—');
-        node.textContent = formatted || '—';
+        const valRaw = getNested(data, 'totalFunding');
+        const val = safeNum(valRaw);
+        animateValue(node, val, formatMoney, 1000, delay);
         return;
       }
 
-      // Default handling: support nested keys like "classificationCounts.WWoS Q1"
+      // 3. Default Handling
       const formatter = fieldFormatters[field] || (v => v ?? '—');
-      const value = getNested(data, field);
-      try {
-        node.textContent = formatter(value);
-      } catch (e) {
-        node.textContent = value ?? '—';
+      const value = safeNum(getNested(data, field));
+      
+      if (value !== null) {
+          animateValue(node, value, formatter, 1000, delay);
+      } else {
+          node.textContent = getNested(data, field) ?? '—';
       }
     });
 
-    // --- ADDED THIS CALL ---
-    // After populating all fields, create the chart if the mode is 'grants'
     if (mode === 'grants') {
       createGrantsChart(data);
     }
@@ -197,7 +262,6 @@
   async function fetchAndPopulateAll() {
     setStatus('Loading...');
     try {
-      // find all distinct modes in the DOM
       const allNodes = document.querySelectorAll('[data-component="statistics"][data-mode]');
       const modes = [...new Set(Array.from(allNodes).map(n => n.getAttribute('data-mode')))];
       for (const m of modes) {
@@ -211,7 +275,6 @@
     }
   }
 
-  // Initial load
   fetchAndPopulateAll();
 
 })();
