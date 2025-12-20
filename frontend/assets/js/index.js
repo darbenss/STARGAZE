@@ -32,16 +32,20 @@ function reloadSlider() {
 
   clearInterval(refreshInterval);
   refreshInterval = setInterval(() => {
-    next.click();
+    nextSlide();
   }, 3000);
 }
 
 document.addEventListener("DOMContentLoaded", initializeSlider); // Wait for DOM load
 
-next.onclick = function () {
+// --- SEPARATE LOGIC FUNCTION ---
+function nextSlide() {
   if (lengthItems < 0) return;
   active = active + 1 <= lengthItems ? active + 1 : 0;
   reloadSlider();
+}
+next.onclick = function () {
+  nextSlide();
 };
 
 prev.onclick = function () {
@@ -51,7 +55,7 @@ prev.onclick = function () {
 };
 
 let refreshInterval = setInterval(() => {
-  next.click();
+  nextSlide();
 }, 3000);
 
 dots.forEach((li, key) => {

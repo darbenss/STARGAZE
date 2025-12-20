@@ -59,14 +59,20 @@
 })();
 
 // To hide the navbar after scrolling
-const header = document.querySelector(".header");
+let header = null;
 let lastScrollY = window.scrollY;
 
 window.addEventListener("scroll", () => {
+  if (!header) {
+    header = document.querySelector(".header"); 
+  }
+
+  if (!header) return;
+
   if (lastScrollY < window.scrollY) {
     header.classList.add("header--hidden");
   }else {
       header.classList.remove("header--hidden");
-    }
+    } 
   lastScrollY = window.scrollY;
 });
