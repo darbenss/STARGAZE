@@ -1110,6 +1110,7 @@ display: none;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: calc((100% / 4 ));
+  gap: 12px;
   
   overflow-x: auto; /* Enable horizontal scrolling */
   scroll-behavior: smooth; /* Smooth scrolling */
@@ -1322,14 +1323,13 @@ display: none;
   }
 
   .publications_card_container {
-    width: 100%;
     grid-auto-columns: calc((100% / 2) + 4px); /* 2 cards visible on mobile */
     gap: 10px;
   }
 
   .publications_card {
-    width: 200px;
-    height: 300px;
+    width: clamp(100px, 2vw, 200px);
+    height: clamp(150px, 10vh, 300px);
   }
 
   .publications_card img {
@@ -2353,18 +2353,29 @@ grants_card_light p,
   }
 
   .publications_card_container {
+    height: clamp(380px, 30vh, 500px);
+    padding: 0;
+    margin-inline: 5vw;
     grid-auto-columns: calc((100% / 2) - 8px); /* 2 cards visible on mobile */
-    gap: 12px;
+    gap: calc(100vw - 2*(100% / 2 + 8px));
+    min-width: 100px;
+    width: 90vw;
   }
 
   .publications_card {
-    width: 200px;
-    height: 300px;
+    width: clamp(180px, 10vw, 300px);
+    height: 85%;
+    justify-content: flex-start;
+    align-self: flex-start;
   }
 
   .publications_card img {
-    width: 120px;
-    height: 200px;
+    width: auto;
+    height: 160px;
+  }
+
+  .publications_metrics span {
+    font-size: 14px;
   }
 
   .title_header {
