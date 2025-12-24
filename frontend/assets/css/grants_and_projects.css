@@ -430,7 +430,7 @@ a {
         padding: clamp(1rem, 5vw, 3rem) clamp(1rem, 5vw, 3rem);
     }
     .stats-row {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         gap: clamp(1rem, 3vw, 1.5rem);
     }
@@ -475,12 +475,18 @@ a {
         font-size: clamp(1.25rem, 6vw, 2rem);
         margin-bottom: clamp(0.75rem, 2vw, 1.5rem);
     }
+    .stats-row {
+      flex-direction: row;
+      gap: clamp(0.75vw, 0.2rem, 1.5vw);
+    }
     .stat {
-      height: 50vh;
+      height: 70px;
+      max-width: 28vw;
     }
     .stat .overline {
         font-size: clamp(1.5rem, 8vw, 4rem);
-        margin-bottom: 0.2rem;
+        height: 0.2rem;
+        margin-bottom: 0.1rem;
     }
     .stat .number {
         font-size: clamp(1.25rem, 6vw, 3rem);
@@ -722,8 +728,11 @@ a {
     margin-bottom: 0;
   }
   .stats-row.pie-chart-container {
-    justify-content: flex-start;
+    justify-content: center;
     margin-bottom: 1rem;
+  }
+  .stats-row.pie-chart-container .stat {
+    height: 2vh;
   }
     section.section {
       width: 100%;

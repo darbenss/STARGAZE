@@ -193,7 +193,7 @@ html {
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width: 340px) {
-  .container {
+  .nav.container {
     margin-inline: 1rem;
   }
 
@@ -204,8 +204,10 @@ html {
 
 /* For large devices */
 @media screen and (min-width: 1118px) {
-  .container {
+  .nav.container {
     margin-inline: auto;
+    width: 95%;
+    max-width: 2000px;
   }
 
   .nav {
