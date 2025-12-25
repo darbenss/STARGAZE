@@ -5,4 +5,4 @@
 // On Netlify, this file will be created automatically during the build process.
 
 // AppConfig.BASE_URL = "http://localhost:1337";
-AppConfig.BASE_URL = "https://incredible-respect-f1309c941e.strapiapp.com";
+AppConfig.BASE_URL = "https://api.stargaze-research.com";
