@@ -480,7 +480,7 @@ a {
       gap: clamp(0.75vw, 0.2rem, 1.5vw);
     }
     .stat {
-      height: 70px;
+      height: clamp(70px, 20%, 100px);
       max-width: 28vw;
     }
     .stat .overline {

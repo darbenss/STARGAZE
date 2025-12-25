@@ -340,6 +340,7 @@ a {
 
 /*=============== OUR IMPACT SECTION ===============*/
 .our_impact_section {
+  margin-top: var(--header-height);
   width: 100%;
   overflow: hidden; /* Prevents overflow from bg-elipse */
 }
@@ -359,8 +360,6 @@ a {
 .stats-row {
   display: flex;
   justify-content: space-between; /* Distributes items on larger screens */
-  gap: clamp(0.5rem, 2vw, 1.5rem);
-  text-align: center;
   margin-bottom: clamp(1.5rem, 5vw, 3.75rem);
   flex-wrap: wrap;
 }
@@ -370,8 +369,9 @@ a {
   flex-direction: column;
   align-items: flex-start; /* Left-align by default on larger screens */
   text-align: left;
-  flex: 1;
+  flex: 0 1 auto;
   min-width: 150px;
+  padding-inline: 50px;
 }
 
 .stat .overline {
@@ -382,7 +382,7 @@ a {
 }
 
 .stat .number {
-  font-size: clamp(1.5rem, 4vw, 4rem);
+  font-size: clamp(1.5rem, 4vw, 5.6rem);
   font-weight: 500;
   color: var(--black-color);
   margin-bottom: clamp(-0.5rem, -1vw, -0.625rem);
@@ -464,12 +464,17 @@ a {
   .our-impact {
     padding: clamp(1.5rem, 6vw, 6rem) clamp(1.5rem, 8vw, 9.375rem);
   }
+  .our-impact h2 {
+    text-align: center;
+    margin-bottom: 5vh;
+  }
   .stats-row {
     justify-content: center; /* Center items on medium screens */
     gap: clamp(1rem, 3vw, 2rem);
   }
   .stat {
-    width: 45%; /* Two columns on medium screens */
+    align-items: center;
+    max-width: 45%; /* Two columns on medium screens */
     margin-bottom: clamp(1rem, 2vw, 1.5rem);
   }
   .filter-content {
@@ -481,16 +486,6 @@ a {
 @media screen and (max-width: 1250px) {
   .our-impact {
     padding: clamp(1rem, 5vw, 3rem) clamp(1rem, 5vw, 3rem);
-  }
-  .stats-row {
-    flex-direction: column;
-    align-items: center;
-    gap: clamp(1rem, 3vw, 1.5rem);
-  }
-  .stat {
-    width: 100%; /* Single column on small screens */
-    align-items: center; /* Center content within stat */
-    text-align: center;
   }
   .stat .overline {
     margin-bottom: clamp(-1.5rem, -6vw, -3.75rem);
@@ -514,6 +509,7 @@ a {
 @media (max-width: 767px) {  /* Changed from min-width: 768px to max-width: 767px */
   .stats-row {
     flex-direction: column;
+    align-items: center;
     gap: clamp(0.75rem, 3.5vw, 1.25rem);
   }
   .stat {
@@ -525,6 +521,11 @@ a {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
+  
+  .stat .number {
+    font-size: clamp(1.1rem, 8vw, 2rem);
+    margin-bottom: 0.1vh;
+  }
   .number {
     white-space: normal;
     text-overflow: clip;
@@ -533,6 +534,7 @@ a {
 
 @media screen and (max-width: 480px) {
    .our_impact_section {
+    margin-top: 0;
     padding-top: calc(var(--header-height) + 3vh);
   }
   .filters {
@@ -551,7 +553,7 @@ a {
     font-size: clamp(1.5rem, 15vw, 4rem);
   }
   .stat .number {
-    font-size: clamp(1.25rem, 12vw, 3rem);
+    font-size: clamp(1.25rem, 12vw, 2.5rem);
   }
   .stat .label {
     margin-top: 0.4rem;
@@ -857,20 +859,5 @@ a {
 
   .copyright {
     font-size: 0.7rem;
-  }
-}
-
-@media screen and (min-width: 1251px) {
-    
-  /* 1. Push the 3rd column (Conference & Patents) to the Right */
-  .stats-row .stat:last-child {
-    align-items: flex-end;
-    text-align: right;
-  }
-
-  /* 2. (Optional) Center the middle column so it doesn't touch the left side either */
-  .stats-row .stat:nth-child(2) {
-    align-items: center;
-    text-align: center;
   }
 }

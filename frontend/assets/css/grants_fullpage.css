@@ -584,7 +584,7 @@ a {
   width: clamp(100px, 15vw, 800px);
   height: clamp(100px, 10vw, 150px);
   overflow: hidden;
-  padding: 100px;
+  padding: 80px 200px;
 }
 
 .grants_collaborators_photo {
@@ -593,7 +593,7 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border: 2px solid #004d40;
   border-radius: 5px;
   opacity: 1;
