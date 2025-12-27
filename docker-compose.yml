@@ -1,0 +1,13 @@
+services:
+  frontend:
+    container_name: frontend_site
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    networks:
+      - stargaze-network
+
+networks:
+  stargaze-network:
+    external: true
