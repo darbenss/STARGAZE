@@ -164,7 +164,7 @@
       const card = node.closest(cardSelector.split(',').map(s => s.trim()).join(', '));
       if (!card) return;
   
-      const instanceId = String(item?.id ?? item?.documentId ?? '');
+      const instanceId = String(item.documentId ?? '');
       card.setAttribute('data-instance-id', instanceId);
   
       // if there's an anchor, set href, otherwise wrap children with <a>

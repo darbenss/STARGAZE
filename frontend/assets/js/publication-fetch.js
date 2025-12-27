@@ -205,7 +205,7 @@
       const card = node.closest('.publications_card');
       if (!card) return;
   
-      const instanceId = String(item.id ?? item.documentId ?? '');
+      const instanceId = String(item.documentId ?? item.documentId ?? '');
       card.setAttribute('data-instance-id', instanceId);
   
       let existingLink = card.querySelector('a');
@@ -252,7 +252,7 @@
 
         // anchor: set url if exists
         const anchor = clone.querySelector('a');
-        const instanceId = String(item.id ?? item.documentId ?? resolve(item, 'id') ?? '');
+        const instanceId = String(item.documentId ?? resolve(item, 'id') ?? '');
         if (anchor) {
           anchor.href = `publication_fullpage.html?id=${encodeURIComponent(instanceId)}`;
           // make the whole card clickable but keep styles

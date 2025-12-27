@@ -128,7 +128,7 @@
       const clone = template.content.cloneNode(true);
       const link = clone.querySelector('a');
       if (link) {
-        const instanceId = String(item.id ?? item.documentId ?? resolve(item, 'id') ?? '');
+        const instanceId = String(item.documentId ?? resolve(item, 'id') ?? '');
         link.href = `news_fullpage.html?id=${encodeURIComponent(instanceId)}`;
       }
       const imgEl = clone.querySelector('img.publication_photo');

@@ -145,7 +145,7 @@
 
       // 4a. Collaborators List (Names)
       if (field === 'collaborators_list') {
-        const collaborators = item.collaborator ?? [];
+        const collaborators = item.collaborators ?? [];
         if (!collaborators.length) {
           node.innerHTML = '<ul><li>No collaborators listed.</li></ul>';
           return;
@@ -157,7 +157,7 @@
 
       // 4b. Collaborators Images
       if (field === 'collaborators_images') {
-        const collaborators = item.collaborator ?? [];
+        const collaborators = item.collaborators ?? [];
         if (!collaborators.length) {
           node.innerHTML = ''; // No images
           return;
@@ -173,6 +173,17 @@
           return `<img src="${logoUrl}" alt="${altText}" class="grants_collaborators_photo">`;
         }).join('');
         node.innerHTML = imgHtml;
+
+        // Dynamically handle animation based on number of photos
+        const photos = node.querySelectorAll('.grants_collaborators_photo');
+        const numPhotos = photos.length;
+        if (numPhotos > 1) {
+          const cycleTime = numPhotos * 2; // Total cycle time in seconds (2s per photo)
+          const delayStep = 2; // Delay increment in seconds
+          photos.forEach((photo, index) => {
+            photo.style.animation = `slideLeft ${cycleTime}s ${index * delayStep}s infinite`;
+          });
+        }
         return;
       }
 

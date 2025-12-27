@@ -597,19 +597,6 @@ a {
   border: 2px solid #004d40;
   border-radius: 5px;
   opacity: 1;
-  animation: slideLeft 6s infinite; /* Faster animation (6s cycle) */
-}
-
-.grants_collaborators_photo:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.grants_collaborators_photo:nth-child(2) {
-  animation-delay: 2s;
-}
-
-.grants_collaborators_photo:nth-child(3) {
-  animation-delay: 4s;
 }
 
 @media screen and (max-width: 600px) {

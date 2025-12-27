@@ -142,7 +142,7 @@
       const nodes = clone.querySelectorAll('.stat-value[data-component="grants"]');
       const link = clone.querySelector('a');
       if (link) {
-        const instanceId = String(item.id ?? item.documentId ?? '');
+        const instanceId = String(item.documentId ?? '');
         link.href = `grants_fullpage.html?id=${encodeURIComponent(instanceId)}`;
       }
       nodes.forEach(node => {
