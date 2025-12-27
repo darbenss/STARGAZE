@@ -252,7 +252,7 @@
 
         // anchor: set url if exists
         const anchor = clone.querySelector('a');
-        const instanceId = String(item.documentId ?? resolve(item, 'id') ?? '');
+        const instanceId = String(item.documentId ?? resolve(item, 'documentId') ?? '');
         if (anchor) {
           anchor.href = `publication_fullpage.html?id=${encodeURIComponent(instanceId)}`;
           // make the whole card clickable but keep styles

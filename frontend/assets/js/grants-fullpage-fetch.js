@@ -162,7 +162,8 @@
           node.innerHTML = ''; // No images
           return;
         }
-        const imgHtml = collaborators.map(c => {
+        const numPhotos = collaborators.length;
+        const imgHtml = collaborators.map((c, index) => {
           const name = safeText(c.name ?? 'Collaborator');
           const altText = `Logo of ${name}`;
           let logoUrl = 'https://placehold.co/800x150/e0f2f1/004d40?text=Logo'; // Default
@@ -170,18 +171,49 @@
           if (c.logo && c.logo.url) {
             logoUrl = c.logo.url.startsWith('http') ? c.logo.url : (BASE_URL + c.logo.url);
           }
-          return `<img src="${logoUrl}" alt="${altText}" class="grants_collaborators_photo">`;
+          // Set initial transform for all if multiple to prevent stacking
+          const initialStyle = (numPhotos > 1) ? ' style="transform: translateX(100%);"' : '';
+          return `<img src="${logoUrl}" alt="${altText}" class="grants_collaborators_photo"${initialStyle}>`;
         }).join('');
         node.innerHTML = imgHtml;
 
+        // Set parent styles
+        node.style.position = 'relative';
+        node.style.overflow = 'hidden';
+
         // Dynamically handle animation based on number of photos
         const photos = node.querySelectorAll('.grants_collaborators_photo');
-        const numPhotos = photos.length;
         if (numPhotos > 1) {
-          const cycleTime = numPhotos * 2; // Total cycle time in seconds (2s per photo)
-          const delayStep = 2; // Delay increment in seconds
+          const displayTime = 2; // Seconds each image is displayed
+          const cycleTime = numPhotos * displayTime; // Total cycle time in seconds
+          const visiblePercent = 100 / numPhotos;
+          const transitionFraction = 0.25; // Fraction of visible time for in/out transitions (25% in, 25% out, 50% stay)
+          const transitionPercent = transitionFraction * visiblePercent;
+          const slideInEnd = transitionPercent;
+          const stayStart = slideInEnd;
+          const slideOutStart = visiblePercent - transitionPercent;
+          const slideOutEnd = visiblePercent;
+          
+          const keyframes = `
+            @keyframes slideLeft {
+              0% { transform: translateX(100%); }
+              ${slideInEnd}% { transform: translateX(0%); }
+              ${stayStart}% { transform: translateX(0%); }
+              ${slideOutStart}% { transform: translateX(0%); }
+              ${slideOutEnd}% { transform: translateX(-100%); }
+              100% { transform: translateX(-100%); }
+            }
+          `;
+          
+          // Create and append style element for dynamic keyframes
+          const style = document.createElement('style');
+          style.innerHTML = keyframes;
+          document.head.appendChild(style);
+          
+          const delayStep = displayTime; // Delay increment in seconds
           photos.forEach((photo, index) => {
             photo.style.animation = `slideLeft ${cycleTime}s ${index * delayStep}s infinite`;
+            photo.style.animationFillMode = 'backwards';
           });
         }
         return;
