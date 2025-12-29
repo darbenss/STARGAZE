@@ -412,11 +412,14 @@ a {
 }
 
 .journal-img {
-  flex: 1;
-  min-width: 210px;
-  max-width: 297px;
+  flex: 0 0 auto;
+  width: 210px;
+  height: 297px;
+  /* A4 ratio: 210:297 */
   border: 3px solid var(--primary-green);
   border-radius: 10px;
+  display: flex;
+  align-items: center;
   justify-content: center;
   overflow: hidden;
   margin-right: 3.5rem;
@@ -655,4 +658,52 @@ a {
   .copyright {
     font-size: 0.7rem;
   }
+}
+
+/* Publication No-Image Placeholder with A4 ratio */
+.no-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 0;
+}
+
+/* Crossed lines effect */
+.no-image-placeholder::before,
+.no-image-placeholder::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.no-image-placeholder::before {
+  background: linear-gradient(to top right, transparent calc(50% - 1px), #ccc calc(50%), transparent calc(50% + 1px));
+}
+
+.no-image-placeholder::after {
+  background: linear-gradient(to bottom right, transparent calc(50% - 1px), #ccc calc(50%), transparent calc(50% + 1px));
+}
+
+.no-image-placeholder span {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.4rem 0.6rem;
+  z-index: 1;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }

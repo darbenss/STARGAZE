@@ -98,27 +98,35 @@
 
       // Set on <img> placeholders directly
       if (node.tagName === 'IMG') {
-        if (finalUrl) node.src = finalUrl; else node.removeAttribute('src');
-        const alt = picObj?.alternativeText ?? picObj?.caption ?? (item.title || item.project_title || item.journal_name) ?? '';
-        node.alt = alt || 'cover image';
+        if (finalUrl) {
+          node.src = finalUrl;
+          node.alt = '';
+        } else {
+          // Replace IMG with placeholder div
+          const placeholder = document.createElement('div');
+          placeholder.className = 'no-image-placeholder';
+          placeholder.innerHTML = '<span>No Image</span>';
+          node.parentNode.replaceChild(placeholder, node);
+        }
         return;
       }
 
-      // If placeholder is non-img (e.g. <p> or <div>), create or reuse an <img> inside it
-      let img = node.querySelector('img.publication_photo');
-      if (!img) {
-        img = document.createElement('img');
-        img.className = 'publication_photo';
-        node.innerHTML = '';
-        node.appendChild(img);
-      }
+      // If placeholder is non-img (e.g. <p> or <div>), create content
       if (finalUrl) {
+        // Show image
+        let img = node.querySelector('img.publication_photo');
+        if (!img) {
+          img = document.createElement('img');
+          img.className = 'publication_photo';
+          node.innerHTML = '';
+          node.appendChild(img);
+        }
         img.src = finalUrl;
+        img.alt = '';
       } else {
-        img.src = 'https://placehold.co/150x150/e0f2f1/004d40?text=Ms'; // fallback, optional
+        // Show no-image placeholder
+        node.innerHTML = '<div class="no-image-placeholder"><span>No Image</span></div>';
       }
-      const alt = picObj?.alternativeText ?? picObj?.caption ?? (item.title || item.project_title || item.journal_name) ?? '';
-      img.alt = alt || 'cover image';
       return;
     }
 

@@ -165,18 +165,31 @@
         const finalUrl = url ? (url.startsWith('http') ? url : (BASE_URL + url)) : null;
 
         if (node.tagName === 'IMG') {
-          if (finalUrl) node.src = finalUrl; else node.removeAttribute('src');
-          node.alt = item.title ?? item.journal_name ?? 'cover image';
-        } else {
-          let img = node.querySelector('img.publication_photo');
-          if (!img) {
-            img = document.createElement('img');
-            img.className = 'publication_photo';
-            node.innerHTML = '';
-            node.appendChild(img);
+          if (finalUrl) {
+            node.src = finalUrl;
+            node.alt = '';
+          } else {
+            // Replace IMG with placeholder div
+            const placeholder = document.createElement('div');
+            placeholder.className = 'no-image-placeholder';
+            placeholder.innerHTML = '<span>No Image</span>';
+            node.parentNode.replaceChild(placeholder, node);
           }
-          img.src = finalUrl || 'https://placehold.co/150x150/e0f2f1/004d40?text=Ms';
-          img.alt = item.title ?? item.journal_name ?? 'cover image';
+        } else {
+          if (finalUrl) {
+            let img = node.querySelector('img.publication_photo');
+            if (!img) {
+              img = document.createElement('img');
+              img.className = 'publication_photo';
+              node.innerHTML = '';
+              node.appendChild(img);
+            }
+            img.src = finalUrl;
+            img.alt = '';
+          } else {
+            // Show no-image placeholder
+            node.innerHTML = '<div class="no-image-placeholder"><span>No Image</span></div>';
+          }
         }
         return;
       }
@@ -235,26 +248,36 @@
         return;
       }
 
-      // DOI link special handling
+      // DOI link special handling - hide if no DOI
       if (node.tagName === 'A' && field === 'doi_link') {
         const val = item.doi_link ?? item.doi ?? '';
-        if (val) {
+        if (val && val.trim() !== '') {
           node.href = val;
           node.textContent = 'Open DOI';
           node.setAttribute('target', '_blank');
           node.setAttribute('rel', 'noopener noreferrer');
         } else {
-          node.href = '#';
-          node.textContent = '—';
+          // Hide the DOI button completely
+          node.style.display = 'none';
         }
         return;
       }
 
-      // executive_summary / funding_section: markdown -> HTML
+      // executive_summary / funding_section: markdown -> HTML, hide if empty
       if (field === 'executive_summary' || field === 'funding_section') {
         const md = item[field] ?? '';
         const html = markdownToHtml(md);
-        node.innerHTML = html || '—';
+        if (!md || md.trim() === '') {
+          // Hide the content paragraph
+          node.style.display = 'none';
+          // Hide the preceding h2 subtitle
+          const prevH2 = node.previousElementSibling;
+          if (prevH2 && prevH2.tagName === 'H2') {
+            prevH2.style.display = 'none';
+          }
+        } else {
+          node.innerHTML = html;
+        }
         return;
       }
 

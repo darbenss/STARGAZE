@@ -142,22 +142,34 @@
       const finalUrl = urlCandidate ? normalizeCoverUrl(urlCandidate) : null;
 
       if (node.tagName === 'IMG') {
-        if (finalUrl) node.src = finalUrl; else node.removeAttribute('src');
-        node.alt = pic?.alternativeText ?? pic?.caption ?? item.title ?? item.journal_name ?? 'cover image';
+        if (finalUrl) {
+          node.src = finalUrl;
+          node.alt = '';
+        } else {
+          // Replace IMG with placeholder div
+          const placeholder = document.createElement('div');
+          placeholder.className = 'no-image-placeholder';
+          placeholder.innerHTML = '<span>No Image</span>';
+          node.parentNode.replaceChild(placeholder, node);
+        }
         return;
       }
 
-      // non-img container: reuse same class the page uses to keep styling
-      let img = node.querySelector('img.publication_photo');
-      if (!img) {
-        img = document.createElement('img');
-        img.className = 'publication_photo';
-        node.innerHTML = '';
-        node.appendChild(img);
+      // non-img container: render content
+      if (finalUrl) {
+        let img = node.querySelector('img.publication_photo');
+        if (!img) {
+          img = document.createElement('img');
+          img.className = 'publication_photo';
+          node.innerHTML = '';
+          node.appendChild(img);
+        }
+        img.src = finalUrl;
+        img.alt = '';
+      } else {
+        // Show no-image placeholder
+        node.innerHTML = '<div class="no-image-placeholder"><span>No Image</span></div>';
       }
-      if (finalUrl) img.src = finalUrl;
-      else img.src = 'https://placehold.co/150x150/e0f2f1/004d40?text=Ms';
-      img.alt = pic?.alternativeText ?? pic?.caption ?? item.title ?? item.journal_name ?? 'cover image';
       return;
     }
 

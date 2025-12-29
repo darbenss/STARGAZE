@@ -1,134 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--=============== REMIXICONS ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/global_assets/variables.css" />
-    <!-- global variables + fonts -->
-    <link rel="stylesheet" href="assets/global_assets/navbar.css" />
-    <!-- navbar styles -->
-    <link rel="stylesheet" href="assets/css/publications_fullpage.css" />
+  <!--=============== REMIXICONS ===============-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 
-    <title>STARGAZE</title>
-  </head>
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" href="assets/global_assets/variables.css" />
+  <!-- global variables + fonts -->
+  <link rel="stylesheet" href="assets/global_assets/navbar.css" />
+  <!-- navbar styles -->
+  <link rel="stylesheet" href="assets/css/publications_fullpage.css" />
 
-  <body>
-    <!--=============== HEADER ===============-->
-    <div id="site-navbar-placeholder"></div>
-    <script src="assets/global_assets/load-navbar.js"></script>
+  <title>STARGAZE</title>
+</head>
 
-    <!--=============== HERO SECTION ===============-->
-    <section class="hero-section">
-      <div class="hero-content">
-        <div class="journal-info">
-          <h1
-            class="stat-value"
-            data-component="publication-full"
-            data-field="title"
-          ></h1>
-          <h2
-            class="stat-value"
-            data-component="publication-full"
-            data-field="journal_name"
-          ></h2>
-          <div class="journal-vol">
-            <i class="ri-book-open-line"></i>
-            <span
-              class="stat-value"
-              data-component="publication-full"
-              data-field="vol_issue_pages_year"
-            ></span>
-          </div>
-          <p>
-            <b>Impact Factor & Classification:</b>
-            <span
-              class="stat-value"
-              data-component="publication-full"
-              data-field="classification_impact"
-            ></span>
-          </p>
-          <p>
-            <b>Authors:</b>
-            <span
-              class="stat-value"
-              data-component="publication-full"
-              data-field="authors"
-            ></span>
-          </p>
-          <a
-            href="#"
-            class="access-doi stat-value"
-            data-component="publication-full"
-            data-field="doi_link"
-            >Access DOI</a
-          >
+<body>
+  <!--=============== HEADER ===============-->
+  <div id="site-navbar-placeholder"></div>
+  <script src="assets/global_assets/load-navbar.js"></script>
+
+  <!--=============== HERO SECTION ===============-->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="journal-info">
+        <h1 class="stat-value" data-component="publication-full" data-field="title"></h1>
+        <h2 class="stat-value" data-component="publication-full" data-field="journal_name"></h2>
+        <div class="journal-vol">
+          <i class="ri-book-open-line"></i>
+          <span class="stat-value" data-component="publication-full" data-field="vol_issue_pages_year"></span>
         </div>
-        <div class="journal-img">
-          <img
-            src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms"
-            alt="Publication_1"
-            class="publication_photo stat-value"
-            data-component="publication-full"
-            data-field="cover_picture"
-          />
-        </div>
-      </div>
-
-      <div class="details-section">
-        <h2>Executive Summary</h2>
-        <p
-          class="stat-value"
-          data-component="publication-full"
-          data-field="executive_summary"
-        ></p>
-        <h2>Funding</h2>
-        <p
-          class="stat-value"
-          data-component="publication-full"
-          data-field="funding_section"
-        ></p>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT US ============= -->
-    <div class="contact_us">
-      <div class="contact_content">
-        <h1>Connect With Us</h1>
-        <h2>
-          We welcome collaborations and inquiries from partners and researchers.
-        </h2>
-        <h3>
-          <strong>Address :</strong> Jalan Sunsuria, Bandar Sunsuria, 43900
-          Sepang, Selangor, Malaysia
-        </h3>
-        <h3><strong>Email :</strong> stargaze@xmu.edu.my</h3>
-        <h3><strong>Office Number :</strong> 03-8705 5204</h3>
-        <hr class="divider" />
-        <div class="social_icons">
-          <a href="https://www.facebook.com/share/1VcGiNgzvH/" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
-          <a href="https://www.instagram.com/stargaze.coe?igsh=dXQ4c2g3bzR4MDRx" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-          <a href="https://www.linkedin.com/company/stargaze-coe/" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-          <a href="https://x.com/StargazeCOE" aria-label="X"><i class="ri-twitter-x-fill"></i></a>
-        </div>
-        <p class="footer_nav">
-          <a href="#">About Us</a> | <a href="#">Contact Us</a> |
-          <a href="#">Research & Projects</a> | <a href="#">Publications</a> |
-          <a href="#">Partners</a>
+        <p>
+          <b>Impact Factor & Classification:</b>
+          <span class="stat-value" data-component="publication-full" data-field="classification_impact"></span>
         </p>
-        <p class="copyright">© 2025 Stargaze. All rights reserved.</p>
+        <p>
+          <b>Authors:</b>
+          <span class="stat-value" data-component="publication-full" data-field="authors"></span>
+        </p>
+        <a href="#" class="access-doi stat-value" data-component="publication-full" data-field="doi_link">Access DOI</a>
+      </div>
+      <div class="journal-img">
+        <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="" class="publication_photo stat-value"
+          data-component="publication-full" data-field="cover_picture" />
       </div>
     </div>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/config.js"></script>
-    <script src="assets/js/env.js"></script>
-    <script src="assets/js/publication-fullpage-fetch.js"></script>
-    <script src="assets/global_assets/navbar.js"></script>
-  </body>
+    <div class="details-section">
+      <h2>Executive Summary</h2>
+      <p class="stat-value" data-component="publication-full" data-field="executive_summary"></p>
+      <h2>Funding</h2>
+      <p class="stat-value" data-component="publication-full" data-field="funding_section"></p>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT US ============= -->
+  <div class="contact_us">
+    <div class="contact_content">
+      <h1>Connect With Us</h1>
+      <h2>
+        We welcome collaborations and inquiries from partners and researchers.
+      </h2>
+      <h3>
+        <strong>Address :</strong> Jalan Sunsuria, Bandar Sunsuria, 43900
+        Sepang, Selangor, Malaysia
+      </h3>
+      <h3><strong>Email :</strong> stargaze@xmu.edu.my</h3>
+      <h3><strong>Office Number :</strong> 03-8705 5204</h3>
+      <hr class="divider" />
+      <div class="social_icons">
+        <a href="https://www.facebook.com/share/1VcGiNgzvH/" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+        <a href="https://www.instagram.com/stargaze.coe?igsh=dXQ4c2g3bzR4MDRx" aria-label="Instagram"><i
+            class="ri-instagram-line"></i></a>
+        <a href="https://www.linkedin.com/company/stargaze-coe/" aria-label="LinkedIn"><i
+            class="ri-linkedin-fill"></i></a>
+        <a href="https://x.com/StargazeCOE" aria-label="X"><i class="ri-twitter-x-fill"></i></a>
+      </div>
+      <p class="footer_nav">
+        <a href="#">About Us</a> | <a href="#">Contact Us</a> |
+        <a href="#">Research & Projects</a> | <a href="#">Publications</a> |
+        <a href="#">Partners</a>
+      </p>
+      <p class="copyright">© 2025 Stargaze. All rights reserved.</p>
+    </div>
+  </div>
+
+  <!--=============== MAIN JS ===============-->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/env.js"></script>
+  <script src="assets/js/publication-fullpage-fetch.js"></script>
+  <script src="assets/global_assets/navbar.js"></script>
+</body>
+
 </html>
