@@ -47,9 +47,8 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
-.nav__logo i {
-  font-weight: initial;
-  font-size: 1.25rem;
+.nav__logo img {
+  height: var(--header-height);
 }
 
 .nav__toggle {
