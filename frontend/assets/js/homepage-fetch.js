@@ -124,12 +124,30 @@
 
     // general formatting for other fields
     let value = getFieldValueLocal(item, field);
-    if (field === 'total_funding') {
-      const n = safeNum(value);
-      value = n !== null ? formatMoney(n) : (value ?? '—');
+
+    // Handle dates - show year only
+    if (field === 'start_date' || field === 'end_date') {
+      if (!value) {
+        node.textContent = '—';
+        return;
+      }
+      const date = new Date(value);
+      if (isNaN(date.getTime())) {
+        node.textContent = '—';
+        return;
+      }
+      node.textContent = date.getFullYear();
+      return;
+    }
+
+    if (field === 'funder') {
+      // Funder is a simple text field (e.g., "MoHE")
+      value = value ?? '—';
     } else if (field === 'impact_factor') {
       const n = safeNum(value);
       value = n !== null ? formatNumber(n) : (value ?? '—');
+    } else if (field === 'project_title') {
+      value = value || '—';
     } else {
       if (typeof value === 'number') value = formatNumber(value);
       else if (value === null || value === undefined || value === '') value = '—';

@@ -907,6 +907,18 @@
   font-weight: 600;
   margin: 0.5rem 0 1.5rem;
   text-align: center;
+
+  /* Limit to 4 lines and ensure consistent height for alignment */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  /* Standard property for compatibility */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 5em;
+  /* Approx 4 lines * 1.25 line-height */
+  line-height: 1.25;
 }
 
 .grants_card_light h2 {
@@ -955,6 +967,7 @@
   width: clamp(120px, 25vw, 160px);
   border-radius: 3rem;
   border: none;
+  font-family: var(--body-font);
   font-size: clamp(0.875rem, 2.5vw, 1rem);
   font-weight: 600;
   cursor: pointer;
@@ -982,6 +995,25 @@
 .grants_card_dark button {
   background-image: linear-gradient(to top, #DEFFFB, #FAFFFE);
   color: var(--primary-green);
+}
+
+.grants_card_light button .value,
+.grants_card_dark button .value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: normal;
+}
+
+.grants_card_light button .label,
+.grants_card_dark button .label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 0px;
+  opacity: 0.8;
 }
 
 .button_see_all_container {
@@ -2818,7 +2850,7 @@ grants_card_light p,
 }
 
 .logo-track.animate {
-  animation: scroll-logos 25s linear infinite;
+  animation: scroll-logos 40s linear infinite;
 }
 
 .logo-track img {

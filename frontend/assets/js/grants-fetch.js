@@ -21,7 +21,7 @@
 
   const formatMoney = n =>
     typeof n === 'number' ? 'RM ' + n.toLocaleString() : (n ?? '—');
-    
+
   const safeNum = v => {
     if (v === null || v === undefined || v === '') return null;
     const n = Number(String(v).replace(/[, ]+/g, ''));
@@ -57,11 +57,11 @@
       throw new Error(`HTTP ${res.status}${txt ? ' — ' + txt : ''} for ${url}`);
     }
     const payload = await res.json();
-    
+
     // Keep cache logic for compatibility
     const arr = Array.isArray(payload) ? payload : (Array.isArray(payload.data) ? payload.data : []);
     cache[url] = arr;
-    
+
     // **RETURN THE FULL PAYLOAD**
     return payload;
   }
@@ -98,23 +98,29 @@
       node.textContent = name ? (code ? `${name} (${code})` : name) : '—';
       return;
     }
-    if (field === "start_date" || field === "end_date") { 
+    if (field === "start_date" || field === "end_date") {
       const dateStr = resolve(item, field);
-      const date = new Date(dateStr); 
-      if (!dateStr || isNaN(date.getTime())) { 
+      const date = new Date(dateStr);
+      if (!dateStr || isNaN(date.getTime())) {
+        // Hide the entire info-row if end_date is empty
+        if (field === "end_date") {
+          const infoRow = node.closest('.info-row');
+          if (infoRow) infoRow.style.display = 'none';
+        }
         node.textContent = '—';
         return;
       }
-      const day = date.getDate();
-      const month = date.toLocaleString('en-US', { month: 'long' }); 
+      // Show year only
       const year = date.getFullYear();
-      node.textContent = `${day} ${month}, ${year}`; 
+      node.textContent = year;
       return;
     }
     let val = resolve(item, field);
-    if (field === 'total_funding') {
-      const n = safeNum(val);
-      val = n !== null ? formatMoney(n) : (val ?? '—');
+    if (field === 'project_title') {
+      val = val || '—';
+    } else if (field === 'funder') {
+      // Funder is a simple text field (e.g., "MoHE")
+      val = val ?? '—';
     } else {
       if (typeof val === 'number') val = formatNumber(val);
       else if (val === null || val === undefined || val === '') val = '—';
@@ -162,10 +168,10 @@
     const paginationContainer = document.querySelector('.pagination');
     if (!paginationContainer) {
       console.warn('Pagination container "#grants-pagination" not found.');
-      return; 
+      return;
     }
 
-    paginationContainer.innerHTML = ''; 
+    paginationContainer.innerHTML = '';
 
     if (totalPages <= 1) {
       return; // No pagination needed
@@ -175,7 +181,7 @@
       if (newPage < 1 || newPage > totalPages || newPage === currentPage) {
         return;
       }
-      
+
       if (currentMode === 'list') {
         // **ADAPTED**
         window.grantsSetListOptions({ page: newPage });
@@ -213,9 +219,9 @@
       first.addEventListener('click', (e) => { e.preventDefault(); handlePageClick(1); });
       paginationContainer.appendChild(first);
       if (startPage > 2) {
-           const ellipsis = document.createElement('span');
-           ellipsis.innerText = '...';
-           paginationContainer.appendChild(ellipsis);
+        const ellipsis = document.createElement('span');
+        ellipsis.innerText = '...';
+        paginationContainer.appendChild(ellipsis);
       }
     }
     for (let i = startPage; i <= endPage; i++) {
@@ -264,13 +270,13 @@
     try {
       setStatus('Loading grants...');
       const url = buildUrlForMode(currentMode, currentMode === 'list' ? lastListOpts : lastSearchOpts);
-      
+
       // **PAYLOAD** is now the full object
       const payload = await fetchUrl(url, false);
-      
+
       // **ITEMS** are extracted from payload
       const items = Array.isArray(payload) ? payload : (Array.isArray(payload.data) ? payload.data : []);
-      
+
       // Call our render function
       renderGrantsList(items);
 
@@ -279,17 +285,17 @@
       const limit = (currentMode === 'list' ? lastListOpts.limit : lastSearchOpts.limit);
 
       if (paginationMeta) {
-          const currentPage = paginationMeta.page || (currentMode === 'list' ? lastListOpts.page : lastSearchOpts.page);
-          const totalPages = paginationMeta.pageCount || Math.ceil(paginationMeta.total / (paginationMeta.pageSize || limit));
-          
-          updatePaginationUI(currentPage, totalPages);
+        const currentPage = paginationMeta.page || (currentMode === 'list' ? lastListOpts.page : lastSearchOpts.page);
+        const totalPages = paginationMeta.pageCount || Math.ceil(paginationMeta.total / (paginationMeta.pageSize || limit));
+
+        updatePaginationUI(currentPage, totalPages);
       } else {
-          // No pagination metadata found
-          const paginationContainer = document.getElementById('grants-pagination');
-          if (paginationContainer) paginationContainer.innerHTML = '';
-          if (items.length > 0) {
-            console.warn("Pagination metadata (e.g., payload.meta.pagination) not found in API response. Pagination UI will not be rendered.");
-          }
+        // No pagination metadata found
+        const paginationContainer = document.getElementById('grants-pagination');
+        if (paginationContainer) paginationContainer.innerHTML = '';
+        if (items.length > 0) {
+          console.warn("Pagination metadata (e.g., payload.meta.pagination) not found in API response. Pagination UI will not be rendered.");
+        }
       }
       // **END NEW PAGINATION LOGIC**
 
@@ -320,7 +326,7 @@
     lastSearchOpts.limit = opts.limit ?? lastSearchOpts.limit;
     lastSearchOpts.page = opts.page ?? 1; // Resets to page 1
     currentMode = 'searching';
-    
+
     const url = buildUrlForMode(currentMode, lastSearchOpts);
     delete cache[url];
     loadCurrentMode();
@@ -340,7 +346,7 @@
 
   // ---------- UI glue (search inputs, debounce, events) ----------
   // (This entire section was already correct and handles page resets)
-  
+
   const inputPI = document.getElementById('pi-search');
   const inputGrant = document.getElementById('grant-search');
   const inputYear = document.getElementById('year');
@@ -371,7 +377,7 @@
 
   const runSearch = debounce(() => {
     const opts = buildSearchOpts();
-    const hasFilter = Object.keys(opts).some(k => !['limit','page'].includes(k));
+    const hasFilter = Object.keys(opts).some(k => !['limit', 'page'].includes(k));
 
     if (!hasFilter) {
       window.grantsSetListOptions?.({ limit: opts.limit, page: opts.page });
@@ -385,8 +391,8 @@
       if (e.key === 'Enter') {
         e.preventDefault();
         const opts = buildSearchOpts(); // <-- Correctly gets page 1
-        const hasFilter = Object.keys(opts).some(k => !['limit','page'].includes(k));
-        
+        const hasFilter = Object.keys(opts).some(k => !['limit', 'page'].includes(k));
+
         if (hasFilter) {
           window.grantsSearch?.(opts);
         } else {

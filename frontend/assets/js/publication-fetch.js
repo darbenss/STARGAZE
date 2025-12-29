@@ -39,9 +39,9 @@
 
     // **MODIFICATION: 'populate=*' is REMOVED from here.**
     // Your middleware now handles all population logic.
-    
+
     qs.set('mode', mode); // Keep your custom 'mode' param
-    
+
     if (mode === 'list') {
       qs.set('limit', opts.limit ?? lastListOpts.limit ?? 10);
       qs.set('page', opts.page ?? lastListOpts.page ?? 1);
@@ -55,7 +55,7 @@
     } else {
       throw new Error('Unknown mode: ' + mode);
     }
-    
+
     return `${BASE_URL}${API_PATH}?${qs.toString()}`;
   }
 
@@ -76,12 +76,12 @@
       throw new Error(`HTTP ${res.status}${txt ? ' — ' + txt : ''} for ${url}`);
     }
     const payload = await res.json();
-    
+
     // Keep original cache behavior for compatibility with other functions
     const arr = Array.isArray(payload) ? payload : (Array.isArray(payload.data) ? payload.data : []);
     cache[url] = arr;
     cache.publics = arr;
-    
+
     // **RETURN THE FULL PAYLOAD** for pagination metadata
     return payload;
   }
@@ -195,19 +195,19 @@
     // ... (This function is unchanged) ...
     const items = (window.__homepage_cache && window.__homepage_cache.publics) || (typeof cache !== 'undefined' && cache.publics) || null;
     if (!items || !items.length) return;
-  
+
     items.forEach((item, i) => {
       if (!item) return;
-  
+
       const node = document.querySelector(`.publications_card .stat-value[data-component="publication"][data-source="publics"][data-index="${i}"]`);
       if (!node) return;
-  
+
       const card = node.closest('.publications_card');
       if (!card) return;
-  
+
       const instanceId = String(item.documentId ?? item.documentId ?? '');
       card.setAttribute('data-instance-id', instanceId);
-  
+
       let existingLink = card.querySelector('a');
       if (existingLink) {
         existingLink.href = `publication_fullpage.html?id=${encodeURIComponent(instanceId)}`;
@@ -233,94 +233,94 @@
     }
   }
 
-    // --- NEW: render using template if present (keeps populateNode logic) ---
-    function renderPublications(items) {
-      // ... (This function is unchanged) ...
-      const container = document.getElementById('publications-container'); // your container
-      const template = document.getElementById('publication-card-template');
-      if (!container || !template) return false; // signal not handled
+  // --- NEW: render using template if present (keeps populateNode logic) ---
+  function renderPublications(items) {
+    // ... (This function is unchanged) ...
+    const container = document.getElementById('publications-container'); // your container
+    const template = document.getElementById('publication-card-template');
+    if (!container || !template) return false; // signal not handled
 
-      container.innerHTML = ''; // clear
+    container.innerHTML = ''; // clear
 
-      if (!items || items.length === 0) {
-        container.innerHTML = '<p>No publications found.</p>';
-        return true;
-      }
-
-      items.forEach((item, idx) => {
-        const clone = template.content.cloneNode(true);
-
-        // anchor: set url if exists
-        const anchor = clone.querySelector('a');
-        const instanceId = String(item.documentId ?? resolve(item, 'documentId') ?? '');
-        if (anchor) {
-          anchor.href = `publication_fullpage.html?id=${encodeURIComponent(instanceId)}`;
-          // make the whole card clickable but keep styles
-          anchor.classList.add('publication-link');
-        }
-
-        // image
-        const imgEl = clone.querySelector('img.publication_photo');
-        if (imgEl) populateNode(imgEl, item, 'cover_picture');
-
-        // journal_name
-        const jEl = clone.querySelector('.journal_name');
-        if (jEl) populateNode(jEl, item, 'journal_name');
-
-        // title
-        const tEl = clone.querySelector('.title');
-        if (tEl) populateNode(tEl, item, 'title');
-
-        // classification_impact (use same field as placeholders)
-        const cEl = clone.querySelector('.classification_impact');
-        if (cEl) populateNode(cEl, item, 'classification_impact');
-
-        // attach data-instance-id for compatibility
-        const cardRoot = clone.querySelector('.publications_card') || clone.firstElementChild;
-        if (cardRoot && instanceId) cardRoot.setAttribute('data-instance-id', instanceId);
-
-        container.appendChild(clone);
-      });
-
-      // keep global cache hook (so publicationGetItem still works)
-      window.__homepage_cache = window.__homepage_cache || {};
-      window.__homepage_cache.publics = items;
-      cache.publics = items;
-
+    if (!items || items.length === 0) {
+      container.innerHTML = '<p>No publications found.</p>';
       return true;
     }
 
- // --- NEW PAGINATION RENDER FUNCTION ---
- // This function is adapted from your first script
- // It builds the pagination UI, but a click triggers an API call, not a client-side hide/show
- function updatePaginationUI(currentPage, totalPages) {
+    items.forEach((item, idx) => {
+      const clone = template.content.cloneNode(true);
+
+      // anchor: set url if exists
+      const anchor = clone.querySelector('a');
+      const instanceId = String(item.documentId ?? resolve(item, 'documentId') ?? '');
+      if (anchor) {
+        anchor.href = `publication_fullpage.html?id=${encodeURIComponent(instanceId)}`;
+        // make the whole card clickable but keep styles
+        anchor.classList.add('publication-link');
+      }
+
+      // image
+      const imgEl = clone.querySelector('img.publication_photo');
+      if (imgEl) populateNode(imgEl, item, 'cover_picture');
+
+      // journal_name
+      const jEl = clone.querySelector('.journal_name');
+      if (jEl) populateNode(jEl, item, 'journal_name');
+
+      // title
+      const tEl = clone.querySelector('.title');
+      if (tEl) populateNode(tEl, item, 'title');
+
+      // classification_impact (use same field as placeholders)
+      const cEl = clone.querySelector('.classification_impact');
+      if (cEl) populateNode(cEl, item, 'classification_impact');
+
+      // attach data-instance-id for compatibility
+      const cardRoot = clone.querySelector('.publications_card') || clone.firstElementChild;
+      if (cardRoot && instanceId) cardRoot.setAttribute('data-instance-id', instanceId);
+
+      container.appendChild(clone);
+    });
+
+    // keep global cache hook (so publicationGetItem still works)
+    window.__homepage_cache = window.__homepage_cache || {};
+    window.__homepage_cache.publics = items;
+    cache.publics = items;
+
+    return true;
+  }
+
+  // --- NEW PAGINATION RENDER FUNCTION ---
+  // This function is adapted from your first script
+  // It builds the pagination UI, but a click triggers an API call, not a client-side hide/show
+  function updatePaginationUI(currentPage, totalPages) {
     const paginationContainer = document.querySelector('.pagination');
     if (!paginationContainer) {
-        console.warn('Pagination container ".pagination" not found.');
-        return; 
+      console.warn('Pagination container ".pagination" not found.');
+      return;
     }
 
     paginationContainer.innerHTML = ''; // Clear old links
 
     if (totalPages <= 1) {
-        return; // No pagination needed if 1 page or less
+      return; // No pagination needed if 1 page or less
     }
 
     // Helper function to handle page clicks
     function handlePageClick(newPage) {
-        if (newPage < 1 || newPage > totalPages || newPage === currentPage) {
-            return;
-        }
-        
-        // This is the core change:
-        // Instead of client-side showPage(), we call the API fetch functions
-        if (currentMode === 'list') {
-            window.publicationSetListOptions({ page: newPage });
-        } else {
-            // For search, we must preserve the other search options
-            const opts = { ...lastSearchOpts, page: newPage };
-            window.publicationSearch(opts);
-        }
+      if (newPage < 1 || newPage > totalPages || newPage === currentPage) {
+        return;
+      }
+
+      // This is the core change:
+      // Instead of client-side showPage(), we call the API fetch functions
+      if (currentMode === 'list') {
+        window.publicationSetListOptions({ page: newPage });
+      } else {
+        // For search, we must preserve the other search options
+        const opts = { ...lastSearchOpts, page: newPage };
+        window.publicationSearch(opts);
+      }
     }
 
     // Previous button
@@ -328,12 +328,12 @@
     prev.innerHTML = '&laquo; Prev';
     prev.classList.add('prev');
     if (currentPage === 1) {
-        prev.classList.add('disabled');
+      prev.classList.add('disabled');
     } else {
-        prev.addEventListener('click', (e) => {
-            e.preventDefault();
-            handlePageClick(currentPage - 1);
-        });
+      prev.addEventListener('click', (e) => {
+        e.preventDefault();
+        handlePageClick(currentPage - 1);
+      });
     }
     paginationContainer.appendChild(prev);
 
@@ -346,43 +346,43 @@
     if (endPage - startPage + 1 < maxPagesToShow) {
       startPage = Math.max(1, endPage - maxPagesToShow + 1);
     }
-    
+
     if (startPage > 1) {
-        const first = document.createElement('a');
-        first.innerText = 1;
-        first.addEventListener('click', (e) => { e.preventDefault(); handlePageClick(1); });
-        paginationContainer.appendChild(first);
-        if (startPage > 2) {
-             const ellipsis = document.createElement('span');
-             ellipsis.innerText = '...';
-             paginationContainer.appendChild(ellipsis);
-        }
+      const first = document.createElement('a');
+      first.innerText = 1;
+      first.addEventListener('click', (e) => { e.preventDefault(); handlePageClick(1); });
+      paginationContainer.appendChild(first);
+      if (startPage > 2) {
+        const ellipsis = document.createElement('span');
+        ellipsis.innerText = '...';
+        paginationContainer.appendChild(ellipsis);
+      }
     }
 
     for (let i = startPage; i <= endPage; i++) {
-        const pageLink = document.createElement('a');
-        pageLink.innerText = i;
-        if (i === currentPage) {
-            pageLink.classList.add('active');
-        } else {
-            pageLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                handlePageClick(i);
-            });
-        }
-        paginationContainer.appendChild(pageLink);
+      const pageLink = document.createElement('a');
+      pageLink.innerText = i;
+      if (i === currentPage) {
+        pageLink.classList.add('active');
+      } else {
+        pageLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          handlePageClick(i);
+        });
+      }
+      paginationContainer.appendChild(pageLink);
     }
-    
+
     if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-            const ellipsis = document.createElement('span');
-            ellipsis.innerText = '...';
-            paginationContainer.appendChild(ellipsis);
-        }
-        const last = document.createElement('a');
-        last.innerText = totalPages;
-        last.addEventListener('click', (e) => { e.preventDefault(); handlePageClick(totalPages); });
-        paginationContainer.appendChild(last);
+      if (endPage < totalPages - 1) {
+        const ellipsis = document.createElement('span');
+        ellipsis.innerText = '...';
+        paginationContainer.appendChild(ellipsis);
+      }
+      const last = document.createElement('a');
+      last.innerText = totalPages;
+      last.addEventListener('click', (e) => { e.preventDefault(); handlePageClick(totalPages); });
+      paginationContainer.appendChild(last);
     }
 
 
@@ -391,15 +391,15 @@
     next.innerHTML = 'Next &raquo;';
     next.classList.add('next');
     if (currentPage === totalPages) {
-        next.classList.add('disabled');
+      next.classList.add('disabled');
     } else {
-        next.addEventListener('click', (e) => {
-            e.preventDefault();
-            handlePageClick(currentPage + 1);
-        });
+      next.addEventListener('click', (e) => {
+        e.preventDefault();
+        handlePageClick(currentPage + 1);
+      });
     }
     paginationContainer.appendChild(next);
-}
+  }
 
 
   // --- MODIFIED FUNCTION ---
@@ -408,10 +408,10 @@
     try {
       setStatus('Loading publications...');
       const url = buildUrlForMode(currentMode, currentMode === 'list' ? lastListOpts : lastSearchOpts);
-      
+
       // **PAYLOAD** is now the full object, not just the items array
       const payload = await fetchUrl(url, false);
-      
+
       // **ITEMS** are extracted from payload (assuming {data: [...]} or [...])
       const items = Array.isArray(payload) ? payload : (Array.isArray(payload.data) ? payload.data : []);
 
@@ -422,18 +422,18 @@
       const limit = (currentMode === 'list' ? lastListOpts.limit : lastSearchOpts.limit);
 
       if (paginationMeta) {
-          const currentPage = paginationMeta.page || (currentMode === 'list' ? lastListOpts.page : lastSearchOpts.page);
-          // Use pageCount if available, otherwise calculate it
-          const totalPages = paginationMeta.pageCount || Math.ceil(paginationMeta.total / (paginationMeta.pageSize || limit));
-          
-          updatePaginationUI(currentPage, totalPages);
+        const currentPage = paginationMeta.page || (currentMode === 'list' ? lastListOpts.page : lastSearchOpts.page);
+        // Use pageCount if available, otherwise calculate it
+        const totalPages = paginationMeta.pageCount || Math.ceil(paginationMeta.total / (paginationMeta.pageSize || limit));
+
+        updatePaginationUI(currentPage, totalPages);
       } else {
-          // No pagination metadata found, clear the pagination container
-          const paginationContainer = document.querySelector('.pagination');
-          if (paginationContainer) paginationContainer.innerHTML = '';
-          if (items.length > 0) {
-            console.warn("Pagination metadata (e.g., payload.meta.pagination) not found in API response. Pagination UI will not be rendered.");
-          }
+        // No pagination metadata found, clear the pagination container
+        const paginationContainer = document.querySelector('.pagination');
+        if (paginationContainer) paginationContainer.innerHTML = '';
+        if (items.length > 0) {
+          console.warn("Pagination metadata (e.g., payload.meta.pagination) not found in API response. Pagination UI will not be rendered.");
+        }
       }
       // **END NEW PAGINATION LOGIC**
 
@@ -553,7 +553,7 @@
   // actual search invoker (debounced)
   const runSearch = debounce(() => {
     const opts = buildSearchOpts();
-    const hasFilter = Object.keys(opts).some(k => !['limit','page'].includes(k));
+    const hasFilter = Object.keys(opts).some(k => !['limit', 'page'].includes(k));
     if (!hasFilter) {
       window.publicationSetListOptions?.({ limit: opts.limit, page: opts.page });
       return;
@@ -569,7 +569,7 @@
       if (e.key === 'Enter') {
         e.preventDefault();
         const opts = buildSearchOpts(); // buildSearchOpts now resets page to 1
-        if (Object.keys(opts).some(k => !['limit','page'].includes(k))) {
+        if (Object.keys(opts).some(k => !['limit', 'page'].includes(k))) {
           window.publicationSearch?.(opts);
         } else {
           window.publicationSetListOptions?.({ limit: opts.limit, page: opts.page });
@@ -603,7 +603,7 @@
     // ... (This function is unchanged) ...
     return (window.__homepage_cache && window.__homepage_cache.publics) || cache.publics || [];
   };
-  
+
   // Initial load
   loadCurrentMode();
 

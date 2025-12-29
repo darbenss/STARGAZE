@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +11,11 @@
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets\css\grants_and_projects.css">
     <link rel="stylesheet" href="assets/global_assets/variables.css"> <!-- global variables + fonts -->
-    <link rel="stylesheet" href="assets/global_assets/navbar.css">    <!-- navbar styles -->
+    <link rel="stylesheet" href="assets/global_assets/navbar.css"> <!-- navbar styles -->
     <!--=============== Chart ===============-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
 </head>
+
 <body>
     <!--=============== HEADER ===============-->
     <div id="site-navbar-placeholder"></div>
@@ -26,7 +28,8 @@
             <div class="stats-row">
                 <div class="stat">
                     <div class="label">total funding</div>
-                    <div class="number stat-value" data-component="statistics" data-mode="grants" data-field="totalFunding"></div>
+                    <div class="number stat-value" data-component="statistics" data-mode="grants"
+                        data-field="totalFunding"></div>
                 </div>
             </div>
             <div class="stats-row pie-chart-container">
@@ -40,29 +43,34 @@
             <div class="stats-row">
                 <div class="stat">
                     <div class="overline">&macr;</div>
-                    <div class="number stat-value" data-component="statistics" data-mode="grants" data-field="deliveryRate"></div>
+                    <div class="number stat-value" data-component="statistics" data-mode="grants"
+                        data-field="deliveryRate"></div>
                     <div class="label">Delivery Rate</div>
                 </div>
                 <div class="stat">
                     <div class="overline">&macr;</div>
-                    <div class="number stat-value" data-component="statistics" data-mode="grants" data-field="totalPaper"></div>
+                    <div class="number stat-value" data-component="statistics" data-mode="grants"
+                        data-field="totalPaper"></div>
                     <div class="label">Total Paper</div>
                 </div>
                 <div class="stat">
                     <div class="overline">&macr;</div>
-                    <div class="number stat-value" data-component="statistics" data-mode="grants" data-field="totalPatent"></div>
+                    <div class="number stat-value" data-component="statistics" data-mode="grants"
+                        data-field="totalPatent"></div>
                     <div class="label">Total Patent</div>
                 </div>
             </div>
             <div class="stats-row">
                 <div class="stat">
                     <i class="ri-book-open-line"></i>
-                    <div class="number stat-value" data-component="statistics" data-mode="grants" data-field="totalMaster"></div>
+                    <div class="number stat-value" data-component="statistics" data-mode="grants"
+                        data-field="totalMaster"></div>
                     <div class="label">Total Master</div>
                 </div>
                 <div class="stat">
                     <i class="ri-book-open-line"></i>
-                    <div class="number stat-value" data-component="statistics" data-mode="grants" data-field="totalPhd"></div>
+                    <div class="number stat-value" data-component="statistics" data-mode="grants" data-field="totalPhd">
+                    </div>
                     <div class="label">Total PhD</div>
                 </div>
             </div>
@@ -71,59 +79,60 @@
 
     <section class="section">
         <div class="container">
-        <!-- ============ SEARCH BAR AND FILTER SECTION ============= -->
-        <div class="filters">
-            <div class="filter-content">
-            <div class="filter-item">
-                <label for="journal-search" class="filter-label">Name of Principal Investigator</label>
-                <input type="text" id="pi-search" class="filter-input" placeholder="Type name...">
-            </div>
-            <div class="filter-item">
-                <label for="journal-search" class="filter-label">Grant Scheme</label>
-                <input type="text" id="grant-search" class="filter-input" placeholder="Type grant scheme...">
-            </div>
-            <div class="filter-item">
-                <label for="year" class="filter-label">Year</label>
-                <input type="number" id="year" class="filter-input" placeholder="Enter year...">
-            </div>
-            </div>
-        </div>
-
-        <!-- ============ GRANTS SECTION ============= -->
-        <div class="content_grants">
-                <!-- ============ CARD TEMPLATE ============= -->
-            <template id="grant-card-template" class = "grants_card_container">
-                <div class="grants_card">
-                    <a href="grants_fullpage.html">
-                    <h2 class="stat-value" data-component="grants" data-field="project_title"></h2>
-                    <div class="dept">
-                        <span class="stat-value" data-component="grants" data-field="scheme"></span>
+            <!-- ============ SEARCH BAR AND FILTER SECTION ============= -->
+            <div class="filters">
+                <div class="filter-content">
+                    <div class="filter-item">
+                        <label for="journal-search" class="filter-label">Name of Principal Investigator</label>
+                        <input type="text" id="pi-search" class="filter-input" placeholder="Type name...">
                     </div>
-                    <div class="info-row">
-                        <i class="ri-arrow-right-line"></i> <strong>PI:</strong> 
-                        <span class="stat-value" data-component="grants" data-field="pi_name"></span>
+                    <div class="filter-item">
+                        <label for="journal-search" class="filter-label">Grant Scheme</label>
+                        <input type="text" id="grant-search" class="filter-input" placeholder="Type grant scheme...">
                     </div>
-                    <div class="info-row">
-                        <i class="ri-arrow-right-line"></i> <strong>Start date:</strong> 
-                        <span class="stat-value" data-component="grants" data-field="start_date"></span>
+                    <div class="filter-item">
+                        <label for="year" class="filter-label">Year</label>
+                        <input type="number" id="year" class="filter-input" placeholder="Enter year...">
                     </div>
-                    <div class="info-row">
-                        <i class="ri-arrow-right-line"></i> <strong>End date:</strong> 
-                        <span class="stat-value" data-component="grants" data-field="end_date"></span>
-                    </div>
-                    <div class="funding-pill">
-                        <span class="stat-value" data-component="grants" data-field="total_funding"></span>
-                    </div>
-                    </a>
                 </div>
+            </div>
+
+            <!-- ============ GRANTS SECTION ============= -->
+            <div class="content_grants">
+                <!-- ============ CARD TEMPLATE ============= -->
+                <template id="grant-card-template" class="grants_card_container">
+                    <div class="grants_card">
+                        <a href="grants_fullpage.html">
+                            <h2 class="stat-value" data-component="grants" data-field="project_title"></h2>
+                            <div class="dept">
+                                <span class="stat-value" data-component="grants" data-field="scheme"></span>
+                            </div>
+                            <div class="info-row">
+                                <i class="ri-arrow-right-line"></i> <strong>PI:</strong>
+                                <span class="stat-value" data-component="grants" data-field="pi_name"></span>
+                            </div>
+                            <div class="info-row">
+                                <i class="ri-arrow-right-line"></i> <strong>Start date:</strong>
+                                <span class="stat-value" data-component="grants" data-field="start_date"></span>
+                            </div>
+                            <div class="info-row">
+                                <i class="ri-arrow-right-line"></i> <strong>End date:</strong>
+                                <span class="stat-value" data-component="grants" data-field="end_date"></span>
+                            </div>
+                            <div class="funding-pill">
+                                <span class="funder-label">FUNDER</span>
+                                <span class="stat-value" data-component="grants" data-field="funder"></span>
+                            </div>
+                        </a>
+                    </div>
                 </template>
 
-            <!-- ============ CARD LOOPING ============= -->
-            <div class="grants_card_container" id="grants-container"></div>
-            
-        <!-- Pagination controls -->
-        <div class="pagination"></div>
-        </div>
+                <!-- ============ CARD LOOPING ============= -->
+                <div class="grants_card_container" id="grants-container"></div>
+
+                <!-- Pagination controls -->
+                <div class="pagination"></div>
+            </div>
     </section>
 
     <!-- ============ CONTACT US ============= -->
@@ -136,27 +145,31 @@
             <h3><strong>Office Number :</strong> 03-8705 5204</h3>
             <hr class="divider">
             <div class="social_icons">
-                <a href="https://www.facebook.com/share/1VcGiNgzvH/" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
-                <a href="https://www.instagram.com/stargaze.coe?igsh=dXQ4c2g3bzR4MDRx" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-                <a href="https://www.linkedin.com/company/stargaze-coe/" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+                <a href="https://www.facebook.com/share/1VcGiNgzvH/" aria-label="Facebook"><i
+                        class="ri-facebook-fill"></i></a>
+                <a href="https://www.instagram.com/stargaze.coe?igsh=dXQ4c2g3bzR4MDRx" aria-label="Instagram"><i
+                        class="ri-instagram-line"></i></a>
+                <a href="https://www.linkedin.com/company/stargaze-coe/" aria-label="LinkedIn"><i
+                        class="ri-linkedin-fill"></i></a>
                 <a href="https://x.com/StargazeCOE" aria-label="X"><i class="ri-twitter-x-fill"></i></a>
             </div>
             <p class="footer_nav">
                 <a href="#">About Us</a> |
-                <a href="#">Contact Us</a> | 
-                <a href="#">Research & Projects</a> | 
-                <a href="#">Publications</a> | 
+                <a href="#">Contact Us</a> |
+                <a href="#">Research & Projects</a> |
+                <a href="#">Publications</a> |
                 <a href="#">Partners</a>
             </p>
             <p class="copyright">© 2025 Stargaze. All rights reserved.</p>
         </div>
     </div>
-    
+
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/config.js"></script>
     <script src="assets/js/env.js"></script>
     <script src="assets/js/grants-fetch.js"></script>
     <script src="assets/js/statistic-fetch.js"></script>
     <script src="assets/global_assets/navbar.js"></script>
-    </body>
+</body>
+
 </html>

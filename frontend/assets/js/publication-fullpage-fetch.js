@@ -75,7 +75,7 @@
     let s = String(md).replace(/\r\n/g, '\n').replace(/\r/g, '\n');
 
     // Escape HTML special chars first to avoid injection, then unescape allowed constructs
-    const escapeHtml = (str) => str.replace(/[&<>"']/g, (m) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
+    const escapeHtml = (str) => str.replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 
     // We'll process line-by-line
     const lines = s.split('\n');

@@ -1,214 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--=============== REMIXICONS ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/css/grants_fullpage.css" />
-    <link rel="stylesheet" href="assets/global_assets/variables.css" />
-    <!-- global variables + fonts -->
-    <link rel="stylesheet" href="assets/global_assets/navbar.css" />
-    <!-- navbar styles -->
+  <!--=============== REMIXICONS ===============-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 
-    <title>STARGAZE</title>
-    <link rel="icon" type="image/png" size="32x32" href="publication1.png" />
-  </head>
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" href="assets/css/grants_fullpage.css" />
+  <link rel="stylesheet" href="assets/global_assets/variables.css" />
+  <!-- global variables + fonts -->
+  <link rel="stylesheet" href="assets/global_assets/navbar.css" />
+  <!-- navbar styles -->
 
-  <body>
-    <!--=============== HEADER ===============-->
-    <div id="site-navbar-placeholder"></div>
-    <script src="assets/global_assets/load-navbar.js"></script>
+  <title>STARGAZE</title>
+  <link rel="icon" type="image/png" size="32x32" href="publication1.png" />
+</head>
 
-    <div id="grant-full"></div>
+<body>
+  <!--=============== HEADER ===============-->
+  <div id="site-navbar-placeholder"></div>
+  <script src="assets/global_assets/load-navbar.js"></script>
 
-    <!-- ============ HERO SECTION ============= -->
-    <section class="hero-section">
-      <div class="hero-content">
-        <div class="grants-info">
-          <h1
-            class="stat-value"
-            data-component="grant-full"
-            data-field="project_title"
-          ></h1>
-          <div class="grants-details">
-            <div class="details-text">
-              <h2
-                class="stat-value"
-                data-component="grant-full"
-                data-field="scheme"
-              ></h2>
-              <p>
-                <b>Principal Investigator (PI) :</b>
-                <span
-                  class="stat-value"
-                  data-component="grant-full"
-                  data-field="pi_name"
-                ></span>
-              </p>
-              <div class="grants-startdate">
-                <i class="ri-book-open-line"></i><strong> Start date :</strong>
-                <span
-                  class="stat-value"
-                  data-component="grant-full"
-                  data-field="start_date"
-                ></span>
-              </div>
-              <div class="grants-enddate">
-                <i class="ri-book-open-line"></i> <strong> End date :</strong>
-                <span
-                  class="stat-value"
-                  data-component="grant-full"
-                  data-field="end_date"
-                ></span>
-              </div>
+  <div id="grant-full"></div>
+
+  <!-- ============ HERO SECTION ============= -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="grants-info">
+        <h1 class="stat-value" data-component="grant-full" data-field="project_title"></h1>
+        <div class="grants-details">
+          <div class="details-text">
+            <h2 class="stat-value" data-component="grant-full" data-field="scheme"></h2>
+            <p>
+              <b>Principal Investigator (PI) :</b>
+              <span class="stat-value" data-component="grant-full" data-field="pi_name"></span>
+            </p>
+            <div class="grants-startdate">
+              <i class="ri-book-open-line"></i><strong> Start date :</strong>
+              <span class="stat-value" data-component="grant-full" data-field="start_date"></span>
             </div>
-            <div class="grants-funding">
-              <h1>TOTAL FUNDING</h1>
-              <p
-                class="stat-value"
-                data-component="grant-full"
-                data-field="total_funding"
-              ></p>
+            <div class="grants-enddate">
+              <i class="ri-book-open-line"></i> <strong> End date :</strong>
+              <span class="stat-value" data-component="grant-full" data-field="end_date"></span>
             </div>
           </div>
-
-          <div class="grants-img-attached stat">
-            <img
-              class="grants-img stat-value grants_photo"
-              data-component="grant-full"
-              data-field="graphical_abstract"
-              src="https://placehold.co/1200x500/e0f2f1/004d40?text=Ms"
-            />
+          <div class="grants-funding">
+            <h1>FUNDER</h1>
+            <p class="stat-value" data-component="grant-full" data-field="funder"></p>
           </div>
+        </div>
 
-          <!-- MEMBERS -->
-          <div class="grants-subtitle">
-            <h1>Full Team Members</h1>
+        <div class="grants-img-attached stat">
+          <img class="grants-img stat-value grants_photo" data-component="grant-full" data-field="graphical_abstract"
+            src="https://placehold.co/1200x500/e0f2f1/004d40?text=Ms" />
+        </div>
+
+        <!-- MEMBERS -->
+        <div class="grants-subtitle">
+          <h1>Full Team Members</h1>
+        </div>
+
+        <div class="grants-members">
+          <div class="member-card-container stat-value" data-component="grant-full" data-field="team_members_cards">
           </div>
+        </div>
 
-          <div class="grants-members">
-            <div
-              class="member-card-container stat-value"
-              data-component="grant-full"
-              data-field="team_members_cards"
-            ></div>
-          </div>
+        <!-- COLLABORATORS -->
+        <div class="grants-subtitle">
+          <h1>Collaborators</h1>
+        </div>
 
-          <!-- COLLABORATORS -->
-          <div class="grants-subtitle">
-            <h1>Collaborators</h1>
-          </div>
+        <div class="grants-collaborators">
+          <div class="stat-value" data-component="grant-full" data-field="collaborators_list"></div>
 
-          <div class="grants-collaborators">
-            <div
-              class="stat-value"
-              data-component="grant-full"
-              data-field="collaborators_list"
-            ></div>
+          <div class="grants-collaborators-img stat-value" data-component="grant-full"
+            data-field="collaborators_images"></div>
+        </div>
 
-            <div
-              class="grants-collaborators-img stat-value"
-              data-component="grant-full"
-              data-field="collaborators_images"
-            ></div>
-          </div>
+        <!-- PAPERS PUBLISHED -->
+        <div class="grants-subtitle">
+          <h1>Papers Published</h1>
+        </div>
 
-          <!-- PAPERS PUBLISHED -->
-          <div class="grants-subtitle">
-            <h1>Papers Published</h1>
-          </div>
+        <div class="papers-published">
+          <div class="papers-published stat-value" data-component="grant-full" data-field="papers_list"></div>
+        </div>
 
-          <div class="papers-published">
-            <div
-              class="papers-published stat-value"
-              data-component="grant-full"
-              data-field="papers_list"
-            ></div>
-          </div>
+        <!-- PATENTS PUBLISHED -->
+        <div class="grants-subtitle">
+          <h1>Patents Published</h1>
+        </div>
 
-          <!-- PATENTS PUBLISHED -->
-          <div class="grants-subtitle">
-            <h1>Patents Published</h1>
-          </div>
+        <div class="patents-published">
+          <div class="patents-published stat-value" data-component="grant-full" data-field="patents_list"></div>
+        </div>
 
-          <div class="patents-published">
-            <div
-              class="patents-published stat-value"
-              data-component="grant-full"
-              data-field="patents_list"
-            ></div>
-          </div>
+        <!-- MASTER & PHD STUDENTS -->
+        <div class="grants-subtitle">
+          <h1>Masters & PhD Students</h1>
+        </div>
 
-          <!-- MASTER & PHD STUDENTS -->
-          <div class="grants-subtitle">
-            <h1>Masters & PhD Students</h1>
-          </div>
-
-          <div class="masterphd-students">
-            <div class="stats-row">
-              <div class="stat">
-                <i class="ri-book-open-line"></i>
-                <div
-                  class="number stat-value"
-                  data-component="grant-full"
-                  data-field="project_output.master"
-                ></div>
-                <div class="label">masters students</div>
-              </div>
-              <div class="stat">
-                <i class="ri-book-open-line"></i>
-                <div
-                  class="number stat-value"
-                  data-component="grant-full"
-                  data-field="project_output.phd"
-                ></div>
-                <div class="label">phd students</div>
-              </div>
+        <div class="masterphd-students">
+          <div class="stats-row">
+            <div class="stat">
+              <i class="ri-book-open-line"></i>
+              <div class="number stat-value" data-component="grant-full" data-field="project_output.master"></div>
+              <div class="label">masters students</div>
+            </div>
+            <div class="stat">
+              <i class="ri-book-open-line"></i>
+              <div class="number stat-value" data-component="grant-full" data-field="project_output.phd"></div>
+              <div class="label">phd students</div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT US ============= -->
-    <div class="contact_us">
-      <div class="contact_content">
-        <h1>Connect With Us</h1>
-        <h2>
-          We welcome collaborations and inquiries from partners and researchers.
-        </h2>
-        <h3>
-          <strong>Address :</strong> Jalan Sunsuria, Bandar Sunsuria, 43900
-          Sepang, Selangor, Malaysia
-        </h3>
-        <h3><strong>Email :</strong> stargaze@xmu.edu.my</h3>
-        <h3><strong>Office Number :</strong> 03-8705 5204</h3>
-        <hr class="divider" />
-        <div class="social_icons">
-          <a href="https://www.facebook.com/share/1VcGiNgzvH/" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
-          <a href="https://www.instagram.com/stargaze.coe?igsh=dXQ4c2g3bzR4MDRx" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-          <a href="https://www.linkedin.com/company/stargaze-coe/" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-          <a href="https://x.com/StargazeCOE" aria-label="X"><i class="ri-twitter-x-fill"></i></a>
-        </div>
-        <p class="footer_nav">
-          <a href="#">About Us</a> | <a href="#">Contact Us</a> |
-          <a href="#">Research & Projects</a> | <a href="#">Publications</a> |
-          <a href="#">Partners</a>
-        </p>
-        <p class="copyright">© 2025 Stargaze. All rights reserved.</p>
       </div>
     </div>
+  </section>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/config.js"></script>
-    <script src="assets/js/env.js"></script>
-    <!-- <script src="assets/js/grants_fullpage.js"></script> -->
-    <script src="assets/js/grants-fullpage-fetch.js"></script>
-    <script src="assets/global_assets/navbar.js"></script>
-  </body>
+  <!-- ============ CONTACT US ============= -->
+  <div class="contact_us">
+    <div class="contact_content">
+      <h1>Connect With Us</h1>
+      <h2>
+        We welcome collaborations and inquiries from partners and researchers.
+      </h2>
+      <h3>
+        <strong>Address :</strong> Jalan Sunsuria, Bandar Sunsuria, 43900
+        Sepang, Selangor, Malaysia
+      </h3>
+      <h3><strong>Email :</strong> stargaze@xmu.edu.my</h3>
+      <h3><strong>Office Number :</strong> 03-8705 5204</h3>
+      <hr class="divider" />
+      <div class="social_icons">
+        <a href="https://www.facebook.com/share/1VcGiNgzvH/" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+        <a href="https://www.instagram.com/stargaze.coe?igsh=dXQ4c2g3bzR4MDRx" aria-label="Instagram"><i
+            class="ri-instagram-line"></i></a>
+        <a href="https://www.linkedin.com/company/stargaze-coe/" aria-label="LinkedIn"><i
+            class="ri-linkedin-fill"></i></a>
+        <a href="https://x.com/StargazeCOE" aria-label="X"><i class="ri-twitter-x-fill"></i></a>
+      </div>
+      <p class="footer_nav">
+        <a href="#">About Us</a> | <a href="#">Contact Us</a> |
+        <a href="#">Research & Projects</a> | <a href="#">Publications</a> |
+        <a href="#">Partners</a>
+      </p>
+      <p class="copyright">© 2025 Stargaze. All rights reserved.</p>
+    </div>
+  </div>
+
+  <!--=============== MAIN JS ===============-->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/env.js"></script>
+  <!-- <script src="assets/js/grants_fullpage.js"></script> -->
+  <script src="assets/js/grants-fullpage-fetch.js"></script>
+  <script src="assets/global_assets/navbar.js"></script>
+</body>
+
 </html>
