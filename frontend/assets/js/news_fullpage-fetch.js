@@ -25,6 +25,42 @@
     return Number.isFinite(num) ? (Number.isInteger(num) ? String(num) : String(num)) : String(n);
   }
 
+  // --- Image Optimization Helper ---
+  // Strapi generates multiple sizes: thumbnail_, small_, medium_, large_
+  // This function prepends the size prefix to get optimized versions
+  function getOptimizedImageUrl(originalUrl, preferredSize = 'large') {
+    if (!originalUrl) return null;
+
+    // Size prefixes for Strapi-generated images
+    const sizePrefix = {
+      'thumbnail': 'thumbnail_',
+      'small': 'small_',
+      'medium': 'medium_',
+      'large': 'large_'
+    };
+
+    const prefix = sizePrefix[preferredSize] || '';
+
+    // Check if URL contains /uploads/ (Strapi pattern)
+    if (originalUrl.includes('/uploads/')) {
+      // Insert size prefix before the filename
+      // Example: https://api.example.com/uploads/Picture2.jpg
+      // Becomes: https://api.example.com/uploads/large_Picture2.jpg
+      return originalUrl.replace('/uploads/', `/uploads/${prefix}`);
+    }
+
+    // If not a Strapi URL pattern, return original
+    return originalUrl;
+  }
+
+  // Get preferred image size based on viewport width
+  function getPreferredImageSize() {
+    const width = window.innerWidth;
+    if (width < 480) return 'small';
+    if (width < 768) return 'medium';
+    return 'large';
+  }
+
   // --- Strapi Data Normalization Helpers (Keep As-Is) ---
   function normalizeStrapiItem(raw) {
     if (!raw) return null;
@@ -53,7 +89,7 @@
     }
     return null;
   }
-  
+
   // --- Fetch Logic (Keep As-Is, uses new API_BASE) ---
   async function fetchById(id) {
     try {
@@ -72,15 +108,40 @@
     }
   }
 
-  // --- Markdown Renderer (Keep As-Is) ---
-  // This is perfect for your `news_content` field.
+  // --- Markdown Renderer (UPDATED with Image Support) ---
+  // This handles your `news_content` field including inline images
   function markdownToHtml(md) {
     if (!md) return '';
     // Normalize line endings
     let s = String(md).replace(/\r\n/g, '\n').replace(/\r/g, '\n');
 
+    // Get preferred image size based on viewport
+    const preferredSize = getPreferredImageSize();
+
     // Escape HTML special chars first
-    const escapeHtml = (str) => str.replace(/[&<>"']/g, (m) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
+    const escapeHtml = (str) => str.replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+
+    // Helper to process image markdown: ![alt](url)
+    function processImageMarkdown(line) {
+      // Check if entire line is just an image: ![alt](url)
+      const imageOnlyMatch = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+      if (imageOnlyMatch) {
+        const altText = imageOnlyMatch[1];
+        let imageUrl = imageOnlyMatch[2];
+
+        // Apply image optimization/compression
+        const optimizedUrl = getOptimizedImageUrl(imageUrl, preferredSize);
+
+        // Extract caption from alt text (remove file extension if present)
+        const caption = altText.replace(/\.[^/.]+$/, "");
+
+        return `<figure class="news-inline-image">
+  <img src="${optimizedUrl}" alt="${escapeHtml(altText)}" loading="lazy" onerror="this.src='${imageUrl}'" />
+  ${caption ? `<figcaption>${escapeHtml(caption)}</figcaption>` : ''}
+</figure>`;
+      }
+      return null; // Not an image-only line
+    }
 
     // We'll process line-by-line
     const lines = s.split('\n');
@@ -95,7 +156,7 @@
         out.push('<hr>');
         continue;
       }
-      
+
       const line = rawLine.trim();
       if (line === '') {
         // close list if open
@@ -103,6 +164,14 @@
           out.push('</ul>');
           inList = false;
         }
+        continue;
+      }
+
+      // Check for standalone image line: ![alt](url)
+      const imageHtml = processImageMarkdown(line);
+      if (imageHtml) {
+        if (inList) { out.push('</ul>'); inList = false; }
+        out.push(imageHtml);
         continue;
       }
 
@@ -131,11 +200,11 @@
         out.push(`<li>${inlineFormatting(ulMatch[1])}</li>`);
         continue;
       }
-      
+
       // If we are in a list but the line doesn't match, close the list
       if (inList) {
-         out.push('</ul>');
-         inList = false;
+        out.push('</ul>');
+        inList = false;
       }
 
       // paragraph (default)
@@ -150,21 +219,27 @@
     function inlineFormatting(txt) {
       let t = escapeHtml(txt);
 
-      // links: [text](url)
+      // Handle inline images within text: ![alt](url)
+      t = t.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (m, alt, url) => {
+        const optimizedUrl = getOptimizedImageUrl(url, preferredSize);
+        return `<img src="${optimizedUrl}" alt="${escapeHtml(alt)}" class="news-inline-img-small" loading="lazy" onerror="this.src='${url}'" />`;
+      });
+
+      // links: [text](url) - but not images (already handled above)
       t = t.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, text, url) => {
-        const safeUrl = escapeHtml(url);
-        const safeTextInner = escapeHtml(text);
+        const safeUrl = url; // URL already escaped above
+        const safeTextInner = text;
         return `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer">${safeTextInner}</a>`;
       });
 
       // bold **text**
-      t = t.replace(/\*\*([^*]+)\*\*/g, (m, inner) => `<strong>${escapeHtml(inner)}</strong>`);
+      t = t.replace(/\*\*([^*]+)\*\*/g, (m, inner) => `<strong>${inner}</strong>`);
 
       // italic *text*
-      t = t.replace(/\*([^*]+)\*/g, (m, inner) => `<em>${escapeHtml(inner)}</em>`);
+      t = t.replace(/\*([^*]+)\*/g, (m, inner) => `<em>${inner}</em>`);
 
       // inline code `code`
-      t = t.replace(/`([^`]+)`/g, (m, inner) => `<code>${escapeHtml(inner)}</code>`);
+      t = t.replace(/`([^`]+)`/g, (m, inner) => `<code>${inner}</code>`);
 
       return t;
     }
@@ -194,7 +269,7 @@
           fileName = attrs.name;       // The original filename (e.g., "Event.jpg")
         }
         if (!url && typeof item.cover_picture === 'string') url = item.cover_picture;
-        
+
         // Prepend BASE_URL if the URL is relative (e.g., /uploads/...)
         const finalUrl = url ? (url.startsWith('http') ? url : (BASE_URL + url)) : null;
 
@@ -242,20 +317,20 @@
         node.innerHTML = html || '—';
         return;
       }
-      
+
       // date: Special formatting (Optional, but nice to have)
       if (field === 'date' && item[field]) {
-         try {
-           const d = new Date(item[field]);
-           node.textContent = d.toLocaleDateString('en-US', {
-             year: 'numeric',
-             month: 'long',
-             day: 'numeric'
-           });
-         } catch(e) {
-           node.textContent = safeText(item[field] ?? '—');
-         }
-         return;
+        try {
+          const d = new Date(item[field]);
+          node.textContent = d.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          });
+        } catch (e) {
+          node.textContent = safeText(item[field] ?? '—');
+        }
+        return;
       }
 
       // default: write text/plain (KEPT AS-IS)
@@ -285,12 +360,12 @@
       }
       populateFullPage(item);
       setStatus('Loaded');
-      
+
       // Also set the page title
       if (item.title) {
         document.title = item.title;
       }
-      
+
     } catch (err) {
       console.error('news full fetch error', err);
       setStatus('Error: ' + (err.message || err), true);

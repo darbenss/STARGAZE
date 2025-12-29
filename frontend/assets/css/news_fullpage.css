@@ -12,7 +12,7 @@
 .hero-content {
   justify-content: center;
   align-items: center;
-  gap: clamp(1rem, 2vw, 1rem); 
+  gap: clamp(1rem, 2vw, 1rem);
   place-items: center;
 }
 
@@ -98,7 +98,48 @@
 }
 
 .news-article-section h2:not(:first-of-type) {
-  margin-top: 4rem; /* or any value you like */
+  margin-top: 4rem;
+  /* or any value you like */
+}
+
+/*=============== INLINE IMAGES IN ARTICLE ===============*/
+.news-inline-image {
+  width: 100%;
+  max-width: 100%;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.news-inline-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-inline-image img:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.news-inline-image figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #A6A6A6;
+  font-style: italic;
+}
+
+/* For inline images within text (smaller) */
+.news-inline-img-small {
+  max-width: 300px;
+  height: auto;
+  border-radius: 6px;
+  margin: 0.5rem;
+  vertical-align: middle;
 }
 
 /*=============== RESPONSIVE DESIGN ===============*/
@@ -108,6 +149,7 @@
     align-items: center;
     text-align: center;
   }
+
   .journal-img {
     margin-top: 1rem;
     max-width: 100%;
@@ -121,26 +163,46 @@
     padding: clamp(1rem, 3vw, 2rem);
     margin-bottom: var(--header-height);
   }
+
   .hero-content {
     gap: clamp(1rem, 3vw, 2rem);
   }
+
   .news-title {
     padding: clamp(1rem, 2vw, 1.5rem);
   }
+
   .news-title h1 {
     width: 100%;
     font-size: 1.6rem;
   }
-  .news-img-container, .news-article-section {
+
+  .news-img-container,
+  .news-article-section {
     padding-inline: 1rem;
   }
+
   .journal-img {
     padding: 0;
     max-width: 100%;
     margin-right: 0rem;
   }
+
   .details-section {
     padding: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  /* Inline images responsive */
+  .news-inline-image {
+    margin: 1.5rem 0;
+  }
+
+  .news-inline-image figcaption {
+    font-size: 0.8rem;
+  }
+
+  .news-inline-img-small {
+    max-width: 100%;
   }
 }
 
