@@ -216,7 +216,8 @@
 
 @media screen and (max-width: 768px) {
   .slider {
-    height: calc(95vh - var(--header-height));
+    height: auto;
+    aspect-ratio: 16/9;
   }
 
   .slider .buttons button {
@@ -248,22 +249,25 @@
   }
 
   .slider-content h1 {
-    font-size: 40px;
+    font-size: 24px;
+    /* Reduced from 40px */
     white-space: normal;
-    /* Allow wrapping on mobile */
-    margin: 0;
+    margin: 0 0 10px 0;
   }
 
   .slider-content p {
-    max-width: 85%;
-    font-size: 20px;
-    margin-bottom: 15px;
-
+    max-width: 90%;
+    font-size: 14px;
+    margin-bottom: 6px;
+    /* Reduced from 12px */
+    line-height: 1.4;
   }
 
   .slider-content .button-style {
-    font-size: 15px;
-    padding: 8px 10px;
+    font-size: 11px;
+    /* Reduced from 12px */
+    padding: 5px 10px;
+    /* Reduced padding */
   }
 
 }
@@ -912,6 +916,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 4;
   line-clamp: 4;
+  line-clamp: 4;
   /* Standard property for compatibility */
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -1284,6 +1289,7 @@
 
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -1297,6 +1303,7 @@
 
   display: -webkit-box;
   -webkit-line-clamp: 4;
+  line-clamp: 4;
   line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -1626,6 +1633,7 @@
 
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1641,6 +1649,7 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   text-overflow: ellipsis;
   flex-grow: 1;
 }
@@ -1722,6 +1731,7 @@
   .news_card p {
     font-size: 0.875rem;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 }
 
@@ -1779,7 +1789,7 @@
 }
 
 .logo-track.animate {
-  animation: scroll 15s linear infinite;
+  animation: scroll 45s linear infinite;
 }
 
 .logo-track img {
@@ -1976,6 +1986,13 @@
 }
 
 /* Responsive Adjustments */
+
+@media screen and (max-width: 900px) {
+  #partners .logo-track.animate {
+    animation: scroll 40s linear infinite !important;
+  }
+}
+
 @media (max-width: 600px) {
   .partners_and_collaborators {
     padding-top: 0;
@@ -1998,10 +2015,7 @@
     margin: 0 10px;
   }
 
-  .logo-track.animate {
-    animation: scroll 15s linear infinite;
 
-  }
 
   .contact_us {
     padding: 40px 0;
@@ -2353,6 +2367,7 @@ grants_card_light p,
 
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -2366,6 +2381,7 @@ grants_card_light p,
 
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -2695,6 +2711,7 @@ grants_card_light p,
 
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2710,6 +2727,7 @@ grants_card_light p,
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   text-overflow: ellipsis;
   flex-grow: 1;
 }
@@ -2788,6 +2806,7 @@ grants_card_light p,
   .news_card p {
     font-size: 0.875rem;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 }
 
