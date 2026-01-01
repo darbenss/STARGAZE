@@ -2629,7 +2629,7 @@ grants_card_light p,
     height: clamp(380px, 30vh, 500px);
     padding: 0;
     margin-inline: 5vw;
-    grid-auto-columns: calc((100% / 2) - 8px);
+    grid-auto-columns: 100%;
     /* 2 cards visible on mobile */
     gap: calc(100vw - 2*(100% / 2 + 8px));
     min-width: 100px;
@@ -2637,7 +2637,7 @@ grants_card_light p,
   }
 
   .publications_card {
-    width: clamp(180px, 10vw, 300px);
+    width: 100%;
     height: 85%;
     justify-content: flex-start;
     align-self: flex-start;
