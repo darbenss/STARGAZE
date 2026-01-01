@@ -16,7 +16,7 @@
         observe(el) {
           if (el && !el.classList.contains('animate')) el.classList.add('animate');
         },
-        unobserve() {},
+        unobserve() { },
       };
     }
 
@@ -68,8 +68,24 @@
       '.grants-projects .highlight-header',
       '.grants-projects .button_see_all',
       '.grants_card_light',
-      '.grants_card_dark'
+      '.grants_card_dark',
+      '.grants_wrapper > i.ri-arrow-left-s-line',
+      '.grants_wrapper > i.ri-arrow-right-s-line'
     ]);
+
+    const cardContainer = document.querySelector('.grants_card_container');
+    const container = document.querySelector('.grants_card_dark') || document.querySelector('.grants_card_light');
+    const leftArrow = document.querySelector('.grants_wrapper > i.ri-arrow-left-s-line');
+    const rightArrow = document.querySelector('.grants_wrapper > i.ri-arrow-right-s-line');
+
+    if (cardContainer && container && leftArrow && rightArrow) {
+      // Calculate scroll amount: card width + gap
+      // Use ComputedStyle for gap to be responsive
+      const gap = parseInt(window.getComputedStyle(cardContainer).gap) || 30;
+      const scrollAmount = Math.max(0, Math.round(container.clientWidth + gap));
+      leftArrow.addEventListener('click', () => cardContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
+      rightArrow.addEventListener('click', () => cardContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
+    }
   }
 
   function setupPublicationsAnimations() {
