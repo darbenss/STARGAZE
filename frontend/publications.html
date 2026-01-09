@@ -1,153 +1,165 @@
 <!DOCTYPE html>
-   <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
 
-      <!--=============== REMIXICONS ===============-->
-      <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css?v=1" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <!--=============== CSS ===============-->
-      <link rel="stylesheet" href="assets/global_assets/variables.css?v=1"> <!-- global variables + fonts -->
-        <link rel="stylesheet" href="assets/global_assets/navbar.css?v=1">    <!-- navbar styles -->
-      <link rel="stylesheet" href="assets/css/publications.css?v=1">
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css?v=1" rel="stylesheet" />
 
-      <title>STARGAZE</title>
-   </head>
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/global_assets/variables.css?v=1"> <!-- global variables + fonts -->
+    <link rel="stylesheet" href="assets/global_assets/navbar.css?v=1"> <!-- navbar styles -->
+    <link rel="stylesheet" href="assets/css/publications.css?v=1">
 
-   <body>
+    <title>STARGAZE</title>
+    <link rel="icon" type="image/png" href="assets/logo/logo_transparent.png" />
+</head>
+
+<body>
     <!--=============== HEADER ===============-->
     <div id="site-navbar-placeholder"></div>
     <script src="assets/global_assets/load-navbar.js?v=1"></script>
 
     <!-- ============ OUR IMPACT SECTION ============= -->
-    <div class = our_impact_section>
+    <div class=our_impact_section>
         <div class="our-impact bg-elipse">
             <h2>Our Impact</h2>
             <div class="stats-row">
-            <div class="stat">
-                <div class="overline">&macr;</div>
-                <div class="number stat-value" data-component="statistics" data-mode="publication" data-field="totalPapers"></div>
-                <div class="label">total papers</div>
-            </div>
-            <div class="stat">
-                <div class="overline">&macr;</div>
-                <div class="number stat-value" data-component="statistics" data-mode="publication" data-field="wwos_summary"></div>
-                <div class="label">wwos q1 - q4</div>
-            </div>
-            <div class="stat">
-                <div class="overline">&macr;</div>
-                <div class="number stat-value" data-component="statistics" data-mode="publication" data-field="classificationCounts.Conference Paper"></div>
-                <div class="label">conference papers</div>
-            </div>
+                <div class="stat">
+                    <div class="overline">&macr;</div>
+                    <div class="number stat-value" data-component="statistics" data-mode="publication"
+                        data-field="totalPapers"></div>
+                    <div class="label">total papers</div>
+                </div>
+                <div class="stat">
+                    <div class="overline">&macr;</div>
+                    <div class="number stat-value" data-component="statistics" data-mode="publication"
+                        data-field="wwos_summary"></div>
+                    <div class="label">wwos q1 - q4</div>
+                </div>
+                <div class="stat">
+                    <div class="overline">&macr;</div>
+                    <div class="number stat-value" data-component="statistics" data-mode="publication"
+                        data-field="classificationCounts.Conference Paper"></div>
+                    <div class="label">conference papers</div>
+                </div>
             </div>
             <div class="stats-row">
-            <div class="stat">
-                <div class="overline">&macr;</div>
-                <div class="number stat-value" data-component="statistics" data-mode="publication" data-field="classificationCounts.Scopus-indexed"></div>
-                <div class="label">scopus-indexed</div>
-            </div>
-            <div class="stat">
-                <div class="overline">&macr;</div>
-                <div class="number stat-value" data-component="statistics" data-mode="publication" data-field="classificationCounts.Non-indexed"></div>
-                <div class="label">non-indexed</div>
-            </div>
-            <div class="stat">
-                <div class="overline">&macr;</div>
-                <div class="number stat-value" data-component="statistics" data-mode="publication" data-field="patent_summary"></div>
-                <div class="label">patents</div>
-            </div>
+                <div class="stat">
+                    <div class="overline">&macr;</div>
+                    <div class="number stat-value" data-component="statistics" data-mode="publication"
+                        data-field="classificationCounts.Scopus-indexed"></div>
+                    <div class="label">scopus-indexed</div>
+                </div>
+                <div class="stat">
+                    <div class="overline">&macr;</div>
+                    <div class="number stat-value" data-component="statistics" data-mode="publication"
+                        data-field="classificationCounts.Non-indexed"></div>
+                    <div class="label">non-indexed</div>
+                </div>
+                <div class="stat">
+                    <div class="overline">&macr;</div>
+                    <div class="number stat-value" data-component="statistics" data-mode="publication"
+                        data-field="patent_summary"></div>
+                    <div class="label">patents</div>
+                </div>
             </div>
         </div>
     </div>
 
     <section class="section">
         <div class="container">
-        <!-- ============ SEARCH BAR AND FILTER SECTION ============= -->
-        <div class="filters">
-            <div class="filter-content">
-            <div class="filter-item">
-                <label for="journal-search" class="filter-label">Journal</label>
-                <input type="text" id="journal-search" class="filter-input" placeholder="Type journal name...">
-            </div>
-            <div class="filter-item">
-                <label for="classification" class="filter-label">Classification</label>
-                <select id="classification" class="filter-input">
-                <option value="">Select Classification</option>
-                <option value="q1">WoS Q1</option>
-                <option value="q2">WoS Q2</option>
-                <option value="q3">WoS Q3</option>
-                <option value="q4">WoS Q4</option>
-                <option value="scopus">Scopus-Indexed</option>
-                <option value="non-indexed">Non-Indexed</option>
-                </select>
-            </div>
-            <div class="filter-item">
-                <label for="paper-type" class="filter-label">Paper Type</label>
-                <select id="paper-type" class="filter-input">
-                <option value="">Select Type</option>
-                <option value="technical">Technical</option>
-                <option value="review">Review</option>
-                <option value="granted patent">Granted Patent</option>
-                <option value="filed patent">Filed Patent</option>
-                </select>
-            </div>
-            <div class="filter-item">
-                <label for="year" class="filter-label">Year</label>
-                <input type="number" id="year" class="filter-input" placeholder="Enter year...">
-            </div>
-            </div>
-        </div>
-    
-        <!-- ============ PUBLICATIONS SECTION ============= -->
-        <div class="content_publications">
-            <template id="publication-card-template">
-                <div class="publications_card">
-                    <a>
-                    <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt="" class="publication_photo">
-                    <h2 class="journal_name"></h2>
-                    <h3 class="title"></h3>
-                    <div class="publications_metrics">
-                        <i class="ri-arrow-right-line"></i> <span class="classification_impact"></span>
+            <!-- ============ SEARCH BAR AND FILTER SECTION ============= -->
+            <div class="filters">
+                <div class="filter-content">
+                    <div class="filter-item">
+                        <label for="journal-search" class="filter-label">Journal</label>
+                        <input type="text" id="journal-search" class="filter-input" placeholder="Type journal name...">
                     </div>
-                    </a>
+                    <div class="filter-item">
+                        <label for="classification" class="filter-label">Classification</label>
+                        <select id="classification" class="filter-input">
+                            <option value="">Select Classification</option>
+                            <option value="q1">WoS Q1</option>
+                            <option value="q2">WoS Q2</option>
+                            <option value="q3">WoS Q3</option>
+                            <option value="q4">WoS Q4</option>
+                            <option value="scopus">Scopus-Indexed</option>
+                            <option value="non-indexed">Non-Indexed</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label for="paper-type" class="filter-label">Paper Type</label>
+                        <select id="paper-type" class="filter-input">
+                            <option value="">Select Type</option>
+                            <option value="technical">Technical</option>
+                            <option value="review">Review</option>
+                            <option value="granted patent">Granted Patent</option>
+                            <option value="filed patent">Filed Patent</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label for="year" class="filter-label">Year</label>
+                        <input type="number" id="year" class="filter-input" placeholder="Enter year...">
+                    </div>
                 </div>
-            </template>
-            <div class="publications_card_container" id="publications-container">
-                <div class="publications-card" id="publications-cards"></div>
             </div>
-        </div>
-        <!-- Pagination controls -->
-        <div class="pagination"></div>
+
+            <!-- ============ PUBLICATIONS SECTION ============= -->
+            <div class="content_publications">
+                <template id="publication-card-template">
+                    <div class="publications_card">
+                        <a>
+                            <img src="https://placehold.co/150x150/e0f2f1/004d40?text=Ms" alt=""
+                                class="publication_photo">
+                            <h2 class="journal_name"></h2>
+                            <h3 class="title"></h3>
+                            <div class="publications_metrics">
+                                <i class="ri-arrow-right-line"></i> <span class="classification_impact"></span>
+                            </div>
+                        </a>
+                    </div>
+                </template>
+                <div class="publications_card_container" id="publications-container">
+                    <div class="publications-card" id="publications-cards"></div>
+                </div>
+            </div>
+            <!-- Pagination controls -->
+            <div class="pagination"></div>
     </section>
-        
+
     <!-- ============ CONTACT US ============= -->
     <div class="contact_us">
         <div class="contact_content">
-        <h1>Connect With Us</h1>
-        <h2>We welcome collaborations and inquiries from partners and researchers.</h2>
-        <h3><strong>Address :</strong> Jalan Sunsuria, Bandar Sunsuria, 43900 Sepang, Selangor, Malaysia</h3>
-        <h3><strong>Email :</strong> stargaze@xmu.edu.my</h3>
-        <h3><strong>Office Number :</strong> 03-8705 5204</h3>
-        <hr class="divider">
-        <div class="social_icons">
-            <a href="https://www.facebook.com/share/1VcGiNgzvH/" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
-            <a href="https://www.instagram.com/stargaze.coe" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-            <a href="https://www.linkedin.com/company/stargaze-coe/" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-            <a href="https://x.com/StargazeCOE" aria-label="X"><i class="ri-twitter-x-fill"></i></a>
-        </div>
-        <p class="footer_nav">
-            <a href="#">About Us</a> |
-            <a href="#">Contact Us</a> | 
-            <a href="#">Research & Projects</a> | 
-            <a href="#">Publications</a> | 
-            <a href="#">Partners</a>
-        </p>
-        <p class="copyright">© 2025 Stargaze. All rights reserved.</p>
+            <h1>Connect With Us</h1>
+            <h2>We welcome collaborations and inquiries from partners and researchers.</h2>
+            <h3><strong>Address :</strong> Jalan Sunsuria, Bandar Sunsuria, 43900 Sepang, Selangor, Malaysia</h3>
+            <h3><strong>Email :</strong> stargaze@xmu.edu.my</h3>
+            <h3><strong>Office Number :</strong> 03-8705 5204</h3>
+            <hr class="divider">
+            <div class="social_icons">
+                <a href="https://www.facebook.com/share/1VcGiNgzvH/" aria-label="Facebook"><i
+                        class="ri-facebook-fill"></i></a>
+                <a href="https://www.instagram.com/stargaze.coe" aria-label="Instagram"><i
+                        class="ri-instagram-line"></i></a>
+                <a href="https://www.linkedin.com/company/stargaze-coe/" aria-label="LinkedIn"><i
+                        class="ri-linkedin-fill"></i></a>
+                <a href="https://x.com/StargazeCOE" aria-label="X"><i class="ri-twitter-x-fill"></i></a>
+            </div>
+            <p class="footer_nav">
+                <a href="#">About Us</a> |
+                <a href="#">Contact Us</a> |
+                <a href="#">Research & Projects</a> |
+                <a href="#">Publications</a> |
+                <a href="#">Partners</a>
+            </p>
+            <p class="copyright">© 2025 Stargaze. All rights reserved.</p>
         </div>
     </div>
-    
+
     <!--=============== MAIN JS ===============-->
     <!-- <script src="assets/js/publications.js?v=1"></script> -->
     <script src="assets/js/config.js?v=1"></script>
@@ -155,5 +167,6 @@
     <script src="assets/js/publication-fetch.js?v=1"></script>
     <script src="assets/js/statistic-fetch.js?v=1"></script>
     <script src="assets/global_assets/navbar.js?v=1"></script>
-    </body>
+</body>
+
 </html>
