@@ -415,8 +415,16 @@
 
       document.querySelectorAll('.stat-value[data-component="grant-full"]').forEach(n => console.log(n.getAttribute('data-field'), n.tagName));
       populateFullPage(item);
-      // Also update the browser tab title
-      document.title = item.project_title || document.title;
+
+      // Update dynamic SEO meta tags
+      const seoTitle = item.project_title || 'Grant Details';
+      const seoDescription = item.grant_scheme_name
+        ? `${item.project_title || 'Research grant'} funded by ${item.funder || 'external funding'}. PI: ${item.pi_name || 'N/A'}. Scheme: ${item.grant_scheme_name}.`
+        : `View details about ${item.project_title || 'this research grant'} from Stargaze Centre of Excellence.`;
+      if (typeof updateDynamicSEO === 'function') {
+        updateDynamicSEO(seoTitle, seoDescription);
+      }
+
       setStatus('Loaded');
     } catch (err) {
       console.error('Grant full-page fetch error', err);

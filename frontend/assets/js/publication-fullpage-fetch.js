@@ -306,6 +306,16 @@
         return;
       }
       populateFullPage(item);
+
+      // Update dynamic SEO meta tags
+      const seoTitle = item.title || 'Publication Details';
+      const seoDescription = item.executive_summary
+        ? item.executive_summary.substring(0, 160)
+        : `${item.title || 'Research publication'} published in ${item.journal_name || 'academic journal'}. Authors: ${Array.isArray(item.author) ? item.author.map(a => a.person || a.name).join(', ').substring(0, 80) : 'N/A'}.`;
+      if (typeof updateDynamicSEO === 'function') {
+        updateDynamicSEO(seoTitle, seoDescription);
+      }
+
       setStatus('Loaded');
     } catch (err) {
       console.error('publication full fetch error', err);

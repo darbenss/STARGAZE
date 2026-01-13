@@ -361,9 +361,13 @@
       populateFullPage(item);
       setStatus('Loaded');
 
-      // Also set the page title
-      if (item.title) {
-        document.title = item.title;
+      // Update dynamic SEO meta tags
+      const seoTitle = item.title || 'News Article';
+      const seoDescription = item.news_content
+        ? item.news_content.replace(/[#*\[\]()!\n]/g, ' ').substring(0, 160).trim()
+        : `Read the latest news and updates from Stargaze Centre of Excellence: ${item.title || 'News Article'}.`;
+      if (typeof updateDynamicSEO === 'function') {
+        updateDynamicSEO(seoTitle, seoDescription);
       }
 
     } catch (err) {
