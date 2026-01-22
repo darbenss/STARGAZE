@@ -48,7 +48,7 @@ html {
 }
 
 .nav__logo img {
-  height: var(--header-height);
+  height: calc(0.4*var(--header-height));
 }
 
 .nav__toggle {
@@ -92,6 +92,9 @@ html {
   .nav__list {
     background-color: var(--white-color);
     padding-top: 1rem;
+  }
+  .nav__logo img {
+    height: calc(0.25*var(--header-height));
   }
 }
 
