@@ -227,7 +227,7 @@
         const issue = item.issue ?? item.no ?? '';
         const start = item.page_start ?? item.pageStart ?? item.start_page ?? '';
         const end = item.page_end ?? item.pageEnd ?? item.end_page ?? '';
-        const year = (item.publishedAt ? new Date(item.publishedAt).getFullYear() : (item.year ?? item.pub_year ?? '')) || '';
+        const year = (item.date ? new Date(item.date).getFullYear() : (item.year ?? item.pub_year ?? '')) || '';
         const parts = [];
         if (vol) parts.push(`Vol. ${vol}`);
         if (issue) parts.push(`No. ${issue}`);
