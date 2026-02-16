@@ -240,11 +240,10 @@
         return;
       }
 
-      // authors array
+      // authors array - adjusted to simple text as requested
       if (field === 'author' || field === 'authors') {
-        const authors = Array.isArray(item.author) ? item.author : (Array.isArray(item.authors) ? item.authors : []);
-        const names = authors.map(a => (a?.person ?? a?.name ?? '')).filter(Boolean);
-        node.textContent = names.length ? names.join(', ') : (item.author_string ?? '—');
+        const val = item.author ?? item.authors ?? '—';
+        node.textContent = val;
         return;
       }
 
