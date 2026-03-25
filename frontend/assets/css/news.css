@@ -142,7 +142,8 @@ html {
   display: grid;
   grid-template-columns: repeat(4, 1fr); 
   padding-top: 60px;
-  gap: 32px; /* Space between cards */
+  margin-bottom: 8rem;
+  gap: 4rem; /* Space between cards */
   width: 100%; /* Ensure it uses full available width */
 }
 
@@ -160,7 +161,6 @@ html {
   cursor: pointer;
   opacity: 1;
   transform: translateY(1.5rem);
-
   padding: 15px;
 }
 
