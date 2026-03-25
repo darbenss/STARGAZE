@@ -12,12 +12,13 @@ try {
     // load navbar script file
     const s = document.createElement('script');
     s.src = 'assets/global_assets/navbar.js';
-    s.defer = true;
     document.body.appendChild(s);
 
-    // after script loads, ensure init is called (initNavbar is exposed)
+    // after script loads, wait one frame so the browser has rendered the injected HTML
     s.onload = () => {
-      if (window.initNavbar) window.initNavbar('nav-toggle', 'nav-menu');
+      requestAnimationFrame(() => {
+        if (window.initNavbar) window.initNavbar('nav-toggle', 'nav-menu');
+      });
     };
 } catch (err) {
     console.error('Failed to load navbar', err);

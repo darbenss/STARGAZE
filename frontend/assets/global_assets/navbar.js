@@ -47,14 +47,7 @@
     // Optional: add focus handling for dropdowns if needed
   }
 
-  // Auto-init if navbar already in DOM
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => initNavbar());
-  } else {
-    initNavbar();
-  }
-
-  // Expose initNavbar for manual init after injection
+  // Expose initNavbar for manual init after dynamic injection (called by load-navbar.js)
   window.initNavbar = initNavbar;
 })();
 
