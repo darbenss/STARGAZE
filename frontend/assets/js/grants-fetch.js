@@ -129,7 +129,7 @@
   }
 
   // --- RENDER function
-  function renderGrantsList(items) {
+  function renderGrantsList(items, meta = null) {
     // ... (This function is unchanged and correct) ...
     const container = document.getElementById('grants-container');
     const template = document.getElementById('grant-card-template');
@@ -153,6 +153,13 @@
       }
       nodes.forEach(node => {
         const field = node.getAttribute('data-field');
+        if (meta && meta.total_count !== undefined) {
+          const totalCountEl = document.getElementById('totalGrants');
+          if (totalCountEl) {
+            totalCountEl.textContent = meta.total_count;
+          }
+        }
+
         if (field) {
           populateNode(node, item, field);
         }
@@ -276,6 +283,7 @@
 
       // **ITEMS** are extracted from payload
       const items = Array.isArray(payload) ? payload : (Array.isArray(payload.data) ? payload.data : []);
+      const meta = payload.meta;
 
       // Call our render function
       renderGrantsList(items);
